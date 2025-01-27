@@ -7,7 +7,7 @@ const Footer= () => {
           <span>Mobrilz @ 2025 All Rights Reserved.</span>{" "}
           <div className="flex gap-5">
             <span>Terms & Conditions</span>
-            <span>Terms & Conditions</span>Contact us
+            <span>Contact Us</span>
           </div>
         </div>
      
