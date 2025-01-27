@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../../assets/images/childlogo2.png'
 import data from "../../Data/Navigation.json"
 import { Link } from 'react-router-dom';
 interface SidebarProps{
