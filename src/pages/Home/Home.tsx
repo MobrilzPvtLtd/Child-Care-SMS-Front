@@ -3,14 +3,15 @@ import Layout from "../../UI/Layout/Layout";
 const Home = () => {
   return (
     <Layout>
-      <div className=" flex justify-start items-center h-screen px-9">
-       
-      <div className="text-black start">
-    <p className="text-3xl mb-2 font-semibold">Child Care</p>
-    <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-      School<br />Management<br />System
-    </h1>
-  </div>
+      <div className=" flex justify-start items-start h-screen p-20 bg-primary-background-color ">
+        <div className="text-white flex flex-col item-start justify-start p-20">
+          <p className="text-5xl mb-2 font-light ">Child Care</p>
+          <h1 className="text-5xl md:text-[6rem] font-bold flex flex-col">
+            <span> School</span>
+            <span> Management </span>
+            <span>System</span>
+          </h1>
+        </div>
       </div>
     </Layout>
   );
