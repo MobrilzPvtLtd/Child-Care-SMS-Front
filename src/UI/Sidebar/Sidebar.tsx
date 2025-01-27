@@ -10,7 +10,7 @@ const Sidebar: React.FC<SidebarProps> = ({mode}) => {
   return (
     <div className={`w-full overflow-hidden h-screen ${(mode === '/') ? 'bg-[var(--primary-background-color)] text-white '  : "'bg-[var(--primary-background-color)] text-[var(--primary-bacground-color)]'  " }`}>
       <div className="flex flex-col w-full">
-        <div className="text-7xl font-bold text-center p-2 w-5/6 text-white">
+        <div className="text-xl md:text-7xl font-bold text-center p-2 w-5/6 text-white">
         <h1>LOGO</h1>
         {/* <img src={logo} alt='logo'></img> */}
         </div>
