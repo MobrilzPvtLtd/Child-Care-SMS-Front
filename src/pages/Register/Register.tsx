@@ -39,11 +39,11 @@ export function Register() {
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
             <Label htmlFor="institutename">Institute Name</Label>
-            <Input id="lastname" placeholder="Last Name" type="text" />
+            <Input id="lastname" placeholder="Institute Name" type="text" />
           </LabelInputContainer>
         <LabelInputContainer className="mb-4">
             <Label htmlFor="instituteaddress">Institute Address</Label>
-            <Input id="lastname" placeholder="Last Name" type="text" />
+            <Input id="lastname" placeholder="Institute Address" type="text" />
           </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
