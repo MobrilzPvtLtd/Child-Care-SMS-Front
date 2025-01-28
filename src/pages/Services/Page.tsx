@@ -116,9 +116,11 @@ const Page: React.FC = () => {
 
         <Stack
           direction={{ xs: "column", md: "row" }}
-          spacing={4}
-          justifyContent="center"
+          // spacing={4}
+          justifyContent={{ xl: "center"}}
           alignItems="stretch"
+          flexWrap="wrap"
+          gap="1rem"
         >
           {plans.map((plan) => (
             <Box

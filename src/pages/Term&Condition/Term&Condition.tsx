@@ -7,7 +7,7 @@ const TermCondition = () => {
     <Layout>
       <div className="my-16">
         <div className="w-full  flex justify-center py-4">
-          <div className="w-full md:w-1/2  shadow-xl py-5">
+          <div className="w-full md:w-2/3  shadow-xl py-5">
             <div className="flex justify-center mb-6">
               <img src={termlogo} alt="User Icon" className="w-16" />
             </div>
