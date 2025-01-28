@@ -9,7 +9,7 @@ const Services = () => {
   return (
     <Layout>
       <div className="lg:grid-cols-8 mx-12 my-4">
-        <h6 className="text-blue-500 text-xl">Our DNA</h6>
+        <h6 className="text-black opacity-80 text-xl">Our DNA</h6>
         <h1 className="text-blue-500 text-6xl">Lorem Ipsum </h1>
         <p className="text-black py-6">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero nisi
