@@ -7,7 +7,7 @@ import Services from "./pages/Services/Page";
 import ContactUs from "./pages/Contact Us/ContactUs";
 import PrivacyPolicy from "./pages/Privacy Policy/PrivacyPolicy";
 import TermCondition from "./pages/Term&Condition/Term&Condition";
-import Register from "./pages/Register/Register";
+import { Register } from "./pages/Register/Register";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermCondition />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register/>} />
         </Routes>
       </Router>
     </>

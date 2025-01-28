@@ -1,65 +1,225 @@
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  Button,
+  Switch,
+  Stack,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from "@mui/material";
+import { styled } from "@mui/system";
+import { FaCheck, FaCrown, FaStar } from "react-icons/fa";
+import Layout from "../../UI/Layout/Layout";
+import { Link } from "react-router-dom";
 
-import Layout from '../../UI/Layout/Layout'
-import { BiChalkboard } from 'react-icons/bi'
-import { RiParentFill } from 'react-icons/ri'
-import { GiTeacher } from 'react-icons/gi'
-
-
-const Services = () => {
-  return (
-    <Layout>
-      <div className="lg:grid-cols-8 mx-12 my-4">
-        <h6 className="text-black opacity-80 text-xl">Our DNA</h6>
-        <h1 className="text-blue-500 text-6xl">Lorem Ipsum </h1>
-        <p className="text-black py-6">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero nisi
-          saepe, nemo ut minima facilis hic ab labore assumenda pariatur
-          laudantium deserunt. Officia, aliquam dolores vitae doloremque
-          molestias voluptatibus eum.
-        </p>
-        <div className="border-2 border-blue-400 "></div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-12 my-16">
-        <div className='bg-blue-200 shadow-xl rounded py-8'>
-          <div className='flex justify-center'>
-         <input type="radio" /> <h3 className='text-black text-2xl mx-2 font-semibold my-4'>$15 / Month</h3> </div>
-         <ul className='text-black text-center text-xl pb-4 font-semibold'>
-
-          <li className='py-2 flex justify-center items-center '><RiParentFill/><span className='mx-4'>10 Parents</span></li>
-          <li className='pb-2 flex justify-center items-center'><GiTeacher/> <span className='mx-4'>8 Teachers</span></li>
-          <li className='pb-2 flex justify-center items-center'><BiChalkboard /> <span className='mx-4'>5 Classes</span></li>
-         </ul>
-        </div>
-        <div className='bg-blue-200 shadow-xl rounded py-8'>
-          <div className='flex justify-center'>
-         <input type="radio" /> <h3 className='text-black text-2xl mx-2 font-semibold my-4'>$20 / Month</h3> </div>
-         <ul className='text-black text-center text-xl pb-4 font-semibold'>
-
-          <li className='py-2 flex justify-center items-center '><RiParentFill/><span className='mx-4'>10 Parents</span></li>
-          <li className='pb-2 flex justify-center items-center'><GiTeacher/> <span className='mx-4'>8 Teachers</span></li>
-          <li className='pb-2 flex justify-center items-center'><BiChalkboard /> <span className='mx-4'>5 Classes</span></li>
-         </ul>
-        </div>
-        <div className='bg-blue-200 shadow-xl rounded py-8'>
-          <div className='flex justify-center'>
-         <input type="radio" /> <h3 className='text-black text-2xl mx-2 font-semibold my-4'>$10 / Month</h3> </div>
-         <ul className='text-black text-center text-xl pb-4 font-semibold'>
-
-          <li className='py-2 flex justify-center items-center '><RiParentFill/><span className='mx-4'>10 Parents</span></li>
-          <li className='pb-2 flex justify-center items-center'><GiTeacher/> <span className='mx-4'>8 Teachers</span></li>
-          <li className='pb-2 flex justify-center items-center'><BiChalkboard /> <span className='mx-4'>5 Classes</span></li>
-         </ul>
-        </div>
- 
-       
-
-      
-      </div>
-      <div className='flex justify-center'>       <button className=' bg-blue-500 text-2xl px-5 py-3 rounded'>Subscribe</button> </div>
-
-      
-</Layout>
-  )
+interface Plan {
+  title: string;
+  price: number;
+  features: string[];
+  icon: any;
+  isPro?: boolean;
 }
 
-export default Services
+interface StyledCardProps {
+  isPro?: boolean;
+}
+
+const StyledCard = styled(Card, {
+  shouldForwardProp: (prop) => prop !== "isPro",
+})<StyledCardProps>(({ isPro }) => ({
+  borderRadius: 20,
+  height: "100%",
+  backgroundColor: isPro ? "var(--primary-background-color)" : "#212121",
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "translateY(-10px)",
+    boxShadow: "0 20px 30px rgba(0, 0, 0, 0.2)",
+  },
+}));
+
+const Page: React.FC = () => {
+  const [isYearly, setIsYearly] = useState(false);
+  // const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const plans: Plan[] = [
+    {
+      title: "Beginner",
+      price: isYearly ? 99 : 9.99,
+      features: ["10 parents", "5 Teachers", "5 Classes", "Basic Analytics"],
+      icon: <FaStar />,
+    },
+    {
+      title: "Intermediate",
+      price: isYearly ? 199 : 19.99,
+      features: ["15 parents", "8 Teachers", "8 Classes", "Advanced Analytics"],
+      icon: <FaStar />,
+    },
+    {
+      title: "Pro",
+      price: isYearly ? 299 : 29.99,
+      features: [
+        "20 parents",
+        "10 Teachers",
+        "10 Classes",
+        "Custom Analytics Dashboard",
+      ],
+      icon: <FaCrown />,
+      isPro: true,
+    },
+  ];
+
+  return (
+    <Layout>
+      <Box
+        sx={{
+          minHeight: "95vh",
+          backgroundColor: "#fff",
+          py: 8,
+          px: { xs: 2, md: 6 },
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mb: 6,
+          }}
+        >
+          <Typography
+            variant="h3"
+            component="h1"
+            sx={{ fontWeight: "bold", color: "#000" , textAlign: "center" ,width: "100%"}}
+          >
+            Pricing Options
+          </Typography>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Typography sx={{ color: "#000", fontWeight: 700 }}>
+              Monthly
+            </Typography>
+            <Switch
+              checked={isYearly}
+              onChange={() => setIsYearly(!isYearly)}
+              color="primary"
+              inputProps={{ "aria-label": "toggle pricing period" }}
+            />
+            <Typography sx={{ color: "#000", fontWeight: 700 }}>
+              Yearly
+            </Typography>
+          </Box>
+        </Box>
+
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={4}
+          justifyContent="center"
+          alignItems="stretch"
+        >
+          {plans.map((plan) => (
+            <Box
+              key={plan.title}
+              sx={{
+                flex: 1,
+                maxWidth: { xs: "100%", md: "350px" },
+              }}
+            >
+              <StyledCard sx={{backgroundColor : "var(--primary-background-color)" }} isPro={plan.isPro}>
+                <CardContent
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                    p: 4,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 2,
+                      mb: 3,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        color: plan.isPro ? "#ffd700" : "#fff",
+                        fontSize: "2rem",
+                      }}
+                    >
+                      {plan.icon}
+                    </Box>
+                    <Typography
+                      variant="h4"
+                      sx={{
+                        fontWeight: "bold",
+                        color: "#fff",
+                      }}
+                    >
+                      {plan.title}
+                    </Typography>
+                  </Box>
+
+                  <Typography
+                    variant="h3"
+                    sx={{ fontWeight: "bold", color: "#fff", mb: 3 }}
+                  >
+                    ${plan.price}
+                    <Typography
+                      component="span"
+                      sx={{ fontSize: "1rem", color: "#bbb" }}
+                    >
+                      /{isYearly ? "year" : "month"}
+                    </Typography>
+                  </Typography>
+
+                  <List sx={{ flexGrow: 1, mb: 3 }}>
+                    {plan.features.map((feature) => (
+                      <ListItem key={feature} sx={{ px: 0 }}>
+                        <ListItemIcon>
+                          <FaCheck style={{ color: "#4caf50" }} />
+                        </ListItemIcon>
+                        <ListItemText
+                          primary={feature}
+                          sx={{ color: "#fff" }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                  <Link
+                    to="/register"
+                    className="flex justify-center items-center"
+                  >
+                    <Button
+                      variant="contained"
+                      size="large"
+                      sx={{
+                        mt: "auto",
+                        backgroundColor: plan.isPro ? "#d6d6ff" : "#d6d6ff",
+                        transition: "all .3s ease-in-out",
+                        color: "#000",
+                        fontWeight: 600,
+                        "&:hover": {
+                          backgroundColor: "#fff",
+                          scale: 1.05,
+                        },
+                      }}
+                    >
+                      Get Now
+                    </Button>
+                  </Link>
+                </CardContent>
+              </StyledCard>
+            </Box>
+          ))}
+        </Stack>
+      </Box>
+    </Layout>
+  );
+};
+
+export default Page;
