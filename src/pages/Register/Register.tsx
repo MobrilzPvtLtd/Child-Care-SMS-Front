@@ -4,6 +4,7 @@ import { Label } from "../../UI/Label/Label";
 import { Input } from "../../UI/Input/Input";
 import { cn } from "../../lib/Utils";
 import Layout from "../../UI/Layout/Layout";
+import { Link } from "react-router-dom";
 
 export function Register() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,6 +56,10 @@ export function Register() {
             placeholder="••••••••"
             type="twitterpassword"
           />
+        </LabelInputContainer>
+        <LabelInputContainer className="mb-8">
+         <div className="text-black w-full "><input type="checkbox"></input> <Link to="/terms-and-conditions"
+         ><span  className="transition-all hover:scale-105">Terms & Conditions</span></Link></div>
         </LabelInputContainer>
 
         <button
