@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
         molestias voluptatibus eum.
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptates. Odit, quo non voluptates amet obcaecati distinctio aspernatur incidunt doloribus saepe ducimus dolores expedita, similique sed placeat nisi, ut ipsa?
       </p>
-      <div className=" bg-gradient-to-r from-indigo-600 to-purple-600 py-5">
+      <div className="bg-[var(--primary-background-color)]  py-5">
       <h1 className="text-white pl-5 text-6xl">Lorem Ipsum </h1>
       </div>
       <div>

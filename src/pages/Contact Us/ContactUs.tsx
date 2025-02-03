@@ -101,7 +101,7 @@ const ContactUs: React.FC = () => {
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
+          <div className="bg-[var(--primary-background-color)] rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
             {submitted && (
               <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl flex items-center justify-center">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -116,7 +116,7 @@ const ContactUs: React.FC = () => {
             )}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                <label className="block text-sm font-semibold text-white mb-2">Name</label>
                 <input
                   type="text"
                   name="name"
@@ -129,7 +129,7 @@ const ContactUs: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                <label className="block text-sm font-semibold text-white mb-2">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -142,7 +142,7 @@ const ContactUs: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                <label className="block text-sm font-semibold text-white mb-2">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -164,36 +164,36 @@ const ContactUs: React.FC = () => {
           </div>
 
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+            <div className="bg-[var(--primary-background-color)] rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
+              <h2 className="text-2xl font-bold text-white mb-6">Contact Information</h2>
               <div className="space-y-6">
-                <div className="flex items-center space-x-4 p-4 bg-indigo-50 rounded-xl">
+                <div className="flex items-center space-x-4 p-4 bg-gray-500 rounded-xl">
                   <FaPhone className="w-6 h-6 text-indigo-600" />
-                  <span className="text-lg text-gray-700">+1 (000) 123-4567</span>
+                  <span className="text-lg text-white">+1 (000) 123-4567</span>
                 </div>
-                <div className="flex items-center space-x-4 p-4 bg-purple-50 rounded-xl">
+                <div className="flex items-center space-x-4 p-4 bg-gray-500 rounded-xl">
                   <FaEnvelope className="w-6 h-6 text-purple-600" />
-                  <span className="text-lg text-gray-700">support@example.com</span>
+                  <span className="text-lg text-white">support@example.com</span>
                 </div>
-                <div className="flex items-center space-x-4 p-4 bg-pink-50 rounded-xl">
+                <div className="flex items-center space-x-4 p-4 bg-gray-500 rounded-xl">
                   <FaMapMarkerAlt className="w-6 h-6 text-pink-600" />
-                  <span className="text-lg text-gray-700">E-38 Sector-63 , Noida</span>
+                  <span className="text-lg text-white">E-38 Sector-63 , Noida</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Common Questions</h2>
+            <div className="bg-[var(--primary-background-color)] rounded-2xl shadow-xl p-8">
+              <h2 className="text-2xl font-bold text-white mb-6">Common Questions</h2>
               <div className="space-y-4">
                 {faqs.map((faq) => (
                   <div key={faq.id} className="border-b border-gray-100 pb-4">
                     <button
-                      className="flex justify-between items-center w-full text-left p-4 rounded-xl hover:bg-gray-50 transition-colors duration-200"
+                      className="flex justify-between items-center w-full text-left p-4 rounded-xl transition-colors duration-200"
                       onClick={() =>
                         setExpandedFaq(expandedFaq === faq.id ? null : faq.id)
                       }
                     >
-                      <span className="text-lg font-medium text-gray-900">
+                      <span className="text-lg font-medium text-white">
                         {faq.question}
                       </span>
                       <FaChevronDown
@@ -201,7 +201,7 @@ const ContactUs: React.FC = () => {
                       />
                     </button>
                     {expandedFaq === faq.id && (
-                      <p className="mt-4 px-4 text-gray-600">{faq.answer}</p>
+                      <p className="mt-4 px-4 text-white">{faq.answer}</p>
                     )}
                   </div>
                 ))}

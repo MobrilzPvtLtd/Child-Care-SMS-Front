@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import data from "../../Data/Navigation.json";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../../assets/images/child-logo.png"
 const Sidebar = () => {
   const [active, setActive] = useState<number>(() => {
     const savedActive = localStorage.getItem("activeIndex");
@@ -23,12 +24,12 @@ setActive(item);
       className={` w-1/6 fixed overflow-hidden h-full ${
         currentLocation === "/"
           ? "bg-[var(--primary-background-color)] text-white"
-          : "bg-white text-black"
+          : "bg-[var(--primary-background-color)] text-white"
       }`}
     >
       <div className="flex flex-col items-center w-full py-5">
         <div className="flex justify-center text-xl sm:text-3xl md-text-auto lg:text-5xl xl:text-7xl font-bold text-center p-1 mb-5 w-5/6 text-white">
-          <h1
+          {/* <h1
             className={`${
               currentLocation == "/"
                 ? "text-white"
@@ -36,7 +37,8 @@ setActive(item);
             }`}
           >
             LOGO
-          </h1>
+          </h1> */}
+          <img src={logo} alt="logo" className="" />
         </div>
         <div className="flex flex-col justify-center items-center gap-4 w-full">
           {data.map((item, index) => (

@@ -7,20 +7,20 @@ const TermCondition = () => {
     <Layout>
       <div className="my-16">
         <div className="w-full  flex justify-center py-4">
-          <div className="w-full md:w-2/3  shadow-xl py-5">
+          <div className="w-full md:w-2/3 rounded-xl shadow-xl py-5 bg-[var(--primary-background-color)]">
             <div className="flex justify-center mb-6">
               <img src={termlogo} alt="User Icon" className="w-16" />
             </div>
-            <h1 className="text-4xl font-semibold text-black text-center my-5">
+            <h1 className="text-4xl font-semibold text-white text-center my-5">
               Term & Condition
             </h1>
 
-            <p className="text-black my-3 mx-6 text-center">
+            <p className="text-whitemy-3 mx-6 text-center">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt alias magni voluptatum totam inventore officia aut voluptate laboriosam. Aliquam beatae, consequuntur ab nobis aspernatur voluptates id veritatis quos tempore iure.
             </p>
-            <div className="bg-slate-200 mx-6 rounded my-4">
-                <h5 className="text-black text-xl text-center">Your posting of parent content</h5>
-                <p className="h-fit px-5 py-3 mt-4 text-black text-justify">
+            <div className="bg-gray-500 mx-6 rounded my-4">
+                <h5 className="text-white text-xl text-center">Your posting of parent content</h5>
+                <p className="h-fit px-5 py-3 mt-4 text-white text-justify">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati rem id nesciunt commodi excepturi est ea animi. Sed harum vel dolorem fugiat quia iure eos ullam, aspernatur quisquam iste aliquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Id accusamus animi dolorem libero laboriosam inventore, voluptatum quia fuga dolores assumenda itaque placeat hic ex quae aliquid sed aspernatur, totam ipsam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit molestias quas obcaecati blanditiis? Vitae quisquam assumenda inventore natus possimus atque expedita? Aperiam asperiores deserunt voluptatum voluptatibus amet illo sint esse. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis est ducimus aspernatur voluptatibus accusamus molestiae tenetur deserunt reiciendis illo aperiam, amet ullam magnam quo? Impedit aliquid provident quo enim cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati similique perspiciatis repudiandae, veniam nesciunt sunt dolor laudantium adipisci doloremque accusantium neque expedita, dignissimos architecto eum voluptate iusto, ad in? Aut.
                 </p>
 

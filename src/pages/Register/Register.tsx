@@ -14,8 +14,8 @@ export function Register() {
   return (
     <Layout>
       <div className="flex justify-center items-center min-h-[95vh] h-full w-full">
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-[var(--primary-background-color)] ">
+      <h2 className="font-bold text-xl text-white-800 dark:text-neutral-200">
         Welcome to Child Care
       </h2>
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
@@ -58,7 +58,7 @@ export function Register() {
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-8">
-         <div className="text-black w-full "><input type="checkbox"></input> <Link to="/terms-and-conditions"
+         <div className="text-white w-full "><input type="checkbox"></input> <Link to="/terms-and-conditions"
          ><span  className="transition-all hover:scale-105">Terms & Conditions</span></Link></div>
         </LabelInputContainer>
 
