@@ -49,5 +49,4 @@ const AnalyticsCards = () => {
     </div>
   );
 };
-
 export default AnalyticsCards;
