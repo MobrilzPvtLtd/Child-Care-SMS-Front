@@ -1,10 +1,12 @@
 // components/PricingCard.tsx
-import React from 'react';
+import React from "react";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 interface PricingCardProps {
+  id: number;
   title: string;
   price: string;
-  originalPrice?: string;
   description: string;
   features: string[];
   isPopular?: boolean;
@@ -13,35 +15,52 @@ interface PricingCardProps {
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({
+  id,
   title,
   price,
-  originalPrice,
   description,
   features,
   isPopular = false,
-  billingPeriod = 'month',
-  buttonText = 'Choose Starter'
+  billingPeriod = "month",
+  buttonText = "Edit",
 }) => {
+  const router = useRouter();
+    const { user, setUser, logout } = useUser();
+  const onClick = () => {
+    if(user){
+      console.log(user , "fghkh");
+      router.push(`/invoice?instituteId=${user?.id}&serviceid=${id}&billingPeriod=${billingPeriod}&price=${price}`)
+    }else{
+      router.push(`/signup?serviceid=${id}&billingPeriod=${billingPeriod}&price=${price}`);
+    }
+  }
   return (
-    <div className={`rounded-lg p-6 flex flex-col h-full transition-colors duration-300 ease-in-out border ${
-      isPopular
-        ? 'bg-gray-800 dark:bg-gray-800 text-white border-gray-700 dark:border-gray-500'
-        : 'bg-white dark:bg-gray-900  dark:text-white border-gray-200 dark:border-gray-700'
-    }`}>
+    <div
+      className={`rounded-lg p-6 flex flex-col h-full transition-colors duration-300 ease-in-out border ${
+        isPopular
+          ? "bg-gray-800 dark:bg-gray-800 text-white border-gray-700 dark:border-gray-500"
+          : "bg-white dark:bg-gray-900 dark:text-white border-gray-200 dark:border-gray-700"
+      }`}
+    >
       <div className="mb-6">
         <h3 className="text-xl font-bold mb-4">{title}</h3>
         <div className="flex items-baseline mb-2">
           <span className="text-4xl font-bold">${price}</span>
-          <span className={`text-sm ${isPopular ? 'text-gray-300' : 'text-gray-500 dark:text-gray-400'}`}>/{billingPeriod}</span>
-          {originalPrice && (
-            <span className="ml-2  w-full flex justify-end text-gray-400 line-through">${originalPrice}</span>
-          )}
+          <span
+            className={`text-sm ${
+              isPopular ? "text-gray-300" : "text-gray-500 dark:text-gray-400"
+            }`}
+          >
+            /{billingPeriod}
+          </span>
         </div>
-        <p className={`text-sm ${
-          isPopular
-            ? 'text-gray-300 dark:text-gray-400'
-            : 'text-gray-500 dark:text-gray-400'
-        }`}>
+        <p
+          className={`text-sm ${
+            isPopular
+              ? "text-gray-300 dark:text-gray-400"
+              : "text-gray-500 dark:text-gray-400"
+          }`}
+        >
           {description}
         </p>
       </div>
@@ -53,8 +72,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
               <svg
                 className={`h-5 w-5 mr-2 ${
                   isPopular
-                    ? 'text-green-400 dark:text-green-500'
-                    : 'text-green-500 dark:text-green-400'
+                    ? "text-green-400 dark:text-green-500"
+                    : "text-green-500 dark:text-green-400"
                 }`}
                 fill="none"
                 stroke="currentColor"
@@ -74,10 +93,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
       </div>
 
       <button
+        onClick={() => onClick()}
         className={`w-full py-3 px-4 rounded-md font-medium transition-colors duration-300 ${
           isPopular
-            ? 'bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white'
-            : 'bg-gray-800 hover:bg-gray-900 dark:bg-blue-600 dark:hover:bg-blue-700 text-white'
+            ? "bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white"
+            : "bg-gray-800 hover:bg-gray-900 dark:bg-blue-600 dark:hover:bg-blue-700 text-white"
         }`}
       >
         {buttonText}
@@ -87,4 +107,3 @@ const PricingCard: React.FC<PricingCardProps> = ({
 };
 
 export default PricingCard;
-

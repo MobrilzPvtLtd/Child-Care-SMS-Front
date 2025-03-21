@@ -1,13 +1,12 @@
 "use client";
-import { 
-  FaEye,
-  FaEyeSlash, 
-} from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import React, { useState, FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import * as Yup from "yup";
-import axios from "axios";
+import { axiosInstance } from "@/utils/axios";
+import { useUser } from "@/context/UserContext";
+import { useRouter, useSearchParams } from "next/navigation";
 
 // Define the form data interface
 interface LoginFormData {
@@ -19,15 +18,33 @@ interface LoginFormData {
 interface LoginFormErrors {
   email?: string;
   password?: string;
+  apiError?: string;
+}
+
+// Define touched fields interface
+interface TouchedFields {
+  email: boolean;
+  password: boolean;
 }
 
 export default function LoginForm() {
+  const { user, setUser, logout } = useUser();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const serviceid = searchParams.get("serviceid");
+  const billingPeriod = searchParams.get("billingPeriod");
+  const price = searchParams.get("price");
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
   });
   const [errors, setErrors] = useState<LoginFormErrors>({});
+  const [touched, setTouched] = useState<TouchedFields>({
+    email: false,
+    password: false,
+  });
 
   // Validation schema using Yup
   const validationSchema = Yup.object({
@@ -41,10 +58,45 @@ export default function LoginForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
+    // Update form data
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    // Clear the error for the field being edited and apiError
+    if (errors[name as keyof LoginFormErrors] || errors.apiError) {
+      setErrors((prev) => {
+        const {
+          apiError,
+          [name as keyof LoginFormErrors]: removed,
+          ...rest
+        } = prev;
+        return rest;
+      });
+    }
+  };
+
+  const validateField = async (field: keyof LoginFormData) => {
+    try {
+      await validationSchema.validateAt(field, formData);
+      setErrors((prev) => {
+        const { apiError, [field]: removed, ...rest } = prev;
+        return rest;
+      });
+    } catch (error) {
+      setErrors((prev) => ({
+        ...prev,
+        [field]: (error as Yup.ValidationError).message,
+      }));
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const field = e.target.name as keyof LoginFormData;
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    validateField(field);
   };
 
   const validateForm = async (): Promise<boolean> => {
@@ -58,33 +110,56 @@ export default function LoginForm() {
         errorObj[error.path as keyof LoginFormErrors] = error.message;
       });
       setErrors(errorObj);
-      return false;
+      return Object.keys(errorObj).length === 0;
     }
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setTouched({
+      email: true,
+      password: true,
+    });
+
     const isValid = await validateForm();
 
     if (isValid) {
       try {
-        const response = await axios.post("http://localhost:3000/api/login", formData);
-        console.log("Login successful:", response.data);
-        // Handle successful login (e.g., redirect, set auth token)
-      } catch (error) {
-        console.error("Login failed:", error);
-        // Handle error (e.g., show error message)
+        const response = await axiosInstance.post("/auth/login/", formData);
+        setUser({
+          id: response.data.data.user.userId,
+          username: response.data.data.user.username,
+          email: response.data.data.user.email,
+          isAuthenticated: true,
+        });
+        if (serviceid && billingPeriod && price ) {
+          router.push(
+            `/invoice?instituteId=${user?.id || response.data.data.user.userId}&serviceid=${serviceid}&billingPeriod=${billingPeriod}&price=${price}`
+          );
+        } else {
+          router.push(`/`);
+        }
+        // console.log( "Login successful:", response.data.data);
+      } catch (error: any) {
+        const apiErrorMessage =
+          error.response?.data?.errors?.[0]?.msg ||
+          error.response?.message ||
+          "Invalid email or password. Please try again.";
+        setErrors((prev) => ({
+          ...prev,
+          apiError: apiErrorMessage,
+        }));
+        console.error("Login error:", error.response);
       }
     }
   };
 
   const isFormValid: boolean =
-    !!formData.email &&
-    !!formData.password &&
-    Object.keys(errors).length === 0;
+    !!formData.email && !!formData.password && Object.keys(errors).length === 0;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
+    <div className=" py-20 flex items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
       <div className="w-full max-w-md">
         <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
           <div className="flex justify-center pb-1">
@@ -123,10 +198,10 @@ export default function LoginForm() {
                 placeholder="Enter your email"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                 onChange={handleChange}
-                onBlur={validateForm}
+                onBlur={handleBlur}
                 value={formData.email}
               />
-              {errors.email && (
+              {touched.email && errors.email && (
                 <p className="mt-1 text-sm text-error-500">{errors.email}</p>
               )}
             </div>
@@ -143,7 +218,7 @@ export default function LoginForm() {
                   name="password"
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                   onChange={handleChange}
-                  onBlur={validateForm}
+                  onBlur={handleBlur}
                   value={formData.password}
                 />
                 <span
@@ -153,10 +228,17 @@ export default function LoginForm() {
                   {showPassword ? <FaEye /> : <FaEyeSlash />}
                 </span>
               </div>
-              {errors.password && (
+              {touched.password && errors.password && (
                 <p className="mt-1 text-sm text-error-500">{errors.password}</p>
               )}
             </div>
+
+            {/* Display API error if it exists */}
+            {errors.apiError && (
+              <div className="p-3 bg-red-100 text-red-700 rounded-md">
+                {errors.apiError}
+              </div>
+            )}
 
             <div className="flex items-center justify-between">
               <Link
@@ -182,13 +264,13 @@ export default function LoginForm() {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-700 dark:text-gray-400">
-              Don&apos;t have an account?{" "}
-              <Link
-                href="/signup"
-                className="text-brand-500 hover:text-brand-600 dark:text-brand-400 font-medium"
+              Don't have an account?{" "}
+              <span 
+                onClick={() => router.push(`/signup?serviceid=${serviceid}&billingPeriod=${billingPeriod}&price=${price}`)}
+                className="text-brand-500 hover:text-brand-600 dark:text-brand-400 font-medium cursor-pointer "
               >
                 Sign Up
-              </Link>
+              </span>
             </p>
           </div>
         </div>
