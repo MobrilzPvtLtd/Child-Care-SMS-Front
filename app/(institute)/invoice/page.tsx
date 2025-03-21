@@ -1,10 +1,12 @@
-import InvoicePage from '@/components/Invoice/Invoice'
-import React from 'react'
+import InvoicePage from '@/components/Invoice/Invoice';
+import React, { Suspense } from 'react';
 
-function page() {
+function Page() {
   return (
-    < InvoicePage/>
-  )
+    <Suspense fallback={<div>Loading...</div>}>
+      <InvoicePage />
+    </Suspense>
+  );
 }
 
-export default page
+export default Page;
