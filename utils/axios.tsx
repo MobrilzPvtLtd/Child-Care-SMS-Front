@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 
  
 
-// Optional: Add response interceptor for handling errors (e.g., 401 Unauthorized)
+//Add response interceptor for handling errors (e.g., 401 Unauthorized)
 
 // axiosInstance.interceptors.response.use(
 //   (response) => response,
