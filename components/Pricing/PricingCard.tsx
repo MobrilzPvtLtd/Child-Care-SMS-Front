@@ -36,7 +36,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   }
   return (
     <div
-      className={`rounded-lg p-6 flex flex-col h-full transition-colors duration-300 ease-in-out border ${
+      className={`rounded-lg p-6 flex flex-col h-full transition-colors duration-300 ease-in-out border relative ${
         isPopular
           ? "bg-gray-800 dark:bg-gray-800 text-white border-gray-700 dark:border-gray-500"
           : "bg-white dark:bg-gray-900 dark:text-white border-gray-200 dark:border-gray-700"
@@ -102,6 +102,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
       >
         {buttonText}
       </button>
+      {isPopular && (
+        <div className="absolute -top-3 -right-1.5 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+          Popular
+        </div>
+      )}
     </div>
   );
 };
