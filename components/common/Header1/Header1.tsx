@@ -18,16 +18,16 @@ export default function Header1() {
 
       {/* Navigation */}
       <nav className="hidden md:flex space-x-6">
-        <Link href="#" className="text-blue-600 hover:underline">
+        <Link href="/home" className="text-blue-600 text-lg ">
           Solutions
         </Link>
-        <Link href="#" className="text-blue-600 hover:underline">
+        <Link href="resource" className="text-blue-600 text-lg ">
           Resources
         </Link>
-        <Link href="#" className="text-blue-600 hover:underline">
+        <Link href="/pricing" className="text-blue-600 text-lg ">
           Pricing
         </Link>
-        <Link href="#" className="text-blue-600 hover:underline">
+        <Link href="#" className="text-blue-600 text-lg ">
           Log In
         </Link>
       </nav>
