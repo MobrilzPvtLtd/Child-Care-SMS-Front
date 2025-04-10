@@ -1,7 +1,7 @@
 import React from 'react'
 import ResourcesBanner from './ResourceBanner'
-import Header1 from '../common/Header1/Header1'
-import Footer1 from '../common/Footer1/Footer1'
+import Header1 from '../common/Header/Header1'
+import Footer1 from '../common/Footer/Footer'
 import ContactForm from './ContactForm'
 import TrendingContent from './TrendingContent'
 

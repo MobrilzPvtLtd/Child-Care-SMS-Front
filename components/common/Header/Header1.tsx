@@ -18,7 +18,7 @@ export default function Header1() {
         {/* Navigation */}
         <nav className="flex space-x-6">
           <div className="hidden md:flex space-x-8 font-medium text-black/90 text-xl mt-1">
-            <Link href="/home" className="relative group">
+            <Link href="/" className="relative group">
               Solutions
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
             </Link>

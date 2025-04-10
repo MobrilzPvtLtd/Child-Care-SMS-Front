@@ -25,11 +25,6 @@ const navItems: NavItem[] = [
     path: "/",
   },
   {
-    icon: <TbBrandCake />,
-    name: "Brand Value",
-    path: "/brand-value",
-  },
-  {
     icon: <MdOutlineDesignServices />,
     name: "Services",
     path: "/services",
@@ -38,17 +33,7 @@ const navItems: NavItem[] = [
     icon: <LuContact />,
     name: "Contact us",
     path: "/contactus",
-  },
-  {
-    icon: <GoCodeOfConduct />,
-    name: "Terms & Conditions",
-    path: "/terms",
-  },
-  {
-    icon: <IoLockClosedOutline />,
-    name: "Privacy Policy",
-    path: "/privacypolicy",
-  },
+  }
 ];
 
 const Sidebar: React.FC = () => {
