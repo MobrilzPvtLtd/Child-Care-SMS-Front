@@ -29,7 +29,7 @@ const users = [
 
 export default function BrightwheelSection() {
   return (
-    <section className="bg-blue-600 max-w-5xl my-4 mx-auto p-10 rounded-3xl text-white text-center">
+    <section className="bg-blue-600 max-w-7xl mx-auto my-4 p-10 rounded-3xl text-white text-center">
       <h2 className="text-2xl font-bold mb-6">Who uses brightwheel childcare software?</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {users.map((user, index) => (

@@ -9,8 +9,7 @@ import TrendingContent from './TrendingContent'
   return (
     <>
     
-    
-    <Header1/>
+     
     <ResourcesBanner/>
     <TrendingContent/>
     <ContactForm/>

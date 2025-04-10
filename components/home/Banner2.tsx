@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Banner2 = () => {
   return (
-    <div className="bg-[#5D6BE0] relative mx-auto max-w-6xl rounded-3xl p-6 sm:p-10 text-white overflow-hidden mb-4">
+    <div className="bg-[#5D6BE0] relative mx-auto max-w-7xl rounded-3xl p-6 sm:p-10 text-white overflow-hidden mb-4">
       {/* Decorative Shapes */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-4 left-4 w-6 h-6 bg-pink-500 rounded-full rotate-45"></div>

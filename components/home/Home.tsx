@@ -12,15 +12,14 @@ import Footer1 from '../common/Footer1/Footer1'
 
 function Home() {
   return (
-    <>
-    <Header1/>
+    <> 
     <Banner/>
      <BrightReview/>
      <Banner2/>
       <BrightSupport/>
       <TestimonialsCarousel/>
      <BrightwheelSection/> 
-      <RoleSelection/>
+      {/* <RoleSelection/> */}
       <Footer1/>
     </>
   )

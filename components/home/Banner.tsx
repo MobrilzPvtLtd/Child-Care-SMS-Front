@@ -13,7 +13,7 @@ export default function Banner() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
 
-      <main className="container mx-auto max-w-5xl px-4 py-12 md:py-16 lg:py-20">
+      <main className="container mx-auto max-w-7xl px-4 py-12 md:py-16 lg:py-20">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           {/* Left Column - Text and Buttons */}
           <div className="w-full lg:w-1/2 mb-12 lg:mb-0">

@@ -7,8 +7,7 @@ import Footer1 from '../common/Footer1/Footer1'
 
 function Pricing_New() {
   return (
-    <>
-      <Header1/>
+    <> 
       <PricingBanner/>
       <CenterFeatures/>
       <TestimonialsCarousel/>

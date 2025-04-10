@@ -61,9 +61,9 @@ export default function SignUpForm() {
   const { user, setUser, logout } = useUser();
   const searchParams = useSearchParams();
 
-  const serviceid = searchParams.get('serviceid');
-  const billingPeriod = searchParams.get('billingPeriod');
-  const price = searchParams.get('price');
+  const serviceid = searchParams.get("serviceid");
+  const billingPeriod = searchParams.get("billingPeriod");
+  const price = searchParams.get("price");
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isChecked, setIsChecked] = useState<boolean>(false);
@@ -199,11 +199,15 @@ export default function SignUpForm() {
 
       try {
         const response = await axiosInstance.post("/auth/register/", payload);
-        setUser({ id :response.data.data.user.iserId ,
-            username: response.data.data.user.username,
-            email: response.data.data.user.email,
-           isAuthenticated: true }); 
-        router.push(`/invoice?instituteId=${response?.data?.data?.user?.userId}&serviceid=${serviceid}&billingPeriod=${billingPeriod}&price=${price}`)
+        setUser({
+          id: response.data.data.user.iserId,
+          username: response.data.data.user.username,
+          email: response.data.data.user.email,
+          isAuthenticated: true,
+        });
+        router.push(
+          `/invoice?instituteId=${response?.data?.data?.user?.userId}&serviceid=${serviceid}&billingPeriod=${billingPeriod}&price=${price}`
+        );
       } catch (error: any) {
         const apiErrorMessage =
           error.response?.data?.errors?.[0]?.msg ||
@@ -232,13 +236,13 @@ export default function SignUpForm() {
     Object.keys(errors).length === 0;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
-      <div className="w-full max-w-md">
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-          <div className="flex justify-center pb-1">
+    <div className="flex items-center justify-center  bg-gray-50 dark:bg-gray-900 p-3 md:p-6">
+      <div className="w-full max-w-3xl overflow-y-auto">
+        <div className="bg-white dark:bg-gray-800 p-4 md:p-8 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700">
+          <div className="flex justify-center ">
             <Link
               href="/"
-              className="inline-flex items-center text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 mb-4"
+              className="inline-flex items-center text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 mb-6"
             >
               <>
                 <Image
@@ -259,8 +263,8 @@ export default function SignUpForm() {
             </Link>
           </div>
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   First Name<span className="text-error-500">*</span>
@@ -270,7 +274,7 @@ export default function SignUpForm() {
                   id="fname"
                   name="fname"
                   placeholder="Enter your first name"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={formData.fname}
@@ -288,7 +292,7 @@ export default function SignUpForm() {
                   id="lname"
                   name="lname"
                   placeholder="Enter your last name"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={formData.lname}
@@ -299,189 +303,202 @@ export default function SignUpForm() {
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Email<span className="text-error-500">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={formData.email}
-              />
-              {touched.email && errors.email && (
-                <p className="mt-1 text-sm text-error-500">{errors.email}</p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Phone Number<span className="text-error-500">*</span>
-              </label>
-              <input
-                type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                placeholder="Enter your phone number"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={formData.phoneNumber}
-              />
-              {touched.phoneNumber && errors.phoneNumber && (
-                <p className="mt-1 text-sm text-error-500">
-                  {errors.phoneNumber}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Institute Name<span className="text-error-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="instituteName"
-                name="instituteName"
-                placeholder="Enter your institute name"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={formData.instituteName}
-              />
-              {touched.instituteName && errors.instituteName && (
-                <p className="mt-1 text-sm text-error-500">
-                  {errors.instituteName}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Address<span className="text-error-500">*</span>{" "}
-                {/* Updated label */}
-              </label>
-              <input
-                type="text"
-                id="address" // Updated id
-                name="address" // Updated name
-                placeholder="Enter your institute address"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={formData.address} // Updated key
-              />
-              {touched.address && errors.address && (
-                <p className="mt-1 text-sm text-error-500">{errors.address}</p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Password<span className="text-error-500">*</span>
-              </label>
-              <div className="relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Email<span className="text-error-500">*</span>
+                </label>
                 <input
-                  placeholder="Enter your password"
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={formData.password}
+                  value={formData.email}
                 />
-                <span
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-500 dark:text-gray-400"
-                >
-                  {showPassword ? <FaEye /> : <FaEyeSlash />}
-                </span>
+                {touched.email && errors.email && (
+                  <p className="mt-1 text-sm text-error-500">{errors.email}</p>
+                )}
               </div>
-              {touched.password && errors.password && (
-                <p className="mt-1 text-sm text-error-500">{errors.password}</p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Confirm Password<span className="text-error-500">*</span>
-              </label>
-              <div className="relative">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Phone Number<span className="text-error-500">*</span>
+                </label>
                 <input
-                  placeholder="Confirm your password"
-                  type={showPassword ? "text" : "password"}
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="Enter your phone number"
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={formData.confirmPassword}
+                  value={formData.phoneNumber}
                 />
-                <span
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-500 dark:text-gray-400"
-                >
-                  {showPassword ? <FaEye /> : <FaEyeSlash />}
-                </span>
+                {touched.phoneNumber && errors.phoneNumber && (
+                  <p className="mt-1 text-sm text-error-500">
+                    {errors.phoneNumber}
+                  </p>
+                )}
               </div>
-              {touched.confirmPassword && errors.confirmPassword && (
-                <p className="mt-1 text-sm text-error-500">
-                  {errors.confirmPassword}
-                </p>
-              )}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Institute Name<span className="text-error-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="instituteName"
+                  name="instituteName"
+                  placeholder="Enter your institute name"
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={formData.instituteName}
+                />
+                {touched.instituteName && errors.instituteName && (
+                  <p className="mt-1 text-sm text-error-500">
+                    {errors.instituteName}
+                  </p>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Address<span className="text-error-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  placeholder="Enter your institute address"
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={formData.address}
+                />
+                {touched.address && errors.address && (
+                  <p className="mt-1 text-sm text-error-500">
+                    {errors.address}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Password<span className="text-error-500">*</span>
+                </label>
+                <div className="relative">
+                  <input
+                    placeholder="Enter your password"
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={formData.password}
+                  />
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-500 dark:text-gray-400"
+                  >
+                    {showPassword ? <FaEye /> : <FaEyeSlash />}
+                  </span>
+                </div>
+                {touched.password && errors.password && (
+                  <p className="mt-1 text-sm text-error-500">
+                    {errors.password}
+                  </p>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Confirm Password<span className="text-error-500">*</span>
+                </label>
+                <div className="relative">
+                  <input
+                    placeholder="Confirm your password"
+                    type={showPassword ? "text" : "password"}
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-500 focus:border-brand-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={formData.confirmPassword}
+                  />
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-500 dark:text-gray-400"
+                  >
+                    {showPassword ? <FaEye /> : <FaEyeSlash />}
+                  </span>
+                </div>
+                {touched.confirmPassword && errors.confirmPassword && (
+                  <p className="mt-1 text-sm text-error-500">
+                    {errors.confirmPassword}
+                  </p>
+                )}
+              </div>
             </div>
 
             <div className="flex items-start gap-3">
               <input
                 type="checkbox"
-                className="mt-1 w-6 h-6 text-brand-500 border-gray-300 rounded focus:ring-brand-500 dark:bg-gray-800 dark:border-gray-600"
+                className=" w-7 h-7 md:w-5 md:h-5 text-brand-500 border-gray-300 rounded focus:ring-brand-500 dark:bg-gray-800 dark:border-gray-600"
                 checked={isChecked}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setIsChecked(e.target.checked)
                 }
               />
               <p className="font-normal text-gray-500 dark:text-gray-400 text-sm">
-                By creating an account means you agree to the{" "}
+                By creating an account, you agree to the{" "}
                 <span className="text-gray-800 dark:text-white/90">
-                  Terms and Conditions,
+                  Terms and Conditions
                 </span>{" "}
                 and our{" "}
                 <span className="text-gray-800 dark:text-white">
                   Privacy Policy
                 </span>
+                .
               </p>
             </div>
-            {/* Display API error if it exists */}
+
             {errors.apiError && (
               <div className="p-3 bg-red-100 text-red-700 rounded-md">
                 {errors.apiError}
               </div>
             )}
 
-            <button
-              type="submit"
-              disabled={!isFormValid}
-              className={`w-full px-4 py-2 text-sm font-medium text-white rounded-md transition ${
-                isFormValid
-                  ? "bg-brand-500 hover:bg-brand-600 focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
-                  : "bg-gray-400 cursor-not-allowed"
-              }`}
-            >
-              Sign Up
-            </button>
+            <div className="flex justify-center w-full">
+              <button
+                type="submit"
+                disabled={!isFormValid}
+                className={`w-full md:w-72 px-4 py-3 text-sm font-medium text-white rounded-md transition ${
+                  isFormValid
+                    ? "bg-brand-500 hover:bg-brand-600 focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
+                    : "bg-gray-400 cursor-not-allowed"
+                }`}
+              >
+                Sign Up
+              </button>
+            </div>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-700 dark:text-gray-400">
               Already have an account?{" "}
-              <span 
-                onClick={() => router.push(`/login?serviceid=${serviceid}&billingPeriod=${billingPeriod}&price=${price}`)}
-                className="text-brand-500 hover:text-brand-600 dark:text-brand-400 font-medium cursor-pointer "
+              <span
+                onClick={() =>
+                  router.push(
+                    `/login?serviceid=${serviceid}&billingPeriod=${billingPeriod}&price=${price}`
+                  )
+                }
+                className="text-brand-500 hover:text-brand-600 dark:text-brand-400 font-medium cursor-pointer"
               >
                 Sign In
               </span>

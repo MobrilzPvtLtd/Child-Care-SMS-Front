@@ -159,7 +159,7 @@ export default function LoginForm() {
     !!formData.email && !!formData.password && Object.keys(errors).length === 0;
 
   return (
-    <div className=" py-20 flex items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
+    <div className="flex items-center justify-center h-[80vh] bg-gray-50 dark:bg-gray-900 p-4">
       <div className="w-full max-w-md">
         <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
           <div className="flex justify-center pb-1">
