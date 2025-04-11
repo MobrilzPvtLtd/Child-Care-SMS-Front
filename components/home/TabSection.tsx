@@ -51,7 +51,7 @@ const TabSection: React.FC = () => {
         image: "/mba.jpg",
       },
       content: "Manage your childcare center with our all-in-one solution.",
-      image: "/smpleImg.png",
+      image: "/children.jpg",
     },
     billing: {
       title: "Simplify billing and get paid faster",
@@ -67,7 +67,7 @@ const TabSection: React.FC = () => {
         text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/mba.jpg",
       },
-      image: "/smpleImg.png",
+      image: "/children.jpg",
     },
     communication: {
       title: "Stay connected with families",
@@ -81,7 +81,7 @@ const TabSection: React.FC = () => {
         text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/mba.jpg",
       },
-      image: "/smpleImg.png",
+      image: "/children.jpg",
     },
     learning: {
       title: "Support child development",
@@ -95,7 +95,7 @@ const TabSection: React.FC = () => {
         text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/mba.jpg",
       },
-      image: "/smpleImg.png",
+      image: "/children.jpg",
     },
     childcare: {
       title: "Efficient childcare management",
@@ -110,7 +110,7 @@ const TabSection: React.FC = () => {
         text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/tech.jpg",
       },
-      image: "/smpleImg.png",
+      image: "/children.jpg",
     },
   };
 
@@ -169,7 +169,7 @@ const TabSection: React.FC = () => {
                       "/api/placeholder/80/80"
                     }
                     alt="Testimonial author"
-                    className="w-20 h-20 rounded-full object-cover border-2 border-gray-100"
+                    className="w-20 h-20  rounded-full object-cover border-2 border-gray-100"
                   />
                 </div>
                 <div className="flex-1">
@@ -185,7 +185,7 @@ const TabSection: React.FC = () => {
               </div>
             )}
           </div>
-          <div className="flex justify-center items-center border-s bg-gray-100 rounded-e-lg overflow-hidden">
+          <div className="flex justify-center items-center border-s bg-gray-100 rounded-e-lg overflow-hidden p-2">
             <img
               src={tabContent[activeTab].image}
               alt="Tab visual"

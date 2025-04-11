@@ -80,76 +80,15 @@ export default function Banner() {
           </div>
 
           {/* Right Column - App Screenshots */}
-          {/* <div className="w-full lg:w-1/2 relative">
+          <div className="w-full lg:w-1/2 relative">
             <div className="relative h-[400px] md:h-[500px]">
-            
-              <div className="absolute z-10 w-4/5 right-0 top-0">
-                <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-                  <div className="p-4">
-                    <div className="flex justify-between items-center mb-4">
-                      <div className="text-lg font-bold">Billing</div>
-                      <div></div>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <div>Open Invoices</div>
-                        <div className="text-gray-500">0%</div>
-                      </div>
-                      <div className="bg-teal-500 h-2 w-full rounded"></div>
-                      <div className="pt-4">Payments</div>
-                    </div>
-                    <div className="absolute top-8 right-8 bg-white border border-gray-200 shadow-md rounded-md p-2 flex items-center">
-                      <div className="w-4 h-4 bg-teal-500 rounded-full mr-2"></div>
-                      <span className="text-xs">All invoices paid!</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-          
-              <div className="absolute z-20 w-1/3 left-8 md:left-16 top-32">
-                <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-                  <div className="bg-indigo-500 p-2 text-white font-medium text-center">
-                    Messages
-                  </div>
-                  <div className="p-4">
-                    <div className="space-y-4">
-                     
-                      <div className="flex justify-end">
-                        <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                      </div>
-                      <div className="flex">
-                        <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                      </div>
-                      <div className="flex">
-                        <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            
-              <div className="absolute z-0 top-20 right-16 w-2/3">
-                <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-                  <div className="bg-indigo-500 p-2 text-white font-medium">
-                    Check in to Bluebird Preschool
-                  </div>
-                  <div className="p-4 grid grid-cols-2 gap-4">
-                    
-                    {[...Array(6)].map((_, i) => (
-                      <div key={i} className="flex flex-col items-center">
-                        <div className="w-12 h-12 bg-gray-300 rounded-full mb-2"></div>
-                        <button className="bg-teal-500 text-white text-xs px-3 py-1 rounded-full">
-                          Check in
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <img
+                src="/banner-img.jpg" // Replace this with your actual image path
+                alt="Dashboard Illustration"
+                className="absolute inset-0 w-full h-full object-cover rounded-xl shadow-xl"
+              />
             </div>
-          </div> */}
+          </div>
         </div>
       </main>
     </div>
