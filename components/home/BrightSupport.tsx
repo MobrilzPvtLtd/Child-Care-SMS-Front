@@ -111,7 +111,7 @@ const BrightSupport = () => {
             </button>
           </div>
 
-          <div className="lg:w-1/2  ">
+          <div className="lg:w-1/2 px-4 md:px-0 ">
             <img
               src="/support.jpg"
               alt="Customer support specialist with headset"

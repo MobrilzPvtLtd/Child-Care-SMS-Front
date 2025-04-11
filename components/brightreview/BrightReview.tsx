@@ -23,7 +23,7 @@ const BrightReview: React.FC = () => {
         Why millions of educators and families love Flowysis
       </h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-0">
         {/* Feature 1: Rating */}
         <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col items-center text-center">
           <div className="mb-4">

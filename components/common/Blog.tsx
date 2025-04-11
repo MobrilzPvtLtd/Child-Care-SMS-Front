@@ -42,7 +42,7 @@ const BlogPostCards = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-16 px-6">
-      <h2 className="text-4xl font-bold text-center mb-12">
+      <h2 className=" text-xl md:text-4xl font-bold text-center mb-12">
         Review the latest insights & resources about childcare software
       </h2>
       

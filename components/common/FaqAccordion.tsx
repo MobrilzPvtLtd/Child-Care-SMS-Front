@@ -40,14 +40,14 @@ const FAQAccordion = () => {
     <div className="max-w-7xl mx-auto py-5">
       <h2 className="text-4xl font-bold text-center mb-8">Frequently asked questions</h2>
       
-      <div className="divide-y divide-gray-200 px-20">
+      <div className="divide-y divide-gray-200 px-4 md:px-20">
         {faqItems.map((item, index) => (
-          <div key={index} className="p-4">
+          <div key={index} className="p-2 md:p-4">
             <button 
               onClick={() => toggleFAQ(index)}
               className="flex justify-between items-center w-full text-left py-2"
             >
-              <span className="font-semibold text-2xl text-gray-800">{item.question}</span>
+              <span className="font-semibold text-xl md:text-2xl text-gray-800">{item.question}</span>
               <span className="ml-6 flex-shrink-0">
                 {openIndex === index ? (
                   <Minus className="h-5 w-5 text-blue-500" />
@@ -58,8 +58,8 @@ const FAQAccordion = () => {
             </button>
             
             {openIndex === index && (
-              <div className="mt-2 text-sm  text-gray-600">
-                <p className="text-gray-500 font-medium text-lg">{item.answer}</p>
+              <div className="md:mt-2 text-sm  text-gray-600">
+                <p className="text-gray-500 font-medium text-base md:text-lg">{item.answer}</p>
               </div>
             )}
           </div>

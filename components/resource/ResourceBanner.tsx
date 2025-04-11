@@ -29,7 +29,7 @@ export default function ResourcesBanner() {
             </div>
 
             {/* Image */}
-            <div className="w-40 h-40 relative">
+            <div className="w-full h-60  md:w-40 md:h-40 relative rounded-lg">
               <Image
                 src="/children.jpg" // Make sure to add this image to your public folder
                 alt="Tax Preparation Checklist"

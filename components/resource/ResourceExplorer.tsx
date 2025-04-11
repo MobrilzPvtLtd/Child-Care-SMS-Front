@@ -146,6 +146,58 @@ const ResourceExplorer = () => {
         label: "Read Now",
       },
     },
+    {
+      id: 11,
+      title: "Encouraging Creativity in the Classroom",
+      description:
+        "Ideas and activities to encourage creativity and imagination in children.",
+      image: "plan3.png",
+      categories: ["Supporting students"],
+      type: "Blog post",
+      action: {
+        type: "readNow",
+        label: "Read Now",
+      },
+    },
+    {
+      id: 12,
+      title: "Encouraging Creativity in the Classroom",
+      description:
+        "Ideas and activities to encourage creativity and imagination in children.",
+      image: "plan3.png",
+      categories: ["Supporting students"],
+      type: "Blog post",
+      action: {
+        type: "readNow",
+        label: "Read Now",
+      },
+    },
+    {
+      id: 13,
+      title: "Encouraging Creativity in the Classroom",
+      description:
+        "Ideas and activities to encourage creativity and imagination in children.",
+      image: "plan3.png",
+      categories: ["Supporting students"],
+      type: "Blog post",
+      action: {
+        type: "readNow",
+        label: "Read Now",
+      },
+    },
+    {
+      id: 14,
+      title: "Encouraging Creativity in the Classroom",
+      description:
+        "Ideas and activities to encourage creativity and imagination in children.",
+      image: "plan3.png",
+      categories: ["Supporting students"],
+      type: "Blog post",
+      action: {
+        type: "readNow",
+        label: "Read Now",
+      },
+    },
   ];
 
   // Random style generator for category badges
@@ -192,7 +244,7 @@ const ResourceExplorer = () => {
   return (
     <div className="max-w-7xl mx-auto flex justify-center flex-col p-6">
       {/* Search Banner */}
-      <div className="bg-blue-800 rounded-lg p-6 mx-24 mb-8">
+      <div className="bg-blue-800 rounded-lg p-4 md:p-6 md:mx-24 mb-8">
         <h2 className="text-white text-xl font-bold mb-4">
           Ready to learn more? Explore all of our resources by topic.
         </h2>
