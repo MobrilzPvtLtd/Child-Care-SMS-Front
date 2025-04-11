@@ -18,7 +18,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) =
 
 const BrightReview: React.FC = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16">
+    <section className="max-w-7xl mx-auto px-4 py-28">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">
         Why millions of educators and families love brightwheel
       </h2>

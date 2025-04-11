@@ -1,28 +1,42 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoClose } from "react-icons/io5";
 
 export default function Header1() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <header className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-2">
+    <header
+      className={`bg-white shadow-md sticky top-0 z-50 transition-all duration-900`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2 px-4">
         {/* Logo */}
-        <div className="flex items-center">
-          <Image
-            src="/images/logo/logo copy.svg" // Replace with your actual logo path
-            alt="Brightwheel Logo"
-            width={200}
-            height={40}
-          />
+        <div className="flex items-center cursor-pointer">
+          <Link href="/">
+            <Image
+              src="/images/logo/logo copy.svg" // Replace with your actual logo path
+              alt="Brightwheel Logo"
+              width={200}
+              height={40}
+            />
+          </Link>
         </div>
 
         {/* Navigation */}
         <nav className="flex space-x-6">
           <div className="hidden md:flex space-x-8 font-medium text-black/90 text-xl mt-1">
-            <Link href="/" className="relative group">
+            <Link href="/solutions" className="relative group">
               Solutions
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
             </Link>
-            <Link href="resource" className="relative group">
+            <Link href="/resource" className="relative group">
               Resources
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
             </Link>
@@ -35,19 +49,89 @@ export default function Header1() {
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
             </Link>
           </div>
-          <Link
-            href="#"
-            className="bg-red-500 text-white px-4 py-1.5 rounded-md shadow-md hover:bg-red-600 transition"
-          >
-            Get a demo
-          </Link>
+          <div className="flex items-center space-x-4">
+            <Link
+              href="#"
+              className="hidden md:block bg-red-500 text-white px-2 md:px-4 py-1.5 rounded-md shadow-md hover:bg-red-600 transition"
+            >
+              Get a demo
+            </Link>
+            <div className="md:hidden flex items-center">
+              <GiHamburgerMenu
+                className="text-black text-xl font-bold cursor-pointer"
+                onClick={toggleSidebar}
+              />
+            </div>
+          </div>
         </nav>
-
-        {/* Mobile Menu (Optional) */}
-        <div className="md:hidden flex items-center">
-          <button className="text-blue-600">☰</button>
-        </div>
       </div>
+
+      {/* Sidebar */}
+      {isSidebarOpen && (
+        <div className="fixed inset-0 bg-black/80 bg-opacity-50 z-40 md:hidden">
+          <div className="fixed top-0 right-0 w-[75%] h-full bg-white shadow-lg z-50 flex flex-col justify-between">
+            {/* Header */}
+            <div className="flex items-center justify-between p-5 border-b">
+              <h2 className="text-lg font-semibold">Menu</h2>
+              <IoClose
+                className="text-2xl cursor-pointer"
+                onClick={toggleSidebar}
+              />
+            </div>
+
+            {/* Links */}
+            <ul className="flex flex-col items-center py-4 flex-grow space-y-6">
+              <li>
+                <Link
+                  href="/solutions"
+                  className="block text-gray-700 hover:text-blue-600 text-lg"
+                  onClick={toggleSidebar}
+                >
+                  Solutions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resource"
+                  className="block text-gray-700 hover:text-blue-600 text-lg"
+                  onClick={toggleSidebar}
+                >
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/pricing"
+                  className="block text-gray-700 hover:text-blue-600 text-lg"
+                  onClick={toggleSidebar}
+                >
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/login"
+                  className="block text-gray-700 hover:text-blue-600 text-lg"
+                  onClick={toggleSidebar}
+                >
+                  Log In
+                </Link>
+              </li>
+            </ul>
+
+            {/* Get a Demo Button */}
+            <div className="p-4 flex justify-center items-center">
+              <Link
+                href="#"
+                className="block w-56 text-center bg-red-500 text-white py-2 rounded-md shadow-md hover:bg-red-600 transition"
+                onClick={toggleSidebar}
+              >
+                Get a demo
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
