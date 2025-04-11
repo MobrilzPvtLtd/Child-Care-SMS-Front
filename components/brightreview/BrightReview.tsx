@@ -10,17 +10,17 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) =
   return (
     <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col items-center text-center">
       <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="font-semibold text-2xl my-4">{title}</h3>
+      <p className="text-slate-500 font-base text-lg my-1 flex-grow">{description}</p>
     </div>
   );
 };
 
 const BrightReview: React.FC = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-28">
+    <section className="max-w-7xl mx-auto py-20">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">
-        Why millions of educators and families love brightwheel
+        Why millions of educators and families love Flowysis
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -36,8 +36,8 @@ const BrightReview: React.FC = () => {
               ))}
             </div>
           </div>
-          <h3 className="text-xl font-semibold mb-2">#1 childcare software</h3>
-          <p className="text-gray-600">Ranked as leading childcare center software based on external reviews.</p>
+          <h3 className="font-semibold text-2xl my-4">#1 childcare software</h3>
+          <p className="text-slate-500 font-base text-lg my-1 flex-grow">Ranked as leading childcare center software based on external reviews.</p>
         </div>
         
         {/* Feature 2: Easy to use */}
@@ -50,7 +50,7 @@ const BrightReview: React.FC = () => {
             </div>
           }
           title="Easy to use & save time"
-          description="Simplify administrative tasks with brightwheel's all-in-one app & save up to 20 hrs per month."
+          description="Simplify administrative tasks with Flowysis's all-in-one app & save up to 20 hrs per month."
         />
         
         {/* Feature 3: Automatic billing */}
@@ -63,7 +63,7 @@ const BrightReview: React.FC = () => {
             </div>
           }
           title="Automatic billing & payments"
-          description="90% of preschools report that more families pay on time with brightwheel."
+          description="90% of preschools report that more families pay on time with Flowysis."
         />
         
         {/* Feature 4: Quality connections */}
@@ -76,7 +76,7 @@ const BrightReview: React.FC = () => {
             </div>
           }
           title="Quality connections"
-          description="95% of administrators & staff report brightwheel improves communication with families."
+          description="95% of administrators & staff report Flowysis improves communication with families."
         />
       </div>
     </section>

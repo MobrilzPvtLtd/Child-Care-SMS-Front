@@ -6,21 +6,22 @@ import BrightSupport from './BrightSupport'
 import RoleSelection from './RoleSeclection'
 import TestimonialsCarousel from './Testimonial'
 import Banner from './Banner'
-import Banner2 from './Banner2'
+import Banner2 from './Banner2' 
 import Footer from '../common/Footer/Footer'
-import Footer1 from '../common/Footer/Footer'
+import TabSection from './TabSection'
 
 function Home() {
   return (
     <> 
     <Banner/>
      <BrightReview/>
-     <Banner2/>
+     {/* <Banner2/> */}
+     < TabSection />
       <BrightSupport/>
       <TestimonialsCarousel/>
      <BrightwheelSection/> 
       {/* <RoleSelection/> */}
-      <Footer1/>
+      <Footer/>
     </>
   )
 }

@@ -1,5 +1,3 @@
-
-
 import { FaUsers, FaSchool, FaGraduationCap } from 'react-icons/fa';
 import Link from 'next/link';
 
@@ -27,25 +25,31 @@ const users = [
   },
 ];
 
-export default function BrightwheelSection() {
+export default function FlowysisSection() {
   return (
-    <section className="bg-blue-600 max-w-7xl mx-auto my-4 p-10 rounded-3xl text-white text-center">
-      <h2 className="text-2xl font-bold mb-6">Who uses brightwheel childcare software?</h2>
-      <div className="grid md:grid-cols-3 gap-6">
+    <section className="bg-blue-500 max-w-7xl mx-auto my-20 rounded-3xl text-white text-center">
+      <h2 className="text-4xl font-semibold py-10 tracking-wide">
+        Who uses Flowysis childcare software?
+      </h2>
+      <div className="grid md:grid-cols-3 gap-10 px-20 pb-20">
         {users.map((user, index) => (
           <div
             key={index}
-            className="bg-white text-black rounded-xl shadow-lg p-6 flex flex-col items-center text-center"
+            className="bg-white text-black rounded-xl shadow-lg p-8 flex flex-col items-center text-center h-full"
           >
             {user.icon}
-            <h3 className="font-semibold mt-4">{user.title}</h3>
-            <p className="text-gray-600 mt-2">{user.description}</p>
-            <Link
-              href={user.link}
-              className="text-blue-600 font-semibold mt-4 inline-flex items-center gap-1 hover:underline"
-            >
-              Learn more ➜
-            </Link>
+            <h3 className="font-semibold text-2xl my-4">{user.title}</h3>
+            <p className="text-slate-500 font-base text-lg my-1 flex-grow">
+              {user.description}
+            </p>
+            <div className="mt-auto">
+              <Link
+                href={user.link}
+                className="text-blue-600 text-lg font-semibold mt-4 inline-flex items-center gap-1 hover:underline"
+              >
+                Learn more ➜
+              </Link>
+            </div>
           </div>
         ))}
       </div>
