@@ -21,7 +21,7 @@ const Banner2 = () => {
             Faster, easier tax prep for you and your families
           </h2>
           <p className="mb-6">
-            Tax season doesn’t need to be stressful! Brightwheel can help you:
+            Tax season doesn’t need to be stressful! Flowysis can help you:
           </p>
           <ul className="space-y-4">
             <li className="flex items-start gap-2">

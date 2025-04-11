@@ -64,7 +64,7 @@ export default function CenterFeatures() {
     <section className="bg-gray-50 py-16 px-4">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-2">Everything you need to run your center</h2>
-        <p className="text-gray-600">Get access to 100+ features with brightwheel’s all-in-one platform</p>
+        <p className="text-gray-600">Get access to 100+ features with flowysis’s all-in-one platform</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
         {features.map((section, idx) => (

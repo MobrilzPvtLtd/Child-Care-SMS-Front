@@ -47,7 +47,7 @@ const TabSection: React.FC = () => {
       ],
       testimonial: {
         title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
-        text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        text: `We chose flowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/mba.jpg",
       },
       content: "Manage your childcare center with our all-in-one solution.",
@@ -64,7 +64,7 @@ const TabSection: React.FC = () => {
       ],
       testimonial: {
         title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
-        text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        text: `We chose flowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/mba.jpg",
       },
       image: "/children.jpg",
@@ -78,7 +78,7 @@ const TabSection: React.FC = () => {
       ],
       testimonial: {
         title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
-        text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        text: `We chose flowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/mba.jpg",
       },
       image: "/children.jpg",
@@ -92,7 +92,7 @@ const TabSection: React.FC = () => {
       ],
       testimonial: {
         title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
-        text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        text: `We choseflowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/mba.jpg",
       },
       image: "/children.jpg",
@@ -107,7 +107,7 @@ const TabSection: React.FC = () => {
       ],
       testimonial: {
         title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
-        text: `We chose brightwheel when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        text: `We chose flowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/tech.jpg",
       },
       image: "/children.jpg",

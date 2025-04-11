@@ -22,20 +22,19 @@ export default function ResourcesBanner() {
               <span className="inline-block bg-[#E8E9FD] text-[#4C5FD5] text-sm font-semibold px-3 py-1 rounded-full">
                 Featured
               </span>
-              <h2 className="mt-4 text-2xl font-bold">Tax Preparation Checklist</h2>
+              <h2 className="mt-4 text-2xl font-bold">Family Engagement Guide for Childcare Programs</h2>
               <p className="mt-2 text-gray-600">
-                A checklist for keeping track of important tasks and due dates
-                when filing ECE business taxes
+              A free guide to help you foster family engagement at your childcare program.
               </p>
             </div>
 
             {/* Image */}
             <div className="w-40 h-40 relative">
               <Image
-                src="/tax-checklist.png" // Make sure to add this image to your public folder
+                src="/children.jpg" // Make sure to add this image to your public folder
                 alt="Tax Preparation Checklist"
                 layout="fill"
-                className="object-contain rounded-xl"
+                className="object-contain rounded-2xl"
               />
             </div>
           </div>

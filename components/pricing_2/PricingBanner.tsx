@@ -5,12 +5,12 @@ import { FaSchool, FaHome, FaUserFriends, FaCheckCircle } from "react-icons/fa";
 const options = [
   {
     id: 1,
-    label: "I want brightwheel for my center",
+    label: "I want flowysis for my center",
     icon: <FaSchool className="text-4xl text-[#4C5FD5]" />,
   },
   {
     id: 2,
-    label: "My center already uses brightwheel",
+    label: "My center already uses flowysis",
     icon: <FaHome className="text-4xl text-[#4C5FD5]" />,
   },
   {

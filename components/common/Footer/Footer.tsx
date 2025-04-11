@@ -82,12 +82,12 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <img
             src="/images/appStore.png" // Replace with your actual logo path
-            alt="Brightwheel Logo"
+            alt="Flowysis Logo"
             className="w-full h-10" // Adjust size as needed
           />
           <img
             src="/images/playstore.png" // Replace with your actual logo path
-            alt="Brightwheel Logo"
+            alt="Flowysis Logo"
             className="w-full h-15" // Adjust size as needed
           />
         </div>

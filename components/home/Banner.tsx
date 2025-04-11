@@ -71,7 +71,7 @@ export default function Banner() {
 
               {/* Join School Link */}
               <div className="mt-8 text-white">
-                <span>Already use brightwheel? </span>
+                <span>Already use flowysis? </span>
                 <Link href="/join" className="font-bold underline hover:text-indigo-200 transition-colors">
                   Join your school
                 </Link>
