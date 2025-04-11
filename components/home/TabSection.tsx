@@ -130,7 +130,7 @@ const TabSection: React.FC = () => {
             key={tab.id}
             className={`px-5 py-2.5 rounded-full text-base font-medium transition-all duration-300 ${
               activeTab === tab.id
-                ? "bg-blue-600 text-white shadow-md"
+                ? "bg-blue-600 text-white shadow-lg"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
             onClick={() => setActiveTab(tab.id)}

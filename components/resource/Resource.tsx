@@ -4,6 +4,7 @@ import Header1 from '../common/Header/Header1'
 import Footer1 from '../common/Footer/Footer'
 import ContactForm from './ContactForm'
 import TrendingContent from './TrendingContent'
+import ResourceExplorer from './ResourceExplorer'
 
  function Resource() {
   return (
@@ -12,6 +13,7 @@ import TrendingContent from './TrendingContent'
      
     <ResourcesBanner/>
     <TrendingContent/>
+    < ResourceExplorer />
     <ContactForm/>
     <Footer1/>
     </>

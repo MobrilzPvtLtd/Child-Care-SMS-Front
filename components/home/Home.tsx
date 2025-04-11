@@ -1,5 +1,5 @@
 import React from 'react'
-import BrightwheelSection from '../brightwheel/BrightWheel'
+import FlowysisSection from '../brightwheel/BrightWheel'
 import Header1 from '../common/Header/Header1'
 import BrightReview from '../brightreview/BrightReview'
 import BrightSupport from './BrightSupport'
@@ -19,7 +19,7 @@ function Home() {
      < TabSection />
       <BrightSupport/>
       <TestimonialsCarousel/>
-     <BrightwheelSection/> 
+     <FlowysisSection/> 
       {/* <RoleSelection/> */}
       <Footer/>
     </>
