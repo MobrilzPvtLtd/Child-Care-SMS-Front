@@ -27,7 +27,7 @@ const users = [
 
 export default function FlowysisSection() {
   return (
-    <section className="bg-blue-500 max-w-7xl mx-auto my-20 rounded-3xl text-white text-center  ">
+    <section className="bg-[#6476FF] max-w-7xl mx-auto my-20 rounded-3xl text-white text-center  ">
       <h2 className="text-4xl font-semibold py-10 tracking-wide">
         Who uses Flowysis childcare software?
       </h2>

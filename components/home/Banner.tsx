@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Banner() {
   return (
-    <div className="min-h-screen bg-blue-500">
+    <div className="min-h-screen bg-[#6476FF]">
       {/* <Head>
         <title>Brightwheel - #1 Childcare Management Software</title>
         <meta name="description" content="Easy-to-use tools to simplify your day" />
@@ -28,7 +28,7 @@ export default function Banner() {
               <div className="space-y-4">
                 <button className="flex items-center justify-between w-full bg-white rounded-lg p-4 hover:bg-gray-50 transition-colors text-left">
                   <div className="flex items-center">
-                    <div className="bg-blue-500 p-2 rounded-md mr-3">
+                    <div className="bg-[#6476FF] p-2 rounded-md mr-3">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                       </svg>

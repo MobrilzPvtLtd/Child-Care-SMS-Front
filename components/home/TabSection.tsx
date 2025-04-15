@@ -151,7 +151,7 @@ const TabSection: React.FC = () => {
               {tabContent[activeTab].features?.map((feature, index) => (
                 <li key={index} className="flex items-start">
                   <div className="flex-shrink-0 h-6 w-6 text-blue-500">
-                    <div className="w-2 h-2 mt-2.5 bg-blue-500 rounded-full"></div>
+                    <div className="w-2 h-2 mt-2.5 bg-blue-400 rounded-full"></div>
                   </div>
                   <span className="ml-1 text-lg text-gray-600">{feature}</span>
                 </li>

@@ -43,7 +43,7 @@ const BrightReview: React.FC = () => {
         {/* Feature 2: Easy to use */}
         <FeatureCard
           icon={
-            <div className="bg-blue-500 rounded-full p-4 w-16 h-16 flex items-center justify-center">
+            <div className="bg-blue-400 rounded-full p-4 w-16 h-16 flex items-center justify-center">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>

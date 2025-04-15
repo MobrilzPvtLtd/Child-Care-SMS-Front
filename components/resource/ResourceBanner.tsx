@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ResourcesBanner() {
   return (
-    <section className="w-full bg-blue-500 text-white py-16 px-4 md:px-16">
+    <section className="w-full bg-blue-400 text-white py-16 px-4 md:px-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Left Content */}
         <div className="text-center md:text-left max-w-xl">

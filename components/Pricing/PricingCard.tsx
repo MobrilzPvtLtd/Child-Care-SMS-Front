@@ -96,7 +96,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         onClick={() => onClick()}
         className={`w-full py-3 px-4 rounded-md font-medium transition-colors duration-300 ${
           isPopular
-            ? "bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white"
+            ? "bg-blue-400 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white"
             : "bg-gray-800 hover:bg-gray-900 dark:bg-blue-600 dark:hover:bg-blue-700 text-white"
         }`}
       >

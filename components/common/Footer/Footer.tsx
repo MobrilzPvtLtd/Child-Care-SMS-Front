@@ -14,7 +14,7 @@ export default function Footer() {
         {/* Our Solutions */}
         <div>
           <h3 className="text-lg font-semibold mb-2">Our Solutions</h3>
-          <div className="h-1 w-8 bg-blue-500 mb-4" />
+          <div className="h-1 w-8 bg-blue-400 mb-4" />
           <ul className="space-y-2 text-base font-medium">
             <li>Preschools & Child Care</li>
             <li>Government & Network Partners</li>
@@ -117,7 +117,7 @@ export default function Footer() {
       </div>
 
       <p className="text-center text-sm text-gray-400 mt-6">
-        © 2025 Mobrilz. All rights reserved.
+        © 2025 Flowysis. All rights reserved.
       </p>
     </footer>
   );
