@@ -3,6 +3,8 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import Header1 from '../common/Header/Header1';
+import Header2 from '../common/Header/header2';
 
 export default function Banner() {
   return (
@@ -12,8 +14,9 @@ export default function Banner() {
         <meta name="description" content="Easy-to-use tools to simplify your day" />
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
+      <Header2/>
 
-      <main className="container mx-auto max-w-7xl px-4 py-12 md:py-16 lg:py-20">
+      <main className="container mx-auto max-w-7xl px-4 py-12 md:py-12 lg:py-12">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           {/* Left Column - Text and Buttons */}
           <div className="w-full lg:w-1/2 mb-12 lg:mb-0">

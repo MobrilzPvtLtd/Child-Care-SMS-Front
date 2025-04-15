@@ -1,27 +1,52 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 
 export default function Header1() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 35) {
+        // Scrolling down and past 45px
+        setIsHeaderVisible(true);
+      } else {
+        // At top or scrolling up within 45px
+        setIsHeaderVisible(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
     <header
-      className={`bg-white shadow-md sticky top-0 z-50 transition-all duration-900`}
+      className={`bg-white shadow-md sticky top-0 z-50 transition-all duration-900 ${
+        isHeaderVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-full h-0 overflow-hidden"
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2 px-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2 ">
         {/* Logo */}
-        <div className="flex items-center cursor-pointer">
+        <div className="flex items-center cursor-pointer py-2">
           <Link href="/">
             <Image
-              src="/images/logo/logo copy.svg" // Replace with your actual logo path
+              src="/images/logo/logo.png"
               alt="Brightwheel Logo"
               width={200}
               height={40}
