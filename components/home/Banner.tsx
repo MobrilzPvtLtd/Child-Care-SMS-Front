@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Banner() {
   return (
-    <div className="min-h-screen bg-[#6476FF]">
+    <div className="min-h-screen bg-[#5463d6]">
       {/* <Head>
         <title>Brightwheel - #1 Childcare Management Software</title>
         <meta name="description" content="Easy-to-use tools to simplify your day" />
@@ -20,7 +20,7 @@ export default function Banner() {
             <div className="max-w-md mx-auto lg:mx-0">
               <h2 className="text-white text-lg font-medium mb-3">#1 childcare management software</h2>
               <h1 className="text-white text-4xl md:text-5xl font-bold mb-8">
-                Easy-to-use tools to <span className="underline decoration-4 decoration-indigo-400">simplify your day</span>
+                Easy-to-use tools to <span className="underline decoration-4 decoration-white-400">simplify your day</span>
               </h1>
               <p className="text-white text-xl mb-6">First, tell us about yourself.</p>
               
@@ -28,7 +28,7 @@ export default function Banner() {
               <div className="space-y-4">
                 <button className="flex items-center justify-between w-full bg-white rounded-lg p-4 hover:bg-gray-50 transition-colors text-left">
                   <div className="flex items-center">
-                    <div className="bg-[#6476FF] p-2 rounded-md mr-3">
+                    <div className="bg-[#5463d6] p-2 rounded-md mr-3">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                       </svg>
