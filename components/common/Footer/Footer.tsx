@@ -16,12 +16,11 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-2">Our Solutions</h3>
           <div className="h-1 w-8 bg-blue-400 mb-4" />
           <ul className="space-y-2 text-base font-medium">
-            <li>Preschools & Child Care</li>
-            <li>Government & Network Partners</li>
+            <li>Preschools & Children Care</li>
+            <li>Centers</li>
+            <li>Schools</li>
             <li>Parents</li>
-            <li>COVID-19 Solutions</li>
-            <li>Nannies/Caregivers</li>
-            <li>Montessori</li>
+      
           </ul>
         </div>
 
