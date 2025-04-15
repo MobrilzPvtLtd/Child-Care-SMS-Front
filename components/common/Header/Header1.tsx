@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 
@@ -9,39 +10,43 @@ export default function Header1() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+    // Only apply scroll logic if not on /login, /pricing, or /signup routes
+    if (!["/login", "/pricing", "/signup"].includes(pathname)) {
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
 
-      if (currentScrollY > 35) {
-        // Scrolling down and past 45px
-        setIsHeaderVisible(true);
-      } else {
-        // At top or scrolling up within 45px
-        setIsHeaderVisible(false);
-      }
+        if (currentScrollY > 35) {
+          setIsHeaderVisible(true);
+        } else {
+          setIsHeaderVisible(false);
+        }
 
-      setLastScrollY(currentScrollY);
-    };
+        setLastScrollY(currentScrollY);
+      };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [lastScrollY, pathname]);
 
   return (
     <header
       className={`bg-white shadow-md sticky top-0 z-50 transition-all duration-900 ${
-        isHeaderVisible
+        ["/login", "/pricing", "/signup"].includes(pathname)
+          ? "opacity-100 translate-y-0"
+          : isHeaderVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 -translate-y-full h-0 overflow-hidden"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2 ">
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2">
         {/* Logo */}
         <div className="flex items-center cursor-pointer py-2">
           <Link href="/">

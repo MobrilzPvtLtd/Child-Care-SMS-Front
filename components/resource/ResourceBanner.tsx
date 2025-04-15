@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Header2 from "../common/Header/header2";
 
 export default function ResourcesBanner() {
   return (
-    <section className="w-full bg-blue-400 text-white py-16 px-4 md:px-16">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+    <div className="w-full bg-[#5463d6] text-white ">
+      <Header2 />
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 py-16 ">
         {/* Left Content */}
         <div className="text-center md:text-left max-w-xl">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
@@ -22,9 +24,12 @@ export default function ResourcesBanner() {
               <span className="inline-block bg-[#E8E9FD] text-[#4C5FD5] text-sm font-semibold px-3 py-1 rounded-full">
                 Featured
               </span>
-              <h2 className="mt-4 text-2xl font-bold">Family Engagement Guide for Childcare Programs</h2>
+              <h2 className="mt-4 text-2xl font-bold">
+                Family Engagement Guide for Childcare Programs
+              </h2>
               <p className="mt-2 text-gray-600">
-              A free guide to help you foster family engagement at your childcare program.
+                A free guide to help you foster family engagement at your
+                childcare program.
               </p>
             </div>
 
@@ -47,6 +52,6 @@ export default function ResourcesBanner() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
