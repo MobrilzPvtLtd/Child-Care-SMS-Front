@@ -32,7 +32,7 @@ const TabSection: React.FC = () => {
     { id: "billing", label: "Billing & finances" },
     { id: "communication", label: "Communication" },
     { id: "learning", label: "Learning" },
-    { id: "childcare", label: "Childcare management" },
+    { id: "childcare", label: "Management software" },
   ];
 
   const tabContent: TabContentCollection = {
@@ -119,7 +119,7 @@ const TabSection: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Your complete preschool & childcare software system
+        Your complete management software system 
         </h1>
       </div>
 

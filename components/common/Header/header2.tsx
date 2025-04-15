@@ -16,7 +16,7 @@ export default function Header2() {
         <div className="flex items-center cursor-pointer">
           <Link href="/">
             <Image
-              src="/images/logo/logo-dark.svg"
+              src="/images/logo/whitelogo.png"
               alt="Brightwheel Logo"
               width={200}
               height={40}

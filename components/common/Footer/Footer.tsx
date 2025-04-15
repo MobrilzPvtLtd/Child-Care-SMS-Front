@@ -31,13 +31,14 @@ export default function Footer() {
           <ul className="space-y-2 text-base font-medium">
             <li>Billing/Payments</li>
 
-            <li>Payroll</li>
+            <li>Communcation</li>
 
-            <li>Attendance tracking</li>
-            <li>Communication</li>
-            <li>Center Management</li>
-            <li>Daily Activity Report</li>
-            <li>Lesson Plans</li>
+            <li>Centers management </li>
+            <li>Daily Activities</li>
+            <li>Class Management</li>
+            <li>App</li>
+            <li>family engagement </li>
+            <li>staff management</li>
           </ul>
         </div>
 
