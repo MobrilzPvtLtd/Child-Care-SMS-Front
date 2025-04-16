@@ -1,9 +1,6 @@
 // pages/index.tsx
-import React from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import Header1 from '../common/Header/Header1';
+import React from 'react'; 
+import Link from 'next/link'; 
 import Header2 from '../common/Header/header2';
 
 export default function Banner() {

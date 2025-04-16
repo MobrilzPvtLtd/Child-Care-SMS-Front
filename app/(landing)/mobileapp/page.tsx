@@ -1,12 +1,11 @@
-import Banner from "@/components/Billing/Banner"; 
-import Review from "@/components/Billing/Review";
 import BlogPostCards from "@/components/common/Blog";
 import FAQAccordion from "@/components/common/FaqAccordion";
 import Footer from "@/components/common/Footer/Footer";
-import TabSection from "@/components/Communication/CommunicationTab";
-import FlowysisSection from "@/components/DetailUser/DetailUser";
-import BrightSupport from "@/components/home/BrightSupport";
+import FlowysisSection from "@/components/DetailUser/DetailUser"; 
 import TestimonialsCarousel from "@/components/home/Testimonial";
+import Banner from "@/components/Overview/Banner";
+import TabSection from "@/components/Overview/OverviewTab";
+import Review from "@/components/Overview/Review";
 import React from "react";
 
 function page() {
@@ -18,7 +17,7 @@ function page() {
       <TestimonialsCarousel />
       <FlowysisSection />
       <FAQAccordion />
-      <BlogPostCards /> 
+      <BlogPostCards />
       <Footer />
     </>
   );
