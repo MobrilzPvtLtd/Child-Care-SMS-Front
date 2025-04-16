@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter from Next.js
 
 interface TabData {
   id: string;
   label: string;
+  link: string;
 }
 
 interface TestimonialData {
@@ -26,13 +28,14 @@ interface TabContentCollection {
 
 const TabSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("overview");
+  const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
-    { id: "overview", label: "Overview" },
-    { id: "billing", label: "Billing & finances" },
-    { id: "communication", label: "Communication" },
-    { id: "learning", label: "Learning" },
-    { id: "childcare", label: "Management software" },
+    { id: "overview", label: "Overview", link: "/overview" },
+    { id: "billing", label: "Billing & finances", link: "/billing" },
+    { id: "communication", label: "Communication", link: "/communication" },
+    { id: "learning", label: "Learning", link: "/learning" },
+    { id: "childcare", label: "Management software", link: "/childcare" },
   ];
 
   const tabContent: TabContentCollection = {
@@ -92,7 +95,7 @@ const TabSection: React.FC = () => {
       ],
       testimonial: {
         title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
-        text: `We choseflowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        text: `We chose flowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
         image: "/mba.jpg",
       },
       image: "/children.jpg",
@@ -114,12 +117,20 @@ const TabSection: React.FC = () => {
     },
   };
 
+  // Function to handle navigation on "Learn more" click
+  const handleLearnMore = () => {
+    const activeTabData = tabs.find((tab) => tab.id === activeTab);
+    if (activeTabData) {
+      router.push(activeTabData.link);
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto font-sans">
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-        Your complete management software system 
+          Your complete management software system
         </h1>
       </div>
 
@@ -157,7 +168,10 @@ const TabSection: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <button className="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-md text-base transition-colors duration-300">
+            <button
+              className="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-md text-base transition-colors duration-300"
+              onClick={handleLearnMore} // Add onClick handler
+            >
               Learn more
             </button>
             {tabContent[activeTab].testimonial && (
@@ -169,12 +183,12 @@ const TabSection: React.FC = () => {
                       "/api/placeholder/80/80"
                     }
                     alt="Testimonial author"
-                    className="w-20 h-20  rounded-full object-cover border-2 border-gray-100"
+                    className="w-20 h-20 rounded-full object-cover border-2 border-gray-100"
                   />
                 </div>
                 <div className="flex-1">
                   <div className="text-base font-medium text-slate-600">
-                    &quot;{tabContent[activeTab].testimonial?.text}&quot;
+                    "{tabContent[activeTab].testimonial?.text}"
                   </div>
                   <div className="mt-3">
                     <p className="text-sm font-semibold text-slate-500">
@@ -189,7 +203,7 @@ const TabSection: React.FC = () => {
             <img
               src={tabContent[activeTab].image}
               alt="Tab visual"
-              className="w-full "
+              className="w-full"
             />
           </div>
         </div>
