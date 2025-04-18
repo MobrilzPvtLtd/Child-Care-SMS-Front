@@ -26,7 +26,7 @@ const Review: React.FC = () => {
   return (
     <section className="max-w-7xl mx-auto py-20">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">
-      How Flowysis streamlines communication
+      Why educators love Flowysis with Experience Curriculum
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-0">
@@ -50,8 +50,8 @@ const Review: React.FC = () => {
               </svg>
             </div>
           }
-          title="Real-time messaging"
-          description="Communicate instantly with families and staff. Send messages directly from the app or web platform."
+          title="All-in-one education platform"
+          description="Access lessons, assessments, messaging, billing, admissions, and more"
         />
 
         {/* Feature 2: Easy to use */}
@@ -74,8 +74,8 @@ const Review: React.FC = () => {
               </svg>
             </div>
           }
-          title="Easier staff communication"
-          description="Enable select staff to message families quickly and easily. Offer real-time support to your staff and respond to questions instantly."
+          title="Save educators hours every month"
+          description="Complete curriculum system with learning materials and digital lessons."
         />
 
         {/* Feature 3: Automatic billing */}
@@ -98,8 +98,8 @@ const Review: React.FC = () => {
               </svg>
             </div>
           }
-          title="SMS alerts and newsletters"
-          description="Send SMS alerts, reminders, or newsletters. Communicate with an individual family, a whole classroom, or the entire program."
+          title="Enhance program quality"
+          description="Aligned to all 50 states’ early learning standards and NAEYC."
         />
 
         {/* Feature 4: Quality connections */}
@@ -122,8 +122,8 @@ const Review: React.FC = () => {
               </svg>
             </div>
           }
-          title="Centralized communication"
-          description="Simplify family communication. Make it easy for families to get in touch with you and access messages in one place."
+          title="Support child development"
+          description="Make observations and share progress updates with families."
         />
       </div>
     </section>

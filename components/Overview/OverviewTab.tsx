@@ -99,7 +99,7 @@ const TabSection: React.FC = () => {
     mobileapp: {
       title: "Run your program from your phone",
       features: [
-        "Everything you do on the brightwheel mobile app syncs to the web",
+        "Everything you do on the Flowysis mobile app syncs to the web",
         "Message all parents at the same time or send direct messages for private conversations",
         "Enable teachers to access lesson plans and curriculum on mobile devices", 
       ],
@@ -125,7 +125,7 @@ const TabSection: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-        Automate and save time with brightwheel
+        Automate and save time with Flowysis
         </h1>
       </div>
 

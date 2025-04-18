@@ -1,23 +1,25 @@
-import Footer from "@/components/common/Footer/Footer";
+import BlogPostCards from "@/components/common/Blog";
+import FAQAccordion from "@/components/common/FaqAccordion";
+import Footer from "@/components/common/Footer/Footer";  
 import FlowysisSection from "@/components/DetailUser/DetailUser";
-import Banner from "@/components/home/Banner";
-import BrightSupport from "@/components/home/BrightSupport";
-import TabSection from "@/components/home/TabSection";
 import TestimonialsCarousel from "@/components/home/Testimonial";
-import BrightReview from "@/components/review/Review";
+import Banner from "@/components/Learning/Banner";
+import TabSection from "@/components/Learning/LearningTab";
+import PartnershipBanner from "@/components/Learning/PartnershipBanner";
+import Review from "@/components/Learning/Review";
+
 import React from "react";
 
 function page() {
   return (
     <>
-      <Banner />
-      <BrightReview />
-      {/* <Banner2/> */}
+      <Banner /> 
+      <Review />
       <TabSection />
-      <BrightSupport />
+      <PartnershipBanner />
       <TestimonialsCarousel />
       <FlowysisSection />
-      {/* <RoleSelection/> */}
+      <FAQAccordion />
       <Footer />
     </>
   );

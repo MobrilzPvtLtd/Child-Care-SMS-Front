@@ -27,70 +27,65 @@ interface TabContentCollection {
 }
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("familymessaging");
+  const [activeTab, setActiveTab] = useState<string>("overview"); // Default active tab
   const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
-    { id: "familymessaging", label: "Family messaging" },
-    { id: "staffmessaging", label: "Staff messaging" },
-    { id: "studentactivityfeed", label: "Student activity feed" },
-    { id: "smsalerts", label: "SMS alerts" },
-    { id: "newsletters", label: "Newsletters" },
+    { id: "overview", label: "Overview" },
+    { id: "experiencecurriculum", label: "Experience Curriculum" },
+    { id: "monthlykits", label: "Monthly kits" },
+    { id: "assessments", label: "Assessments" },
+    { id: "familysharing", label: "Family Sharing" },
   ];
 
   const tabContent: TabContentCollection = {
-    familymessaging: {
-      title: "Flowysis's all-in-one childcare software allows you to:",
+    overview: {
+      title: "Your complete education companion",
       features: [
-        "Quickly set up billing, create billing plans for multiple students, and automate invoicing tasks.",
-        "Specify payment amounts across multiple payers and enable automatic payment notifications.",
-        "Centralize tracking with a complete view of your finances across agency and family payers.",
-        "Access reports and billing data to see balances, deposits, transactions, revenue, and more.",
+        "Access Experience Curriculum right from the Flowysis app",
+        "Receive a monthly delivery of learning supplies",
+        "Easily match the lessons in the app to the materials in the monthly curriculum kits",
       ],
 
       content: "Manage your childcare center with our all-in-one solution.",
       image: "/children.jpg",
     },
-    billing: {
-      title: "Make billing easier for you and your families",
+    experiencecurriculum: {
+      title: "Engaging learning experiences",
       features: [
-        "Flexible billing plans: Easily edit a billing plan, set plans to recur on a regular basis, add discounts, and divvy up charges between payers.",
-        "Convenient one-time charges: Quickly bill families for one-time fees and send invoices immediately or schedule them for a future date.",
-        "Effortless attendance-based invoicing: Charge accounts based on check-in records.",
-        "Protect your business: Your information is protected using best-in-class security and compliance standards.",
-        "Less tax work: We notify families when their tax statements are ready for self-serve access. You don’t have to do a thing!",
+        "Incorporates 35 research-based skills into playful games and discovery projects",
+        "Flexible lesson plans for baby, toddler, and preschool age groups",
+        "Easily match the lessons in the app to the materials in the monthly curriculum kits",
       ],
 
       image: "/children.jpg",
     },
-    payments: {
-      title: "Conveniently manage your program’s payments online",
+    monthlykits: {
+      title: "Engaging learning experiences",
       features: [
-        "Offer multiple payment methods: Payers can choose preferred payment methods, from ACH bank transfers to debit and credit cards.",
-        "Autopay: Invite families to enroll in autopay to ensure payments are submitted on time, and families never worry about late fees.",
-        "Automated payment alerts: Know immediately when tuition payments with a credit or debit card failed.",
-        "NEW: For Canadian schools, you can now accept online payments via credit/debit card or PADs and receive them directly in your deposit account.",
+        "Incorporates 35 research-based skills into playful games and discovery projects",
+        "Flexible lesson plans for baby, toddler, and preschool age groups",
+        "Daily learning activities integrate social emotional, physical, cognitive learning and more",
       ],
 
       image: "/children.jpg",
     },
-    tracking: {
-      title: "Track childcare payments end-to-end",
+    assessments: {
+      title: "Easy observations and progress tracking",
       features: [
-        "Customizable Billing Dashboard: Stay informed with a real time snapshot of account balances, payments & cash flow.",
-        "Save time with subsidy management: Set up recurring bill plans, log agency payments, and waive balances.",
-        "Fast deposits: Funds are deposited into your account as soon as the next business day if the payment is submitted by 7 pm ET.",
+        "Daily embedded assessment to monitor each child’s growth",
+        "Assessments are designed for ages 0-5 years old",
+        "Easily view and export a report summary of a child’s developmental benchmarks",
       ],
 
       image: "/children.jpg",
     },
-    reporting: {
-      title: "Offer administrators full access to reports & data",
+    familysharing: {
+      title: "Your complete education companion",
       features: [
-        "Centralize record keeping: Keep track of your balances, payments, and cash flow in one place.",
-        "Instant statements: View, download, and print billing and tax statements in seconds.",
-        "Integrate with Quickbooks: Easily transfer your billing data into Quickbooks Online.",
-        "Individualized Payment & Credit Reports: Access payment and credit information for each individual student.",
+        "Capture and share learning progress with photos in the Flowysis app",
+        "Use preloaded notes for faster observation tracking and sharing",
+        "Add observations to the customized daily reports that are emailed to families who opt-in", 
       ],
 
       image: "/children.jpg",

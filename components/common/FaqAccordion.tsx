@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
 const FAQAccordion = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
   
   const faqItems = [
     {

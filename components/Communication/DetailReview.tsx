@@ -22,7 +22,7 @@ const DetailReview = () => {
         <div className="w-full md:w-1/2 p-6 md:p-8">
           <div className="text-6xl text-blue-400 font-serif mb-4">"</div>
           <p className="text-xl md:text-2xl text-gray-800 font-medium mb-6">
-            Parent communication has drastically improved thanks to brightwheel. We've seen better 
+            Parent communication has drastically improved thanks to Flowysis. We've seen better 
             communication both from teachers to parents and parents to teachers, which has been 
             so nice to see.
           </p>
