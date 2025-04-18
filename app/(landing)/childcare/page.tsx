@@ -1,23 +1,25 @@
+import Banner from "@/components/Childcare/Banner";
+import ChildcareOperationsSection from "@/components/Childcare/ChildcareOperationsSection";
+import ChildcareReview from "@/components/Childcare/ChildcareReview";
+import TabSection from "@/components/Childcare/ChildcareTab";
+import Review from "@/components/Childcare/Review";
+import BlogPostCards from "@/components/common/Blog";
+import FAQAccordion from "@/components/common/FaqAccordion";
 import Footer from "@/components/common/Footer/Footer";
 import FlowysisSection from "@/components/DetailUser/DetailUser";
-import Banner from "@/components/home/Banner";
-import BrightSupport from "@/components/home/BrightSupport";
-import TabSection from "@/components/home/TabSection";
-import TestimonialsCarousel from "@/components/home/Testimonial";
-import BrightReview from "@/components/review/Review";
 import React from "react";
 
 function page() {
   return (
     <>
       <Banner />
-      <BrightReview />
-      {/* <Banner2/> */}
+      <ChildcareReview />
+      <Review />
       <TabSection />
-      <BrightSupport />
-      <TestimonialsCarousel />
+      <ChildcareOperationsSection />
       <FlowysisSection />
-      {/* <RoleSelection/> */}
+      <FAQAccordion />
+      <BlogPostCards />
       <Footer />
     </>
   );
