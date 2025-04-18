@@ -81,11 +81,11 @@ const TabSection: React.FC = () => {
       image: "/children.jpg",
     },
     familysharing: {
-      title: "Your complete education companion",
+      title: "Keep families in the know",
       features: [
-        "Capture and share learning progress with photos in the Flowysis app",
+        "Capture and share learning progress with photos in the brightwheel app",
         "Use preloaded notes for faster observation tracking and sharing",
-        "Add observations to the customized daily reports that are emailed to families who opt-in", 
+        "Add observations to the customized daily reports that are emailed to families who opt-in",
       ],
 
       image: "/children.jpg",
@@ -97,7 +97,7 @@ const TabSection: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Build quality connections with families and staff
+          Enhance learning, connection, and growth
         </h1>
       </div>
 
