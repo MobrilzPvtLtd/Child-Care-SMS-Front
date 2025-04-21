@@ -129,7 +129,7 @@ const CustomerCard = () => {
           {/* Content */}
           <div className="text-left md:w-1/2">
             <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              “Brightwheel has been so easy to roll out. We started with parent
+              “Flowysis has been so easy to roll out. We started with parent
               communication and ended with billing. It has been a tremendous
               blessing to our school."
             </p>

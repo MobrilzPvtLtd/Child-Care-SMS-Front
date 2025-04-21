@@ -1,5 +1,8 @@
+import BlogCard from "./BlogCard";
+
 export default function BlogBanner() {
     return (
+        <>  
       <section className="relative bg-[#f1f4f9] py-20 text-center overflow-hidden">
         {/* Lightbulb Illustration (Top Left) */}
         <img
@@ -28,6 +31,8 @@ export default function BlogBanner() {
           </h1>
         </div>
       </section>
+      <BlogCard/>
+      </>
     );
   }
   
