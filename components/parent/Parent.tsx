@@ -3,14 +3,16 @@ import ShowFeature from './ShowFeature'
 import ParentForm from './ParentForm'
 import ParentCard from './ParentCard'
 import Header2 from '../common/Header/header2'
-import Banner from '../home/Banner'
+import Banner from './Banner'
 import Footer from '../common/Footer/Footer'
+// import SubHeader from '../common/SubHeader'
 
 const Parent = () => {
   return (
     <div>
         {/* <Header2/> */}
-        
+        <Banner/>
+        {/* <SubHeader activeItem="invite" /> */}
       <ShowFeature/>
       <ParentForm/>
       <ParentCard/>
