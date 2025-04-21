@@ -4,8 +4,7 @@ import Review from "@/components/Billing/Review";
 import BlogPostCards from "@/components/common/Blog";
 import FAQAccordion from "@/components/common/FaqAccordion";
 import Footer from "@/components/common/Footer/Footer"; 
-import FlowysisSection from "@/components/DetailUser/DetailUser";
-import BrightSupport from "@/components/home/BrightSupport";
+import FlowysisSection from "@/components/DetailUser/DetailUser"; 
 import TestimonialsCarousel from "@/components/home/Testimonial";
 import React from "react";
 

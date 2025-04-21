@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"; // Import useRouter from Next.js
 interface TabData {
   id: string;
   label: string;
-  link: string;
+  link?: string;
 }
 
 interface TestimonialData {
@@ -27,67 +27,71 @@ interface TabContentCollection {
 }
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("paperwork");
+  const [activeTab, setActiveTab] = useState<string>("roommanagement");
   const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
-    { id: "paperwork", label: "Paperwork", link: "/paperwork" },
-    { id: "enrollment", label: "Enrollment", link: "/enrollment" },
-    { id: "staffmanagement", label: "Staff management", link: "/staff" },
-    { id: "classroommanagement", label: "Classroom management", link: "/classroom" },
+    { id: "roommanagement", label: "Room management" },
+    { id: "studentprofiles", label: "Student profiles" },
+    { id: "lessonplanning", label: "Lesson planning" },
+    { id: "familyengagement", label: "Family engagement" },
+    { id: "dailyschedules", label: "Daily schedules" },
   ];
 
   const tabContent: TabContentCollection = {
-    paperwork: {
-      title: "Organize forms and documents",
+    roommanagement: {
+      title: "Maximize your classroom time",
       features: [
-        "Create fillable PDFs and customize form templates to meet your business needs",
-        "Share critical documents with families directly in Flowysis and collect digital signatures",
-        "Manage form status or request changes from one central dashboard",
-        "Easily distribute handbooks, policies, or calendars to specific rooms or your entire program",
-      ],
-
+        "Assign students to specific rooms, making it easy to plan activities and track attendance",
+        "Streamline transitions by quickly moving children from one classroom or activity to another with a few taps on your device",
+        "Set custom capacity limits and ratios for each room and check them at any time with real-time data",
+        "Track student attendance from the app for one or multiple students at once",
+      ], 
       content: "Manage your childcare center with our all-in-one solution.",
       image: "/children.jpg",
     },
-    enrollment: {
-      title: "Grow your enrollment",
+    studentprofiles: {
+      title: "Organize student information",
       features: [
-        "Increase enrollment by making it easy for families to apply online",
-        "Manage your waitlist with ease by automatically enrolling incoming families to your program",
-        "See your true enrollment with FTE reporting and make informed staffing and enrollment decisions to maximize your revenue",
-        "Message prospective families directly from your admissions dashboard",
+        "Document and track each child's unique milestones and development in a custom, digital profile.",
+        "Easily record observations, notes, and assessments to inform lesson planning and family-teacher conferences",
+        "Keep accurate records of attendance and behavior incidents, providing a comprehensive overview of each child's progress",
+        "Generate attendance and learning reports to gain insights into classroom trends and outcomes",
       ],
-      image: "/children.jpg",
-    },
-    staffmanagement: {
-      title: "Enhance your staff experience",
-      features: [
-        "Simplify staff schedule creation and communicate changes quickly",
-        "Manage staff permissions and roles at multiple locations by utilizing Flowysis’s multi-site dashboard",
-        "Access comprehensive profiles for each staff member, including contact information, certifications, and training",
-        "Facilitate clear and direct communication with staff members via integrated messaging, enhancing collaboration",
-      ],
-      image: "/children.jpg",
-    },
-    classroommanagement: {
-      title: "Improve your classroom management",
-      features: [
-        "Track room capacity and staff-to-child ratios in real-time to adhere to licensing requirements",
-        "Record student contact, meal type, billing, and health information in digital student profiles",
-        "Monitor each child’s developmental progress and log observations directly in the app",
-        "Share classroom highlights and milestones instantly, keeping families engaged in their child's learning",
-      ],
-      image: "/children.jpg",
-    },
-  };
 
-  // Function to handle navigation on "Learn more" click
-  const handleLearnMore = () => {
-    const activeTabData = tabs.find((tab) => tab.id === activeTab);
-    if (activeTabData) {
-      router.push(activeTabData.link);
-    }
+      image: "/children.jpg",
+    },
+    lessonplanning: {
+      title: "Save time on lesson planning",
+      features: [
+        "Create your own curriculum or upgrade to get Experience Curriculum directly in the app",
+        "Use existing lesson plan templates to save time or add custom learning activities to lessons",
+        "Quickly rearrange learning activities using the drag and drop feature and view the description and supplies needed",
+        "Log student observations following a set of state standards or learning frameworks",
+      ], 
+      image: "/children.jpg",
+    },
+    familyengagement: {
+      title: "Increase family involvement",
+      features: [
+        "Use messaging to build a strong, supportive network among families and staff at your center.",
+        "Share classroom highlights and milestones instantly, keeping families engaged in their child's learning",
+        "Enable families to stay informed with direct access to their child's profile through the brightwheel app",
+        "Communicate confidentially with secure in-app messaging that safeguards family privacy",
+      ],
+
+      image: "/children.jpg",
+    },
+    dailyschedules: {
+      title: "Simplify your daily routine",
+      features: [
+        "Develop comprehensive schedules encompassing all aspects of a child's day, including classroom activities, meals, and rest periods",
+        "Cater to diverse scheduling requirements by offering part-time, full-time, and flexible attendance options",
+        "Monitor anticipated or scheduled staff and student absences to effectively manage class capacities and ratios",
+        "Use customizable templates for creating student schedules, streamlining your daily workflow",
+      ], 
+      image: "/children.jpg",
+    },
   };
 
   return (
@@ -95,7 +99,7 @@ const TabSection: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Save time and streamline your operations with Flowysis
+          Explore these key billing and payment features
         </h1>
       </div>
 
@@ -119,7 +123,7 @@ const TabSection: React.FC = () => {
       {/* Content Area with animation */}
       <div className="mt-8 transition-all duration-500 ease-in-out">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border-2 border-gray-100 rounded-xl shadow-lg">
-          <div className="space-y-6 p-10">
+          <div className="space-y-6 pb-28 p-10">
             <h2 className="text-2xl font-bold text-gray-800">
               {tabContent[activeTab].title}
             </h2>
@@ -133,12 +137,7 @@ const TabSection: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <button
-              className="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-md text-base transition-colors duration-300"
-              onClick={handleLearnMore} // Add onClick handler
-            >
-              Learn more
-            </button>
+
             {tabContent[activeTab].testimonial && (
               <div className="flex items-start gap-4 p-5 bg-white border border-blue-100 rounded-lg shadow-md">
                 <div className="flex-shrink-0">

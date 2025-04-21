@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"; // Import useRouter from Next.js
 interface TabData {
   id: string;
   label: string;
-  link: string;
+  link?: string;
 }
 
 interface TestimonialData {
@@ -27,67 +27,60 @@ interface TabContentCollection {
 }
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("paperwork");
+  const [activeTab, setActiveTab] = useState<string>("fillabledocuments");
   const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
-    { id: "paperwork", label: "Paperwork", link: "/paperwork" },
-    { id: "enrollment", label: "Enrollment", link: "/enrollment" },
-    { id: "staffmanagement", label: "Staff management", link: "/staff" },
-    { id: "classroommanagement", label: "Classroom management", link: "/classroom" },
+    { id: "fillabledocuments", label: "Fillable documents" },
+    { id: "documentrequests", label: "Document requests" },
+    { id: "enrollmentcontracts", label: "Enrollment contracts" },
+    { id: "digitalsharing", label: "Digital sharing" },
   ];
 
   const tabContent: TabContentCollection = {
-    paperwork: {
-      title: "Organize forms and documents",
+    fillabledocuments: {
+      title: "Make form completion easy for families",
       features: [
-        "Create fillable PDFs and customize form templates to meet your business needs",
-        "Share critical documents with families directly in Flowysis and collect digital signatures",
-        "Manage form status or request changes from one central dashboard",
-        "Easily distribute handbooks, policies, or calendars to specific rooms or your entire program",
+        "Create fillable PDFs and forms from Flowysis and share them directly with families—no downloads or external software necessary",
+        "Add custom fields to ensure all important details are captured",
+        "Pre-fill certain elements on documents, such as school-specific information, before sending to families",
+        "Easily view form status, approve, request further changes, or delete a form ",
       ],
 
       content: "Manage your childcare center with our all-in-one solution.",
       image: "/children.jpg",
     },
-    enrollment: {
-      title: "Grow your enrollment",
+    documentrequests: {
+      title: "Streamline document collection",
       features: [
-        "Increase enrollment by making it easy for families to apply online",
-        "Manage your waitlist with ease by automatically enrolling incoming families to your program",
-        "See your true enrollment with FTE reporting and make informed staffing and enrollment decisions to maximize your revenue",
-        "Message prospective families directly from your admissions dashboard",
+        "Request key documents from families, such as immunization records and birth certificates, directly within Flowysis",
+        "Reduce manual work by creating, sending, and tracking childcare forms in one place",
+        "Provide families with downloadable PDFs that they can fill out and re-upload to Flowysis, eliminating the need for paper forms",
+        "Search for a specific form, filter by status, or order by recent activity or name",
       ],
       image: "/children.jpg",
     },
-    staffmanagement: {
-      title: "Enhance your staff experience",
+    enrollmentcontracts: {
+      title: "Simplify your enrollment process",
       features: [
-        "Simplify staff schedule creation and communicate changes quickly",
-        "Manage staff permissions and roles at multiple locations by utilizing Flowysis’s multi-site dashboard",
-        "Access comprehensive profiles for each staff member, including contact information, certifications, and training",
-        "Facilitate clear and direct communication with staff members via integrated messaging, enhancing collaboration",
+        "Increase enrollment by giving families an easy way to apply online",
+        "Customize your enrollment contracts and collect signatures digitally",
+        "Set required fields in forms to eliminate incomplete paperwork",
+        "Manage your admissions digitally without pen and paper",
       ],
       image: "/children.jpg",
     },
-    classroommanagement: {
-      title: "Improve your classroom management",
+    digitalsharing: {
+      title: "Share childcare forms quickly and easily",
       features: [
-        "Track room capacity and staff-to-child ratios in real-time to adhere to licensing requirements",
-        "Record student contact, meal type, billing, and health information in digital student profiles",
-        "Monitor each child’s developmental progress and log observations directly in the app",
-        "Share classroom highlights and milestones instantly, keeping families engaged in their child's learning",
+        "Send forms directly to families’ Flowysis accounts and notify them via email",
+        "Share forms with families via a direct link, perfect for email communications or added to your program's website.",
+        "Reshare the same form with families multiple times",
+        "Streamline your admissions process by enabling families to create a profile for their child, allowing you to easily add them to your waitlist",
       ],
-      image: "/children.jpg",
-    },
-  };
 
-  // Function to handle navigation on "Learn more" click
-  const handleLearnMore = () => {
-    const activeTabData = tabs.find((tab) => tab.id === activeTab);
-    if (activeTabData) {
-      router.push(activeTabData.link);
-    }
+      image: "/children.jpg",
+    },
   };
 
   return (
@@ -95,7 +88,7 @@ const TabSection: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Save time and streamline your operations with Flowysis
+          Stay organized with Flowysis’s childcare forms
         </h1>
       </div>
 
@@ -119,7 +112,7 @@ const TabSection: React.FC = () => {
       {/* Content Area with animation */}
       <div className="mt-8 transition-all duration-500 ease-in-out">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border-2 border-gray-100 rounded-xl shadow-lg">
-          <div className="space-y-6 p-10">
+          <div className="space-y-6 pb-28 p-10">
             <h2 className="text-2xl font-bold text-gray-800">
               {tabContent[activeTab].title}
             </h2>
@@ -133,12 +126,7 @@ const TabSection: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <button
-              className="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-md text-base transition-colors duration-300"
-              onClick={handleLearnMore} // Add onClick handler
-            >
-              Learn more
-            </button>
+
             {tabContent[activeTab].testimonial && (
               <div className="flex items-start gap-4 p-5 bg-white border border-blue-100 rounded-lg shadow-md">
                 <div className="flex-shrink-0">

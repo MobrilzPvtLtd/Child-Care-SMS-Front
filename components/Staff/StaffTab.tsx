@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"; // Import useRouter from Next.js
 interface TabData {
   id: string;
   label: string;
-  link: string;
+  link?: string;
 }
 
 interface TestimonialData {
@@ -27,67 +27,61 @@ interface TabContentCollection {
 }
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("paperwork");
+  const [activeTab, setActiveTab] = useState<string>("staffschedules");
   const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
-    { id: "paperwork", label: "Paperwork", link: "/paperwork" },
-    { id: "enrollment", label: "Enrollment", link: "/enrollment" },
-    { id: "staffmanagement", label: "Staff management", link: "/staff" },
-    { id: "classroommanagement", label: "Classroom management", link: "/classroom" },
+    { id: "staffschedules", label: "Staff schedules" },
+    { id: "staffcheck", label: "Staff check-in" },
+    { id: "timecards", label: "Timecards" }, 
+    { id: "staffmessaging", label: "Admin-staff messaging " },
   ];
 
   const tabContent: TabContentCollection = {
-    paperwork: {
-      title: "Organize forms and documents",
+    staffschedules: {
+      title: "Streamline staff schedules",
       features: [
-        "Create fillable PDFs and customize form templates to meet your business needs",
-        "Share critical documents with families directly in Flowysis and collect digital signatures",
-        "Manage form status or request changes from one central dashboard",
-        "Easily distribute handbooks, policies, or calendars to specific rooms or your entire program",
+        "Simplify shift scheduling, vacation requests, and substitutions with our user-friendly platform",
+        "Seamlessly toggle between day and week views, making it easy to assess your center's scheduling needs",
+        "Easily schedule and track absences for both students and staff, helping to maintain ratio compliance",
+        "Modify schedules quickly, with options to edit or delete either single instances or entire schedules",
       ],
 
       content: "Manage your childcare center with our all-in-one solution.",
       image: "/children.jpg",
     },
-    enrollment: {
-      title: "Grow your enrollment",
+    staffcheck: {
+      title: "Manage staff attendance",
       features: [
-        "Increase enrollment by making it easy for families to apply online",
-        "Manage your waitlist with ease by automatically enrolling incoming families to your program",
-        "See your true enrollment with FTE reporting and make informed staffing and enrollment decisions to maximize your revenue",
-        "Message prospective families directly from your admissions dashboard",
-      ],
+        "Streamline staff check-ins using kiosk, attendance mode, or QR codes",
+        "Maintain accurate payroll hours and room ratios",
+        "Prevent common check-in errors with our automated check-out feature",
+        "Choose to enable or disable staff check-ins from any device, giving you added control over attendance tracking", 
+      ], 
       image: "/children.jpg",
     },
-    staffmanagement: {
-      title: "Enhance your staff experience",
+    timecards: {
+      title: "Track employee hours accurately",
       features: [
-        "Simplify staff schedule creation and communicate changes quickly",
-        "Manage staff permissions and roles at multiple locations by utilizing Flowysis’s multi-site dashboard",
-        "Access comprehensive profiles for each staff member, including contact information, certifications, and training",
-        "Facilitate clear and direct communication with staff members via integrated messaging, enhancing collaboration",
+        "Easily create and manage employee timecards from the web or mobile platform",
+        "Review, edit, and approve all staff timecards in one place",
+        "Send staff hours directly to Gusto with our seamless payroll integration",
+        "Use dynamic filters to quickly locate and edit any staff timecard",
+        "Track paid and unpaid time off for all staff"
       ],
-      image: "/children.jpg",
-    },
-    classroommanagement: {
-      title: "Improve your classroom management",
-      features: [
-        "Track room capacity and staff-to-child ratios in real-time to adhere to licensing requirements",
-        "Record student contact, meal type, billing, and health information in digital student profiles",
-        "Monitor each child’s developmental progress and log observations directly in the app",
-        "Share classroom highlights and milestones instantly, keeping families engaged in their child's learning",
-      ],
-      image: "/children.jpg",
-    },
-  };
 
-  // Function to handle navigation on "Learn more" click
-  const handleLearnMore = () => {
-    const activeTabData = tabs.find((tab) => tab.id === activeTab);
-    if (activeTabData) {
-      router.push(activeTabData.link);
-    }
+      image: "/children.jpg",
+    }, 
+    staffmessaging: {
+      title: "Communicate staff schedules clearly",
+      features: [
+        "Message staff about schedule changes in real-time, ensuring everyone stays informed and organized",
+        "Tailor schedules for individual staff members or groups",
+        "Instantly record staff absences due to PTO or sick leave, enabling transparent communication and planning for adequate coverage",
+        "View schedule reports to gain valuable insights into staffing needs and attendance gaps",
+      ], 
+      image: "/children.jpg",
+    },
   };
 
   return (
@@ -95,7 +89,7 @@ const TabSection: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Save time and streamline your operations with Flowysis
+          Explore these key billing and payment features
         </h1>
       </div>
 
@@ -119,7 +113,7 @@ const TabSection: React.FC = () => {
       {/* Content Area with animation */}
       <div className="mt-8 transition-all duration-500 ease-in-out">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border-2 border-gray-100 rounded-xl shadow-lg">
-          <div className="space-y-6 p-10">
+          <div className="space-y-6 pb-28 p-10">
             <h2 className="text-2xl font-bold text-gray-800">
               {tabContent[activeTab].title}
             </h2>
@@ -133,12 +127,7 @@ const TabSection: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <button
-              className="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-md text-base transition-colors duration-300"
-              onClick={handleLearnMore} // Add onClick handler
-            >
-              Learn more
-            </button>
+
             {tabContent[activeTab].testimonial && (
               <div className="flex items-start gap-4 p-5 bg-white border border-blue-100 rounded-lg shadow-md">
                 <div className="flex-shrink-0">
