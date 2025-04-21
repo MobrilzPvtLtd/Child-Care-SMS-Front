@@ -1,4 +1,5 @@
-import BlogBanner from '@/components/Blog/Blog'
+
+import BlogBanner from '@/components/Blog/blog'
 import React from 'react'
 
 function page() {
