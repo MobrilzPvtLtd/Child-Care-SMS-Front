@@ -1,11 +1,11 @@
-import PricingSection from '@/components/Pricing/Pricing' 
-import React from 'react'
+import PricingHome from "@/components/Pricing/PricingHome"
+
+ 
 
 function page() {
+
   return (
-    <>
-      <PricingSection/>
-    </>
+   < PricingHome />
   )
 }
 

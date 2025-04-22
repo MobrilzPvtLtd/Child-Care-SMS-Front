@@ -18,7 +18,7 @@ export default function Header1() {
 
   useEffect(() => {
     // Only apply scroll logic if not on /login, /pricing, or /signup routes
-    if (!["/login", "/pricing", "/signup"].includes(pathname)) {
+    if (!["/login", "/signup"].includes(pathname)) {
       const handleScroll = () => {
         const currentScrollY = window.scrollY;
 
@@ -39,7 +39,7 @@ export default function Header1() {
   return (
     <header
       className={`bg-white shadow-md sticky top-0 z-50 transition-all duration-900 ${
-        ["/login", "/pricing", "/signup"].includes(pathname)
+        ["/login", "/signup"].includes(pathname)
           ? "opacity-100 translate-y-0"
           : isHeaderVisible
           ? "opacity-100 translate-y-0"
