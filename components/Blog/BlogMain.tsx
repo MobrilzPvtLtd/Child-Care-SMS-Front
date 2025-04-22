@@ -1,6 +1,7 @@
 import Image from "next/image";
 import BlogCard from "./BlogCard";
 import Link from "next/link";
+import Footer from "../common/Footer/Footer";
 
 function BlogBanner() {
   return (
@@ -88,6 +89,7 @@ function BlogBanner() {
         </div>
       </section>
       <BlogCard />
+      <Footer/>
     </>
   );
 }

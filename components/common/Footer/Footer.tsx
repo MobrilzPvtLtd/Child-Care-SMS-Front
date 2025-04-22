@@ -6,6 +6,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -47,14 +48,13 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-2">Resources</h3>
           <div className="h-1 w-8 bg-yellow-400 mb-4" />
           <ul className="space-y-2 text-base font-medium">
-            <li>Customer Stories</li>
-
-            <li>Help Center</li>
-            <li>Pricing</li>
-            <li>Webinars</li>
-            <li>Blog</li>
-            <li>eBooks</li>
-          </ul>
+  <li><Link href="/early-education">Early education and childcare resources</Link></li>
+  <li><Link href="/school">School</Link></li>
+  <li><Link href="/customer">Customer Stories</Link></li>
+  <li><Link href="/help">Help Center</Link></li>
+  <li><Link href="/tool-templates">Childcare template & Tool</Link></li>
+  <li><Link href="/blog">Blog</Link></li>
+</ul>
         </div>
 
         {/* Company */}
