@@ -62,14 +62,90 @@ export default function Header1() {
         {/* Navigation */}
         <nav className="flex space-x-6">
           <div className="hidden md:flex space-x-8 font-medium text-black/90 text-xl mt-1">
-            <Link href="/solutions" className="relative group">
-              Solutions
-              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
-            </Link>
-            <Link href="/resource" className="relative group">
-              Resources
-              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
-            </Link>
+            {/* Solutions Dropdown */}
+            <div className="relative group">
+              <Link href="/solutions" className="flex items-center">
+                Solutions
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
+              </Link>
+              <div className="absolute z-10 hidden group-hover:block w-64 mt-1 bg-white rounded-lg shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out">
+                <div className="p-4 space-y-3">
+                  <Link
+                    href="/solutions/childcare"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Preschools & Children Care
+                  </Link>
+                  <Link
+                    href="/solutions/preschool"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Centers
+                  </Link>
+                  <Link
+                    href="/solutions/daycare"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Schools
+                  </Link>
+                  <Link
+                    href="/solutions/afterschool"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Parents
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Resources Dropdown */}
+            <div className="relative group">
+              <Link href="/resource" className="flex items-center">
+                Resources
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
+              </Link>
+              <div className="absolute z-10 hidden group-hover:block w-64 mt-1 bg-white rounded-lg shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out">
+                <div className="p-4 space-y-3">
+                  <Link
+                    href="/resource/blog"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Early education and childcare resources
+                  </Link>
+                  <Link
+                    href="/resource/webinars"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    School
+                  </Link>
+                  <Link
+                    href="/resource/guides"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Customer Stories
+                  </Link>
+                  <Link
+                    href="/resource/case-studies"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Help Center
+                  </Link>
+                  <Link
+                    href="/resource/tools"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Childcare template & Tool
+                  </Link>
+                  <Link
+                    href="/resource/blog"
+                    className="block text-blue-500 hover:text-blue-700 text-base"
+                  >
+                    Blog
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <Link href="/pricing" className="relative group">
               Pricing
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-600 group-hover:w-full"></span>
