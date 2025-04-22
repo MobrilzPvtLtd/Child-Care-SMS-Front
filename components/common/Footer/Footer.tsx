@@ -17,11 +17,22 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-2">Our Solutions</h3>
           <div className="h-1 w-8 bg-blue-400 mb-4" />
           <ul className="space-y-2 text-base font-medium">
-            <li>Preschools & Children Care</li>
-            <li>Centers</li>
-            <li>Schools</li>
-            <li>Parents</li>
-      
+            <li>
+              {" "}
+              <Link href="#">Preschools & Children Care</Link>{" "}
+            </li>
+            <li>
+              {" "}
+              <Link href="#">Centers</Link>
+            </li>
+            <li>
+              {" "}
+              <Link href="#">Schools</Link>
+            </li>
+            <li>
+              {" "}
+              <Link href="/parent">Parents</Link>
+            </li>
           </ul>
         </div>
 
@@ -48,13 +59,27 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-2">Resources</h3>
           <div className="h-1 w-8 bg-yellow-400 mb-4" />
           <ul className="space-y-2 text-base font-medium">
-  <li><Link href="/early-education">Early education and childcare resources</Link></li>
-  <li><Link href="/school">School</Link></li>
-  <li><Link href="/customer">Customer Stories</Link></li>
-  <li><Link href="/help">Help Center</Link></li>
-  <li><Link href="/tool-templates">Childcare template & Tool</Link></li>
-  <li><Link href="/blog">Blog</Link></li>
-</ul>
+            <li>
+              <Link href="/early-education">
+                Early education and childcare resources
+              </Link>
+            </li>
+            <li>
+              <Link href="/school">School</Link>
+            </li>
+            <li>
+              <Link href="/customer">Customer Stories</Link>
+            </li>
+            <li>
+              <Link href="/help">Help Center</Link>
+            </li>
+            <li>
+              <Link href="/tool-templates">Childcare template & Tool</Link>
+            </li>
+            <li>
+              <Link href="/blog">Blog</Link>
+            </li>
+          </ul>
         </div>
 
         {/* Company */}

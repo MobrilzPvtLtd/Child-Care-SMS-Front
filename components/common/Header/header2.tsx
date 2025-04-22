@@ -48,7 +48,7 @@ export default function Header2() {
                     Schools
                   </Link>
                   <Link
-                    href="/solutions/afterschool"
+                    href="/parent"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Parents
@@ -78,25 +78,25 @@ export default function Header2() {
                     School
                   </Link>
                   <Link
-                    href="/resource/guides"
+                    href="/customer"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Customer Stories
                   </Link>
                   <Link
-                    href="/resource/case-studies"
+                    href="/help"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Help Center
                   </Link>
                   <Link
-                    href="/resource/case-studies"
+                    href="/tool-templates"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Childcare template & Tool
                   </Link>
                   <Link
-                    href="/resource/case-studies"
+                    href="/blog"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Blog

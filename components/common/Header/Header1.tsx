@@ -71,25 +71,25 @@ export default function Header1() {
               <div className="absolute z-10 hidden group-hover:block w-64 mt-1 bg-white rounded-lg shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out">
                 <div className="p-4 space-y-3">
                   <Link
-                    href="/solutions/childcare"
+                    href="#"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Preschools & Children Care
                   </Link>
                   <Link
-                    href="/solutions/preschool"
+                    href="#"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Centers
                   </Link>
                   <Link
-                    href="/solutions/daycare"
+                    href="#"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Schools
                   </Link>
                   <Link
-                    href="/solutions/afterschool"
+                    href="/parent"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Parents
@@ -107,37 +107,37 @@ export default function Header1() {
               <div className="absolute z-10 hidden group-hover:block w-64 mt-1 bg-white rounded-lg shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out">
                 <div className="p-4 space-y-3">
                   <Link
-                    href="/resource/blog"
+                    href="#"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Early education and childcare resources
                   </Link>
                   <Link
-                    href="/resource/webinars"
+                    href="#"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     School
                   </Link>
                   <Link
-                    href="/resource/guides"
+                    href="/customer"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Customer Stories
                   </Link>
                   <Link
-                    href="/resource/case-studies"
+                    href="/help"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Help Center
                   </Link>
                   <Link
-                    href="/resource/tools"
+                    href="/tool-templates"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Childcare template & Tool
                   </Link>
                   <Link
-                    href="/resource/blog"
+                    href="/blog"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Blog
