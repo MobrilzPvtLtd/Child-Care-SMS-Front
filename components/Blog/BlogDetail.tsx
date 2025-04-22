@@ -1,5 +1,7 @@
+"use client";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
+import Image from "next/image";
+
 
 interface BlogPost {
   slug: string;
@@ -38,24 +40,29 @@ const blogPosts: BlogPost[] = [
 ];
 
 interface BlogDetailProps {
-  post: BlogPost;
+  post:BlogPost;
 }
 
 export default function BlogDetailPage({ post }: BlogDetailProps) {
-  const router = useRouter();
 
-  if (router.isFallback) {
-    return <p>Loading...</p>;
-  }
+ 
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-10">
-      <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-6" />
-      <p className="text-gray-500 text-sm">{post.date}</p>
-      <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-      <p className="text-[#3949ab] text-sm mb-6">{post.category}</p>
-      <p className="text-gray-800 leading-relaxed">{post.excerpt}</p>
-    </main>
+    // <main className="max-w-4xl mx-auto px-4 py-10">
+    //   <Image
+    //     src={post?.image}
+    //     alt={post?.title}
+    //     className="w-full h-64 object-cover rounded-lg mb-6"
+    //   />
+    //   <p className="text-black text-sm">{post?.date}</p>
+    //   <h1 className="text-3xl font-bold mb-2">{post?.title}</h1>
+    //   <p className="text-[#3949ab] text-sm mb-6">{post?.category}</p>
+    //   <p className="text-gray-800 leading-relaxed">{post?.excerpt}</p>
+    // </main>
+    <>
+    
+    
+    </>
   );
 }
 
@@ -66,13 +73,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true, // optional: set false if no new pages are expected
+    fallback: true, // Enable fallback for dynamic paths
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as { slug: string };
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = blogPosts.find((p) => p.slug === slug) || null;
 
   if (!post) {
     return { notFound: true };

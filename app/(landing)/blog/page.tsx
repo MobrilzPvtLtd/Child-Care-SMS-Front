@@ -1,12 +1,13 @@
 
-import BlogBanner from '@/components/Blog/blog'
+import BlogBanner from '@/components/Blog/BlogMain'
 import React from 'react'
 
 function page() {
   return (
-    <div>
-      <BlogBanner/>
-    </div>
+    <>
+    <BlogBanner/>
+      
+    </>
   )
 }
 
