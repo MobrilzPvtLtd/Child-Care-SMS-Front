@@ -14,10 +14,10 @@ interface BlogPost {
   interface PageProps {
     post: BlogPost;
   }
-function page({ post }: PageProps) {
+function page() {
   return (
     <>
-     <BlogDetailPage post={post} /> 
+     <BlogDetailPage  /> 
      {/* <h2>blog deatils</h2> */}
     </>
   )

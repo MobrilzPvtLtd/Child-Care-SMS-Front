@@ -43,7 +43,7 @@ interface BlogDetailProps {
   post:BlogPost;
 }
 
-export default function BlogDetailPage({ post }: BlogDetailProps) {
+export default function BlogDetailPage() {
 
  
 
