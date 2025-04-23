@@ -7,7 +7,7 @@ export default function Banner() {
   return (
     <div className="min-h-screen bg-[#5463d6]">
       {/* <Head>
-        <title>Brightwheel - #1 Childcare Management Software</title>
+        <title>Flowysis - #1 Childcare Management Software</title>
         <meta name="description" content="Easy-to-use tools to simplify your day" />
         <link rel="icon" href="/favicon.ico" />
       </Head> */}

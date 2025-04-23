@@ -9,7 +9,7 @@ import Footer from '../common/Footer/Footer'
 
 const Parent = () => {
   return (
-    <div>
+    <>
         {/* <Header2/> */}
         <Banner/>
         {/* <SubHeader activeItem="invite" /> */}
@@ -17,7 +17,7 @@ const Parent = () => {
       <ParentForm/>
       <ParentCard/>
       <Footer/>
-    </div>
+    </>
   )
 }
 

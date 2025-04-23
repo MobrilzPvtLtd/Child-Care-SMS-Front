@@ -44,7 +44,7 @@ const ChildcareOperationsSection = () => {
                   <div className="h-2 w-2 mt-1 rounded-full bg-blue-500"></div>
                 </div>
                 <span className="ml-2 text-gray-700">
-                  Learn how brightwheel can save you time and money by streamlining your operations
+                  Learn how Flowysis can save you time and money by streamlining your operations
                 </span>
               </li>
             </ul>

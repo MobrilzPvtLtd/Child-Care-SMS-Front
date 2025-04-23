@@ -46,13 +46,13 @@ export default function Header1() {
           : "opacity-0 -translate-y-full h-0 overflow-hidden"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2">
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2.5 ">
         {/* Logo */}
         <div className="flex items-center cursor-pointer py-2">
           <Link href="/">
             <Image
               src="/images/logo/logo.png"
-              alt="Brightwheel Logo"
+              alt="Flowysis Logo"
               width={200}
               height={40}
             />
@@ -71,19 +71,19 @@ export default function Header1() {
               <div className="absolute z-10 hidden group-hover:block w-64 mt-1 bg-white rounded-lg shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out">
                 <div className="p-4 space-y-3">
                   <Link
-                    href="#"
+                    href="/overview"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Preschools & Children Care
                   </Link>
                   <Link
-                    href="#"
+                    href="/centers"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Centers
                   </Link>
                   <Link
-                    href="#"
+                    href="/schools"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Schools
@@ -107,7 +107,7 @@ export default function Header1() {
               <div className="absolute z-10 hidden group-hover:block w-64 mt-1 bg-white rounded-lg shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out">
                 <div className="p-4 space-y-3">
                   <Link
-                    href="#"
+                    href="/resource"
                     className="block text-blue-500 hover:text-blue-700 text-base"
                   >
                     Early education and childcare resources

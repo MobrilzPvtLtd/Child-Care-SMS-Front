@@ -14,8 +14,8 @@ import {
 
 export default function HelpBanner() {
   const quickLinks = [
-    "brightwheel Premium",
-    "Get started with brightwheel",
+    "Flowysis Premium",
+    "Get started with Flowysis",
     "Quickstart guide to set up Billing",
     "Get started with attendance",
     "Messaging Overview",
@@ -37,7 +37,7 @@ export default function HelpBanner() {
     },
     {
       icon: <PenTool className="text-teal-600" />,
-      title: "Using brightwheel",
+      title: "Using Flowysis",
       authors: 5,
       articles: 91,
       highlighted: true,

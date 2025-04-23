@@ -51,7 +51,7 @@ const FamilyEngagementSection = () => {
                   <div className="h-2 w-2 mt-1 rounded-full bg-blue-500"></div>
                 </div>
                 <span className="ml-2 text-gray-700">
-                  Use brightwheel to manage family relationships with confidence and ease
+                  Use Flowysis to manage family relationships with confidence and ease
                 </span>
               </li>
             </ul>

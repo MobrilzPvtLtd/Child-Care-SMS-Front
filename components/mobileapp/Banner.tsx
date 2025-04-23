@@ -6,29 +6,32 @@ import Header2 from "../common/Header/header2";
 export default function Banner() {
   return (
     <div className="min-h-screen bg-[#5463d6]">
+      {/* <Head>
+        <title>Flowysis - #1 Childcare Management Software</title>
+        <meta name="description" content="Easy-to-use tools to simplify your day" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head> */}
       <Header2 />
 
       <main className="container mx-auto max-w-7xl px-4 py-12 md:py-12 lg:py-12">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           {/* Left Column - Text and Buttons */}
           <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
-            <div className="max-w-lg mx-auto lg:mx-0">
+            <div className="max-w-xl mx-auto lg:mx-0">
               <h2 className="text-white text-lg font-medium mb-3">
-                Comprehensive childcare forms
+                #1 childcare management software
               </h2>
-              <h1 className="text-white text-4xl md:text-5xl font-bold">
-                Easy-to-use childcare forms
+              <h1 className="text-white text-4xl md:text-5xl leading-13 tracking-wide  font-bold mb-8">
+                The only childcare app you need to run your preschool program
               </h1>
-              <p className="text-white text-lg my-8 ">
-                Create, share, print, and manage all your childcare forms in
-                Flowysis.
-              </p>
               <p className="text-white text-xl mb-6">
-                First, tell us about yourself.
+                Flowysis is the all-in-one childcare app to automate payments,
+                boost teacher productivity, and improve communication with
+                families.
               </p>
 
               {/* Role Selection Buttons */}
-              <div className="space-y-4">
+              <div className="space-y-4 max-w-md ">
                 <button className="flex items-center justify-between w-full bg-white rounded-lg p-4 hover:bg-gray-50 transition-colors text-left">
                   <div className="flex items-center">
                     <div className="bg-[#5463d6] p-2 rounded-md mr-3">
@@ -41,9 +44,8 @@ export default function Banner() {
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                       </svg>
                     </div>
-                    <span className="text-gray-800 font-medium">
-                      I'm an <span className="font-bold">admin</span> or{" "}
-                      <span className="font-bold">director</span>
+                    <span className="text-gray-800 text-lg font-medium">
+                      I want to Flowysis for my center
                     </span>
                   </div>
                   <svg
@@ -72,8 +74,8 @@ export default function Banner() {
                         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
                       </svg>
                     </div>
-                    <span className="text-gray-800 font-medium">
-                      I'm a <span className="font-bold">staff member</span>
+                    <span className="text-gray-800 text-lg font-medium">
+                      My center already uses Flowysis
                     </span>
                   </div>
                   <svg
@@ -102,9 +104,8 @@ export default function Banner() {
                         <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                       </svg>
                     </div>
-                    <span className="text-gray-800 font-medium">
-                      I'm a <span className="font-bold">parent</span> or{" "}
-                      <span className="font-bold">guardian</span>
+                    <span className="text-gray-800 text-lg font-medium">
+                      I am a parent or guardian
                     </span>
                   </div>
                   <svg

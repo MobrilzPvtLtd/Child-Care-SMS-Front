@@ -15,9 +15,9 @@ interface PreschoolInviteProps {
 }
 
 const MENU_ITEMS: MenuItem[] = [
-  { id: 'invite', label: 'Invite your School', href: '/#invite' },
-  { id: 'features', label: 'Features for Parents', href: '/#features' },
-  { id: 'home', label: 'Using at Home', href: '/#home' },
+  { id: 'invite', label: 'Invite your School', href: '#' },
+  { id: 'features', label: 'Features for Parents', href: '#' },
+  { id: 'home', label: 'Using at Home', href: '#' },
 ];
 
 // Feature item interface for type safety
@@ -85,7 +85,7 @@ const ShowFeature: React.FC<PreschoolInviteProps> = ({ activeItem = 'invite' }) 
     {
       id: 'community',
       title: 'Your child\'s community',
-      description: 'Invite grandparents, nannies, and friends - with control over what they can do and see on brightwheel.',
+      description: 'Invite grandparents, nannies, and friends - with control over what they can do and see on Flowysis.',
       iconColor: 'text-green-600',
       bgColor: 'bg-green-200',
       icon: (

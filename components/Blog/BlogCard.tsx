@@ -94,7 +94,7 @@ export default function BlogCard() {
         <aside className="space-y-6">
           {/* CTA Card */}
           <div className="bg-[#20b9bc] text-white p-6 rounded-lg space-y-4">
-            <img src="/images/logo/whitelogo.png" alt="Brightwheel logo" className="w-28" />
+            <img src="/images/logo/whitelogo.png" alt="Flowysis logo" className="w-28" />
             <p className="font-bold">Tour the easiest all-in-one childcare app</p>
             <ul className="list-disc pl-5 text-sm space-y-1">
               <li>Get paid faster and simplify billing</li>
@@ -108,7 +108,7 @@ export default function BlogCard() {
 
           {/* Subscription Box */}
           <div className="bg-[#f7f8fc] p-6 rounded-lg border border-gray-200">
-            <h4 className="font-semibold mb-2">Subscribe to the brightwheel blog</h4>
+            <h4 className="font-semibold mb-2">Subscribe to the Flowysis blog</h4>
             <label className="block text-sm text-gray-600 mb-1">Email*</label>
             <input
               type="email"

@@ -2,10 +2,10 @@ import BlogPostCards from "@/components/common/Blog";
 import FAQAccordion from "@/components/common/FaqAccordion";
 import Footer from "@/components/common/Footer/Footer";
 import FlowysisSection from "@/components/DetailUser/DetailUser"; 
-import TestimonialsCarousel from "@/components/home/Testimonial";
-import Banner from "@/components/Overview/Banner";
-import TabSection from "@/components/Overview/OverviewTab";
-import Review from "@/components/Overview/Review";
+import TestimonialsCarousel from "@/components/home/Testimonial"; 
+import TabSection from "@/components/mobileapp/AppTab";
+import Banner from "@/components/mobileapp/Banner";
+import Review from "@/components/mobileapp/Review"; 
 import React from "react";
 
 function page() {
@@ -14,8 +14,7 @@ function page() {
       <Banner />
       <Review />
       <TabSection />
-      <TestimonialsCarousel />
-      <FlowysisSection />
+      <TestimonialsCarousel /> 
       <FAQAccordion />
       <BlogPostCards />
       <Footer />

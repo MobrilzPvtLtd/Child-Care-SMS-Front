@@ -16,7 +16,7 @@ const ParentForm: React.FC = () => {
               Invite your preschool or child care
             </h1>
             <p className="text-white text-sm md:text-base">
-              If your center is not yet using brightwheel, we'll get in touch
+              If your center is not yet using Flowysis, we'll get in touch
             </p>
           </div>
           

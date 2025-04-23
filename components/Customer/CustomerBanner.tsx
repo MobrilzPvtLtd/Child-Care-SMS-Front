@@ -11,15 +11,15 @@ const CustomerBanner = () => {
         },
         {
           value: '90%',
-          description: 'of preschools report more families pay on time with brightwheel',
+          description: 'of preschools report more families pay on time with Flowysis',
         },
         {
           value: '2 of 3',
-          description: 'teachers would rather work at a program that uses brightwheel',
+          description: 'teachers would rather work at a program that uses Flowysis',
         },
         {
           value: '95%',
-          description: 'of administrators & staff report brightwheel improves communication with families',
+          description: 'of administrators & staff report Flowysis improves communication with families',
         },
       ];
       
@@ -39,10 +39,10 @@ const CustomerBanner = () => {
             Millions of <br />
             educators and <br />
             families love <br />
-            <span className="text-gray-900">brightwheel</span>
+            <span className="text-gray-900">Flowysis</span>
           </h1>
           <p className="text-lg text-gray-600">
-            Learn how brightwheel makes it easy to build connections, simplify billing, and efficiently manage your childcare program all in one place.
+            Learn how Flowysis makes it easy to build connections, simplify billing, and efficiently manage your childcare program all in one place.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ const CustomerBanner = () => {
 
        <section className="py-16 px-6 md:px-12 bg-white text-center">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-12">
-        Brightwheel’s impact on customers
+        Flowysis’s impact on customers
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl mx-auto">

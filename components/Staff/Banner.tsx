@@ -21,7 +21,7 @@ export default function Banner() {
               </h1>
               <p className="text-white text-lg my-8 ">
                 Easily manage your staff schedules, maintain ratios, and
-                communicate schedule changes quickly with brightwheel.
+                communicate schedule changes quickly with Flowysis.
               </p>
               <p className="text-white text-xl mb-6">
                 First, tell us about yourself.

@@ -1,9 +1,9 @@
-// components/BrightwheelBanner.tsx
+// components/FlowysisBanner.tsx
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const BrightwheelBanner: React.FC = () => {
+const FlowysisBanner: React.FC = () => {
   return (
     <div className="relative w-full h-96 md:h-[500px] overflow-hidden bg-gray-200">
       {/* Background image with overlay */}
@@ -26,7 +26,7 @@ const BrightwheelBanner: React.FC = () => {
               <div className="flex items-center">
                 <Image 
                   src="/images/logo/whitelogo.png" 
-                  alt="Brightwheel" 
+                  alt="Flowysis" 
                   width={180} 
                   height={40} 
                   className="h-8 md:h-10 w-auto"
@@ -166,4 +166,4 @@ const BrightwheelBanner: React.FC = () => {
   );
 };
 
-export default BrightwheelBanner;
+export default FlowysisBanner;

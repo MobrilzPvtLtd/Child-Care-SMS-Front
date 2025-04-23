@@ -19,15 +19,15 @@ export default function Footer() {
           <ul className="space-y-2 text-base font-medium">
             <li>
               {" "}
-              <Link href="#">Preschools & Children Care</Link>{" "}
+              <Link href="/overview">Preschools & Children Care</Link>{" "}
             </li>
             <li>
               {" "}
-              <Link href="#">Centers</Link>
+              <Link href="/centers">Centers</Link>
             </li>
             <li>
               {" "}
-              <Link href="#">Schools</Link>
+              <Link href="/schools">Schools</Link>
             </li>
             <li>
               {" "}
@@ -41,16 +41,30 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-2">Our Product</h3>
           <div className="h-1 w-8 bg-red-400 mb-4" />
           <ul className="space-y-2 text-base font-medium">
-            <li>Billing/Payments</li>
-
-            <li>Communcation</li>
-
-            <li>Centers management </li>
-            <li>Daily Activities</li>
-            <li>Class Management</li>
-            <li>App</li>
-            <li>family engagement </li>
-            <li>staff management</li>
+            <li>
+              <Link href="/billing">Billing/Payments</Link>
+            </li>
+            <li>
+              <Link href="/communication">Communication</Link>
+            </li>
+            <li>
+              <Link href="/childcare">Centers management</Link>
+            </li>
+            <li>
+              <Link href="#">Daily Activities</Link>
+            </li>
+            <li>
+              <Link href="/classroom">Class Management</Link>
+            </li>
+            <li>
+              <Link href="/mobileapp">App</Link>
+            </li>
+            <li>
+              <Link href="/#">Family engagement</Link>
+            </li>
+            <li>
+              <Link href="/#">Staff management</Link>
+            </li>
           </ul>
         </div>
 
@@ -60,12 +74,12 @@ export default function Footer() {
           <div className="h-1 w-8 bg-yellow-400 mb-4" />
           <ul className="space-y-2 text-base font-medium">
             <li>
-              <Link href="/early-education">
+              <Link href="/resource">
                 Early education and childcare resources
               </Link>
             </li>
             <li>
-              <Link href="/school">School</Link>
+              <Link href="/#">School</Link>
             </li>
             <li>
               <Link href="/customer">Customer Stories</Link>

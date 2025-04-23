@@ -1,4 +1,5 @@
 import React from "react";
+import { Clock, FileText, Users, Settings } from "lucide-react";
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -23,108 +24,60 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 };
 
 const Review: React.FC = () => {
+  const features = [
+    {
+      icon: (
+        <div className="bg-blue-400 p-4 rounded-full">
+          <FileText className="text-white" size={24} />
+        </div>
+      ),
+      title: "Simple form creation",
+      description: "Reduce manual work. Use preset sections or custom fields to collect required information.",
+    },
+    {
+      icon: (
+        <div className="bg-purple-500 p-4 rounded-full">
+          <Clock className="text-white" size={24} />
+        </div>
+      ),
+      title: "Easy document tracking",
+      description: "Stay organized and increase efficiency. Track form status from one central dashboard.",
+    },
+    {
+      icon: (
+        <div className="bg-teal-500 p-4 rounded-full">
+          <Users className="text-white" size={24} />
+        </div>
+      ),
+      title: "Seamless family experience",
+      description: "Share digital forms with families via invite or direct link. Enable families to access, complete, and sign forms from the mobile app.",
+    },
+    {
+      icon: (
+        <div className="bg-pink-500 p-4 rounded-full">
+          <Settings className="text-white" size={24} />
+        </div>
+      ),
+      title: "Tailored to your program",
+      description: "Customize form templates to meet your needs. Collect key information from both existing and prospective families.",
+    },
+  ];
+
   return (
     <section className="max-w-7xl mx-auto pt-4 pb-28">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">
-      Why Flowysis is #1 for childcare forms
+        Why Flowysis is #1 for childcare forms
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-0">
-        {/* Feature 1: Easy to use */}
-        <FeatureCard
-          icon={
-            <div className="bg-blue-400 rounded-full p-4 w-16 h-16 flex items-center justify-center">
-              <svg
-                className="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-          }
-          title="Simple form creation"
-          description="Reduce manual work. Use preset sections or custom fields to collect required information."
-        />
-
-        {/* Feature 2: Easy to use */}
-        <FeatureCard
-          icon={
-            <div className="bg-blue-400 rounded-full p-4 w-16 h-16 flex items-center justify-center">
-              <svg
-                className="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-          }
-          title="Easy document tracking"
-          description="Stay organized and increase efficiency. Track form status from one central dashboard."
-        />
-
-        {/* Feature 3: Automatic billing */}
-        <FeatureCard
-          icon={
-            <div className="bg-teal-500 rounded-full p-4 w-16 h-16 flex items-center justify-center">
-              <svg
-                className="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-          }
-          title="Seamless family experience"
-          description="Share digital forms with families via invite or direct link. Enable families to access, complete, and sign forms from the mobile app."
-        />
-
-        {/* Feature 4: Quality connections */}
-        <FeatureCard
-          icon={
-            <div className="bg-pink-500 rounded-full p-4 w-16 h-16 flex items-center justify-center">
-              <svg
-                className="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-            </div>
-          }
-          title="Tailored to your program"
-          description="Customize form templates to meet your needs. Collect key information from both existing and prospective families."
-        />
+        {features.map((feature, index) => (
+          <FeatureCard
+            key={index}
+            icon={feature.icon}
+            title={feature.title}
+            description={feature.description}
+          />
+        ))}
       </div>
     </section>
   );

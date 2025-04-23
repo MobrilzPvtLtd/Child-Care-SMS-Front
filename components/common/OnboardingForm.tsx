@@ -219,14 +219,14 @@ const OnboardingForm = ({
                 {[
                   {
                     value: "center_owner",
-                    label: "I want brightwheel for my center",
+                    label: "I want Flowysis for my center",
                     icon: (
                       <FaSchoolFlag className="w-20 h-20 p-4  rounded-2xl  text-blue-500" />
                     ),
                   },
                   {
                     value: "center_user",
-                    label: "My center already uses brightwheel",
+                    label: "My center already uses Flowysis",
                     icon: (
                       <FaUserGraduate className="w-20 h-20 p-4  rounded-2xl  text-blue-500" />
                     ),
@@ -292,7 +292,7 @@ const OnboardingForm = ({
                 {[
                   {
                     value: "implement",
-                    label: "I want to implement brightwheel at my school",
+                    label: "I want to implement Flowysis at my school",
                   },
                   {
                     value: "login",

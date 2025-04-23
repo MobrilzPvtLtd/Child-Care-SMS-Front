@@ -76,7 +76,7 @@ const TabSection: React.FC = () => {
       features: [
         "Use messaging to build a strong, supportive network among families and staff at your center.",
         "Share classroom highlights and milestones instantly, keeping families engaged in their child's learning",
-        "Enable families to stay informed with direct access to their child's profile through the brightwheel app",
+        "Enable families to stay informed with direct access to their child's profile through the Flowysis app",
         "Communicate confidentially with secure in-app messaging that safeguards family privacy",
       ],
 

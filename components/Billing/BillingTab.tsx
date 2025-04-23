@@ -40,7 +40,7 @@ const TabSection: React.FC = () => {
 
   const tabContent: TabContentCollection = {
     overview: {
-      title: "Brightwheel's all-in-one childcare software allows you to:",
+      title: "Flowysis's all-in-one childcare software allows you to:",
       features: [
         "Quickly set up billing, create billing plans for multiple students, and automate invoicing tasks.",
         "Specify payment amounts across multiple payers and enable automatic payment notifications.",

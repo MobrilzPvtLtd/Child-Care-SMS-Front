@@ -26,7 +26,7 @@ const PartnershipBanner = () => {
       <div className="flex justify-center items-center space-x-2 mb-8">
         <Image
           src="/images/logo/logo.png"
-          alt="Brightwheel Logo"
+          alt="Flowysis Logo"
           width={200}
           height={40}
         />
@@ -40,7 +40,7 @@ const PartnershipBanner = () => {
             <div className="relative z-10">
               <img
                 src="/images/learn-img.jpeg"
-                alt="Brightwheel Logo"
+                alt="Flowysis Logo"
                 className="rounded-lg shadow-lg object-cover w-full h-64 md:h-96"
                 
               />
@@ -54,7 +54,7 @@ const PartnershipBanner = () => {
             </h2>
 
             <p className="text-white/90 mb-6">
-              Experience Curriculum is now in brightwheel! Support child
+              Experience Curriculum is now in Flowysis! Support child
               development with expert-designed lesson plans and high-quality,
               hands-on learning materials for baby, toddler, and preschool
               programs.

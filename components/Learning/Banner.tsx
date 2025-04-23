@@ -25,7 +25,7 @@ export default function Banner() {
               Teaching made easier. Learning made better.
               </h1>
               <p className="text-white text-xl mb-6">
-              Experience Curriculum is a complete, easy-to-implement curriculum system with daily lesson plans and materials for each child delivered to your door, plus full digital integration with brightwheel.
+              Experience Curriculum is a complete, easy-to-implement curriculum system with daily lesson plans and materials for each child delivered to your door, plus full digital integration with Flowysis.
               </p>
  
               

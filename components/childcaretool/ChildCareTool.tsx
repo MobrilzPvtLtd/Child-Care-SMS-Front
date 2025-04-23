@@ -37,7 +37,7 @@ const ChildcareTemplates: React.FC<PreschoolInviteProps> = ({ activeItem = 'chil
           <Link href="/">
             <Image
               src="/images/logo/whitelogo.png"
-              alt="Brightwheel Logo"
+              alt="Flowysis Logo"
               width={200}
               height={40}
             />

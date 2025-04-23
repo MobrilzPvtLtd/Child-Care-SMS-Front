@@ -11,7 +11,7 @@ export default function Header2() {
           <Link href="/">
             <Image
               src="/images/logo/whitelogo.png"
-              alt="Brightwheel Logo"
+              alt="Flowysis Logo"
               width={200}
               height={40}
             />
@@ -30,19 +30,19 @@ export default function Header2() {
               <div className="absolute z-10 hidden group-hover:block w-64 mt-1 bg-white rounded-lg shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out">
                 <div className="p-4 space-y-3">
                   <Link
-                    href="/solutions/childcare"
+                    href="/overview"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Preschools & Children Care
                   </Link>
                   <Link
-                    href="/solutions/preschool"
+                    href="/centers"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Centers
                   </Link>
                   <Link
-                    href="/solutions/daycare"
+                    href="/schools"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Schools
@@ -66,13 +66,13 @@ export default function Header2() {
               <div className="absolute z-10 hidden group-hover:block w-64 mt-1 bg-white rounded-lg shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out">
                 <div className="p-4 space-y-3">
                   <Link
-                    href="/resource/blog"
+                    href="/resource"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     Early education and childcare resources
                   </Link>
                   <Link
-                    href="/resource/webinars"
+                    href="/#"
                     className="block text-gray-700 hover:text-blue-500 text-base"
                   >
                     School

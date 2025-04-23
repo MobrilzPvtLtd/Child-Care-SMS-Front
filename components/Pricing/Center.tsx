@@ -153,7 +153,7 @@ const CenterManagement: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Everything you need to run your center</h1>
-          <p className="text-xl text-gray-600">Get access to 100+ features with brightwheel's all-in-one platform</p>
+          <p className="text-xl text-gray-600">Get access to 100+ features with Flowysis's all-in-one platform</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

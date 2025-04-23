@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"; // Import useRouter from Next.js
 interface TabData {
   id: string;
   label: string;
-  link?: string;
+  link: string;
 }
 
 interface TestimonialData {
@@ -27,77 +27,87 @@ interface TabContentCollection {
 }
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("overview"); // Default active tab
+  const [activeTab, setActiveTab] = useState<string>("ownersanddirectors");
   const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
-    { id: "overview", label: "Overview" },
-    { id: "experiencecurriculum", label: "Experience Curriculum" },
-    { id: "monthlykits", label: "Monthly kits" },
-    { id: "assessments", label: "Assessments" },
-    { id: "familysharing", label: "Family Sharing" },
+    {
+      id: "ownersanddirectors",
+      label: "Owners & directors",
+      link: "/owners-directors",
+    },
+    {
+      id: "teachersandstaff",
+      label: "Teachers & staff",
+      link: "/learning",
+    },
+    {
+      id: "familiesandparents",
+      label: "Families & parents",
+      link: "/communication",
+    },
   ];
 
   const tabContent: TabContentCollection = {
-    overview: {
-      title: "Your complete education companion",
+    ownersanddirectors: {
+      title: "Manage your program from your mobile phone",
       features: [
-        "Access Experience Curriculum right from the Flowysis app",
-        "Receive a monthly delivery of learning supplies",
-        "Easily match the lessons in the app to the materials in the monthly curriculum kits",
+        "Access business-critical information from your phone, even when you’re not near your computer",
+        "Easily engage with families using real-time messages and grant select staff the same access",
+        "Stay compliant with contactless check-ins, staff-to-child ratio monitoring, health checks, and sleep checks",
       ],
-
+      testimonial: {
+        title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
+        text: `We chose flowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        image: "/mba.jpg",
+      },
+      image: "/children.jpg",
+    },
+    teachersandstaff: {
+      title: "Reduce your workload, increase efficiency",
+      features: [
+        "Access lesson plans and record observations with a mobile device",
+        "Keep families updated on their child's development with progress reports",
+        "Add Experience Curriculum to enhance program quality with digital lessons and hands-on learning materials",
+      ],
+      testimonial: {
+        title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
+        text: `We chose flowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        image: "/mba.jpg",
+      },
+      image: "/children.jpg",
+    },
+    familiesandparents: {
+      title: "Share more memorable moments with families",
+      features: [
+        "Get insight into child's day with real-time updates using photos or videos",
+        "Communicate instantly with staff and admins via in-app messaging",
+        "Seamless and secure payments through the mobile app",
+      ],
+      testimonial: {
+        title: "Cally B, Assistant Director at MBCC Journey Birmingham, AL",
+        text: `We chose flowysis when we were evaluating different tools because it integrates billing, admissions, and a great visual experience for families. It’s awesome that it’s an all-in-one system.`,
+        image: "/mba.jpg",
+      },
       content: "Manage your childcare center with our all-in-one solution.",
-      image: "/children.jpg",
-    },
-    experiencecurriculum: {
-      title: "Engaging learning experiences",
-      features: [
-        "Incorporates 35 research-based skills into playful games and discovery projects",
-        "Flexible lesson plans for baby, toddler, and preschool age groups",
-        "Easily match the lessons in the app to the materials in the monthly curriculum kits",
-      ],
-
-      image: "/children.jpg",
-    },
-    monthlykits: {
-      title: "Engaging learning experiences",
-      features: [
-        "Incorporates 35 research-based skills into playful games and discovery projects",
-        "Flexible lesson plans for baby, toddler, and preschool age groups",
-        "Daily learning activities integrate social emotional, physical, cognitive learning and more",
-      ],
-
-      image: "/children.jpg",
-    },
-    assessments: {
-      title: "Easy observations and progress tracking",
-      features: [
-        "Daily embedded assessment to monitor each child’s growth",
-        "Assessments are designed for ages 0-5 years old",
-        "Easily view and export a report summary of a child’s developmental benchmarks",
-      ],
-
-      image: "/children.jpg",
-    },
-    familysharing: {
-      title: "Keep families in the know",
-      features: [
-        "Capture and share learning progress with photos in the Flowysis app",
-        "Use preloaded notes for faster observation tracking and sharing",
-        "Add observations to the customized daily reports that are emailed to families who opt-in",
-      ],
-
       image: "/children.jpg",
     },
   };
 
+  // Function to handle navigation on "Learn more" click
+  const handleLearnMore = () => {
+    const activeTabData = tabs.find((tab) => tab.id === activeTab);
+    if (activeTabData) {
+      router.push(activeTabData.link);
+    }
+  };
+
   return (
-    <div className="max-w-7xl mx-auto font-sans">
+    <div className="max-w-7xl mx-auto mb-20 font-sans">
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Enhance learning, connection, and growth
+          Automate and save time with Flowysis
         </h1>
       </div>
 
@@ -121,7 +131,7 @@ const TabSection: React.FC = () => {
       {/* Content Area with animation */}
       <div className="mt-8 transition-all duration-500 ease-in-out">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border-2 border-gray-100 rounded-xl shadow-lg">
-          <div className="space-y-6 pb-28 p-10">
+          <div className="space-y-6 p-10">
             <h2 className="text-2xl font-bold text-gray-800">
               {tabContent[activeTab].title}
             </h2>
@@ -131,11 +141,16 @@ const TabSection: React.FC = () => {
                   <div className="flex-shrink-0 h-6 w-6 text-blue-500">
                     <div className="w-2 h-2 mt-2.5 bg-blue-400 rounded-full"></div>
                   </div>
-                  <span className="ml-1 text-lg text-gray-600">{feature}</span>
+                  <span className="ml-1 text-xl text-gray-600">{feature}</span>
                 </li>
               ))}
             </ul>
-
+            <button
+              className="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-md text-base transition-colors duration-300"
+              onClick={handleLearnMore} // Add onClick handler
+            >
+              Learn more
+            </button>
             {tabContent[activeTab].testimonial && (
               <div className="flex items-start gap-4 p-5 bg-white border border-blue-100 rounded-lg shadow-md">
                 <div className="flex-shrink-0">

@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Multi-site owner",
     message:
-      "Multi-site owner loves the security and efficiency of brightwheel",
+      "Multi-site owner loves the security and efficiency of Flowysis",
     location: "Shelton, CT",
     size: "350 children",
     image: "/images/common/person1.jpg",
@@ -15,7 +15,7 @@ const testimonials = [
   {
     name: "Nonprofit director",
     message:
-      "Nonprofit director believes brightwheel is well worth the investment",
+      "Nonprofit director believes Flowysis is well worth the investment",
     location: "Nashville, TN",
     size: "200 children",
     image: "/images/common/person2.jpg",
@@ -23,7 +23,7 @@ const testimonials = [
   {
     name: "Seabrook Director",
     message:
-      "Why brightwheel is a necessity for this preschool with 55 families",
+      "Why Flowysis is a necessity for this preschool with 55 families",
     location: "Seabrook, TX",
     size: "75 children",
     image: "/images/common/person3.jpg",
@@ -31,7 +31,7 @@ const testimonials = [
   {
     name: "Nonprofit director",
     message:
-      "Nonprofit director believes brightwheel is well worth the investment",
+      "Nonprofit director believes Flowysis is well worth the investment",
     location: "Nashville, TN",
     size: "200 children",
     image: "/images/common/person2.jpg",
@@ -39,7 +39,7 @@ const testimonials = [
   {
     name: "Seabrook Director",
     message:
-      "Why brightwheel is a necessity for this preschool with 55 families",
+      "Why Flowysis is a necessity for this preschool with 55 families",
     location: "Seabrook, TX",
     size: "75 children",
     image: "/images/common/person3.jpg",
