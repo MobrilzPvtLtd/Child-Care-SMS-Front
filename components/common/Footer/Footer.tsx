@@ -23,11 +23,11 @@ export default function Footer() {
             </li>
             <li>
               {" "}
-              <Link href="/centers">Centers</Link>
+              <Link href="/overview">Centers</Link>
             </li>
             <li>
               {" "}
-              <Link href="/schools">Schools</Link>
+              <Link href="/overview">Schools</Link>
             </li>
             <li>
               {" "}
