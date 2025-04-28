@@ -48,7 +48,7 @@ export default function Header1() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2.5 ">
         {/* Logo */}
-        <div className="flex items-center cursor-pointer py-2">
+        <div className="flex items-center cursor-pointer py-2 px-4 md:px-0">
           <Link href="/">
             <Image
               src="/images/logo/logo.png"
@@ -162,7 +162,7 @@ export default function Header1() {
             >
               Get a demo
             </Link>
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex items-center px-4 md:px-0">
               <GiHamburgerMenu
                 className="text-black text-xl font-bold cursor-pointer"
                 onClick={toggleSidebar}
@@ -174,8 +174,8 @@ export default function Header1() {
 
       {/* Sidebar */}
       {isSidebarOpen && (
-        <div className="fixed inset-0 bg-black/80 bg-opacity-50 z-40 md:hidden">
-          <div className="fixed top-0 right-0 w-[75%] h-full bg-white shadow-lg z-50 flex flex-col justify-between">
+        <div className="fixed inset-0 bg-black/80 min-h-screen bg-opacity-50 z-40 md:hidden">
+          <div className="fixed top-0 right-0 w-[75%] min-h-screen bg-white shadow-lg  flex flex-col justify-between">
             {/* Header */}
             <div className="flex items-center justify-between p-5 border-b">
               <h2 className="text-lg font-semibold">Menu</h2>

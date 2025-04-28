@@ -7,7 +7,7 @@ export default function Header2() {
     <header className="pt-3">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-1 md:py-2">
         {/* Logo */}
-        <div className="flex items-center cursor-pointer">
+        <div className="flex items-center cursor-pointer px-5 md:px-0">
           <Link href="/">
             <Image
               src="/images/logo/whitelogo.png"

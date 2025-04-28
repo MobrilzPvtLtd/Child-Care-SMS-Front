@@ -6,7 +6,6 @@ import Header2 from "../common/Header/header2";
 export default function Banner() {
   return (
     <div className="min-h-screen bg-[#5463d6]">
-      =
       <Header2 />
       <main className="container mx-auto max-w-7xl px-4 py-12 md:py-12 lg:py-12">
         <div className="flex flex-col lg:flex-row items-center justify-between">
