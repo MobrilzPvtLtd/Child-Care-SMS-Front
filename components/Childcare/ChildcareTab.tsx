@@ -27,10 +27,11 @@ interface TabContentCollection {
 }
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("paperwork");
+  const [activeTab, setActiveTab] = useState<string>("attendance");
   const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
+    { id: "attendance", label: "Attendance", link: "/attendance" },
     { id: "paperwork", label: "Paperwork", link: "/paperwork" },
     { id: "enrollment", label: "Enrollment", link: "/enrollment" },
     { id: "staffmanagement", label: "Staff management", link: "/staff" },
@@ -38,6 +39,18 @@ const TabSection: React.FC = () => {
   ];
 
   const tabContent: TabContentCollection = {
+    attendance: {
+      title: "Simplify your check-in process",
+      features: [
+        "Replace paper sign-in sheets with digital quick scan check-in and check-out for students and staff",
+        "Track attendance throughout the day, ensuring proper staffing and ratio compliance",
+        "Pull custom attendance reports and organize data in a way that best fits your program",
+        "Integrate attendance data with billing and payroll in one software",
+      ],
+
+      content: "Manage your childcare center with our all-in-one solution.",
+      image: "/children.jpg",
+    },
     paperwork: {
       title: "Organize forms and documents",
       features: [

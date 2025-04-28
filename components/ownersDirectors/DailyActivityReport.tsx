@@ -94,7 +94,7 @@ const DailyActivityReport: React.FC<DailyActivityReportProps> = ({ onRequestDemo
   ];
 
   return (
-    <div className="bg-gray-100 py-12 px-4">
+    <div className="bg-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-semibold text-center text-gray-700 mb-12">Daily Activity Report</h2>
         

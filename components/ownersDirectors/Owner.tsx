@@ -11,6 +11,7 @@ import Learning from "./Learning";
 import DailyActivityReport from "./DailyActivityReport";
 import Footer from "../common/Footer/Footer";
 import CTA from "./CTA";
+import Attendance from "./Attendance";
 
 interface NavItem {
   id: string;
@@ -27,12 +28,14 @@ function Owner() {
   const centerManagementRef = useRef<HTMLDivElement>(null);
   const learningRef = useRef<HTMLDivElement>(null);
   const dailyActivityRef = useRef<HTMLDivElement>(null);
+  const attendanceRef = useRef<HTMLDivElement>(null);
 
   const navigationItems: NavItem[] = [
     { id: "billing", label: "Billing & Payments" },
     { id: "communication", label: "Communication" },
     { id: "centerManagement", label: "Center Management" },
     { id: "learning", label: "Learning" },
+    { id: "attendance", label: "Attendance" },
     { id: "dailyActivity", label: "Daily Activity Report" },
   ];
 
@@ -45,6 +48,7 @@ function Owner() {
       communication: communicationRef,
       centerManagement: centerManagementRef,
       learning: learningRef,
+      attendance: attendanceRef,
       dailyActivity: dailyActivityRef,
     };
 
@@ -74,6 +78,9 @@ function Owner() {
       </div>
       <div ref={learningRef} className="scroll-mt-28 ">
         <Learning />
+      </div>
+      <div ref={attendanceRef} className="scroll-mt-28">
+        <Attendance />
       </div>
       <div ref={dailyActivityRef} className="scroll-mt-28">
         <DailyActivityReport />

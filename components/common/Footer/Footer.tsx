@@ -42,28 +42,31 @@ export default function Footer() {
           <div className="h-1 w-8 bg-red-400 mb-4" />
           <ul className="space-y-2 text-base font-medium">
             <li>
+              <Link href="/owners-directors">Feature overview</Link>
+            </li>
+            <li>
               <Link href="/billing">Billing/Payments</Link>
             </li>
             <li>
-              <Link href="/communication">Communication</Link>
+              <Link href="/attendance ">Attended tracking</Link>
             </li>
+            <li>
+              <Link href="/communication">Communication</Link>
+            </li> 
             <li>
               <Link href="/childcare">Centers management</Link>
             </li>
             <li>
-              <Link href="#">Daily Activities</Link>
+              <Link href="/daily-report">Daily Activitiy Report </Link>
             </li>
             <li>
-              <Link href="/classroom">Class Management</Link>
+              <Link href="#"> Lesson Plans ( coming soon) </Link>
             </li>
             <li>
-              <Link href="/mobileapp">App</Link>
+              <Link href="#"> Experience Curriculum ( coming soon) </Link>
             </li>
             <li>
-              <Link href="/#">Family engagement</Link>
-            </li>
-            <li>
-              <Link href="/#">Staff management</Link>
+              <Link href="/#">Payroll ( coming soon) </Link>
             </li>
           </ul>
         </div>

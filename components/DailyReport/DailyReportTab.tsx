@@ -27,70 +27,68 @@ interface TabContentCollection {
 }
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("familymessaging");
+  const [activeTab, setActiveTab] = useState<string>("activityreports");
   const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
-    { id: "familymessaging", label: "Family messaging" },
-    { id: "staffmessaging", label: "Staff messaging" },
+    { id: "activityreports", label: "Activity reports" },
     { id: "studentactivityfeed", label: "Student activity feed" },
-    { id: "smsalerts", label: "SMS alerts" },
+    { id: "Adminparentmessaging", label: "Admin-parent messaging" },
+    { id: "Parentstaffmessaging", label: "Parent-staff messaging" },
     { id: "newsletters", label: "Newsletters" },
   ];
 
   const tabContent: TabContentCollection = {
-    familymessaging: {
-      title: "Flowysis's all-in-one childcare software allows you to:",
+    activityreports: {
+      title: "Log activities quickly and easily",
       features: [
-        "Quickly set up billing, create billing plans for multiple students, and automate invoicing tasks.",
-        "Specify payment amounts across multiple payers and enable automatic payment notifications.",
-        "Centralize tracking with a complete view of your finances across agency and family payers.",
-        "Access reports and billing data to see balances, deposits, transactions, revenue, and more.",
+        "Choose from multiple activity types including food, nap, potty, meds, or health check",
+        "Record actions for one, some, or all children when logging an activity",
+        "Send activity reports to families at any time",
+        "Customize what information is shared with families or kept internal for your records",
       ],
 
       content: "Manage your childcare center with our all-in-one solution.",
       image: "/children.jpg",
     },
-    staffmessaging: {
-      title: "Make billing easier for you and your families",
-      features: [
-        "Flexible billing plans: Easily edit a billing plan, set plans to recur on a regular basis, add discounts, and divvy up charges between payers.",
-        "Convenient one-time charges: Quickly bill families for one-time fees and send invoices immediately or schedule them for a future date.",
-        "Effortless attendance-based invoicing: Charge accounts based on check-in records.",
-        "Protect your business: Your information is protected using best-in-class security and compliance standards.",
-        "Less tax work: We notify families when their tax statements are ready for self-serve access. You don’t have to do a thing!",
-      ],
-
-      image: "/children.jpg",
-    },
     studentactivityfeed: {
-      title: "Conveniently manage your program’s payments online",
+      title: "Keep families updated on their child’s day",
       features: [
-        "Offer multiple payment methods: Payers can choose preferred payment methods, from ACH bank transfers to debit and credit cards.",
-        "Autopay: Invite families to enroll in autopay to ensure payments are submitted on time, and families never worry about late fees.",
-        "Automated payment alerts: Know immediately when tuition payments with a credit or debit card failed.",
-        "NEW: For Canadian schools, you can now accept online payments via credit/debit card or PADs and receive them directly in your deposit account.",
+        "Monitor students’ daily activities, updates, and learning milestones through the real-time feed available in the app and on the web",
+        "Streamline communication with families by scheduling daily feed reports directly from the app",
+        "Customize and filter the student's activity feed by date or activity type",
       ],
 
       image: "/children.jpg",
     },
-    smsalerts: {
-      title: "Track childcare payments end-to-end",
+    Adminparentmessaging: {
+      title: "Improve communication with families",
       features: [
-        "Customizable Billing Dashboard: Stay informed with a real time snapshot of account balances, payments & cash flow.",
-        "Save time with subsidy management: Set up recurring bill plans, log agency payments, and waive balances.",
-        "Fast deposits: Funds are deposited into your account as soon as the next business day if the payment is submitted by 7 pm ET.",
+        "Craft messages with options to send to individual families, or whole program rooms, ensuring the right message gets to the right audiences",
+        "Enhance your message with attachments like photos, videos, or pdf documents",
+        "Review and filter all messages sent for easy tracking and management, with options to sort messages by unread or most recent",
+      ],
+
+      image: "/children.jpg",
+    },
+    Parentstaffmessaging: {
+      title: "Enhance teacher-family relationships",
+      features: [
+        "Connect with every designated contact for each child, keeping them informed and engaged with their child’s learning",
+        "Encourage two-way communication with specific message threads between teachers, administrators, and families",
+        "Easily add attachments to your messages with the click of an icon",
+        "Order and filter your messages for a streamlined communication experience",
       ],
 
       image: "/children.jpg",
     },
     newsletters: {
-      title: "Offer administrators full access to reports & data",
+      title: "Create impactful newsletters fast",
       features: [
-        "Centralize record keeping: Keep track of your balances, payments, and cash flow in one place.",
-        "Instant statements: View, download, and print billing and tax statements in seconds.",
-        "Integrate with Quickbooks: Easily transfer your billing data into Quickbooks Online.",
-        "Individualized Payment & Credit Reports: Access payment and credit information for each individual student.",
+        "Customize your newsletters with photos and up to 30 different sections to engage your families",
+        "Save draft newsletters and review later",
+        "Duplicate previously sent newsletters to save time or to send to different recipients with minor edits",
+        "View all your sent newsletters in the Message center or directly in message threads for easy tracking",
       ],
 
       image: "/children.jpg",
@@ -102,7 +100,7 @@ const TabSection: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Build quality connections with families and staff
+          Explore these key check-in and attendance tracking features
         </h1>
       </div>
 

@@ -27,70 +27,43 @@ interface TabContentCollection {
 }
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("familymessaging");
+  const [activeTab, setActiveTab] = useState<string>("SigninAndout");
   const router = useRouter(); // Initialize useRouter
 
   const tabs: TabData[] = [
-    { id: "familymessaging", label: "Family messaging" },
-    { id: "staffmessaging", label: "Staff messaging" },
-    { id: "studentactivityfeed", label: "Student activity feed" },
-    { id: "smsalerts", label: "SMS alerts" },
-    { id: "newsletters", label: "Newsletters" },
+    { id: "SigninAndout", label: "Sign-in and out " },
+    { id: "attendancereports", label: "Attendance reports " },
+    { id: "compliance", label: "Compliance" },
   ];
 
   const tabContent: TabContentCollection = {
-    familymessaging: {
-      title: "Flowysis's all-in-one childcare software allows you to:",
+    SigninAndout: {
+      title: "Make sign-in and out as easy as 1-2-3",
       features: [
-        "Quickly set up billing, create billing plans for multiple students, and automate invoicing tasks.",
-        "Specify payment amounts across multiple payers and enable automatic payment notifications.",
-        "Centralize tracking with a complete view of your finances across agency and family payers.",
-        "Access reports and billing data to see balances, deposits, transactions, revenue, and more.",
+        "Quick scan check-in: Replace paper sign-in sheets with digital quick scan check-in and check-out for students and staff.",
+        "Monitor attendance: Keep track of students during the day, moving them to different rooms or marking them as absent.",
+        "Correct attendance records: Easily check and update current and historical attendance sheets to make sure they’re accurate.",
       ],
 
       content: "Manage your childcare center with our all-in-one solution.",
       image: "/children.jpg",
     },
-    staffmessaging: {
-      title: "Make billing easier for you and your families",
+    attendancereports: {
+      title: "Easily access attendance reports",
       features: [
-        "Flexible billing plans: Easily edit a billing plan, set plans to recur on a regular basis, add discounts, and divvy up charges between payers.",
-        "Convenient one-time charges: Quickly bill families for one-time fees and send invoices immediately or schedule them for a future date.",
-        "Effortless attendance-based invoicing: Charge accounts based on check-in records.",
-        "Protect your business: Your information is protected using best-in-class security and compliance standards.",
-        "Less tax work: We notify families when their tax statements are ready for self-serve access. You don’t have to do a thing!",
+        "Get a daily summary: Enable staff to easily pull an attendance report based on classroom and a child’s status.",
+        "Pull reports quickly: Easily customize and access attendance reports that meet licensing requirements or your business needs.",
+        "Keep records updated: Make sure attendance data is accurate, even if an attendance action is forgotten or missed.",
       ],
 
       image: "/children.jpg",
     },
-    studentactivityfeed: {
-      title: "Conveniently manage your program’s payments online",
+    compliance: {
+      title: "Seamlessly stay in compliance with room ratios and capacity",
       features: [
-        "Offer multiple payment methods: Payers can choose preferred payment methods, from ACH bank transfers to debit and credit cards.",
-        "Autopay: Invite families to enroll in autopay to ensure payments are submitted on time, and families never worry about late fees.",
-        "Automated payment alerts: Know immediately when tuition payments with a credit or debit card failed.",
-        "NEW: For Canadian schools, you can now accept online payments via credit/debit card or PADs and receive them directly in your deposit account.",
-      ],
-
-      image: "/children.jpg",
-    },
-    smsalerts: {
-      title: "Track childcare payments end-to-end",
-      features: [
-        "Customizable Billing Dashboard: Stay informed with a real time snapshot of account balances, payments & cash flow.",
-        "Save time with subsidy management: Set up recurring bill plans, log agency payments, and waive balances.",
-        "Fast deposits: Funds are deposited into your account as soon as the next business day if the payment is submitted by 7 pm ET.",
-      ],
-
-      image: "/children.jpg",
-    },
-    newsletters: {
-      title: "Offer administrators full access to reports & data",
-      features: [
-        "Centralize record keeping: Keep track of your balances, payments, and cash flow in one place.",
-        "Instant statements: View, download, and print billing and tax statements in seconds.",
-        "Integrate with Quickbooks: Easily transfer your billing data into Quickbooks Online.",
-        "Individualized Payment & Credit Reports: Access payment and credit information for each individual student.",
+        "Easily access FTE reports: Pull full-time equivalent reports based on scheduled attendance to maximize enrollment capacity.",
+        "Automatically calculate ratios: Get push notifications when you exceed maximum ratio to stay in compliance.",
+        "Ensure smooth operation: Keep track of how many students are in each room in real-time to ensure proper staffing.",
       ],
 
       image: "/children.jpg",
@@ -102,7 +75,7 @@ const TabSection: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Build quality connections with families and staff
+          Explore these key check-in and attendance tracking features
         </h1>
       </div>
 
