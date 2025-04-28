@@ -1,14 +1,14 @@
 
 import AttendanceReview from "@/components/Attendance/AttendanceReview";
 import TabSection from "@/components/Attendance/AttendenceTab";
-import Banner from "@/components/Attendance/Banner";
-import Review from "@/components/Attendance/Review"; 
+import Banner from "@/components/Attendance/Banner"; 
 import BlogPostCards from "@/components/common/Blog";
 import FAQAccordion from "@/components/common/FaqAccordion";
 import Footer from "@/components/common/Footer/Footer";
+import Review from "@/components/common/Review";
 import ReviewWithImage from "@/components/common/ReviewWithImage";
 import FlowysisSection from "@/components/DetailUser/DetailUser";
- 
+import { Clock, FileText, Users, DollarSign } from "lucide-react";
 import React from "react";
 
 function page() {
@@ -21,11 +21,39 @@ function page() {
     authorName: "Alyssa D.",
     authorTitle: "Executive Director of McNeilly Center for Children in Nashville, TN"
   }; 
+
+  const reviewData = {
+    title: "How Flowysis makes attendance a breeze",
+    features: [
+      {
+        icon: Clock,
+        bgColor: "bg-blue-400",
+        title: "Save time with digital check-in and check-out",
+      },
+      {
+        icon: FileText,
+        bgColor: "bg-purple-500",
+        title: "Easily pull accurate attendance reports",
+      },
+      {
+        icon: Users,
+        bgColor: "bg-teal-500",
+        title: "Stay in compliance with ratio and capacity tools",
+      },
+      {
+        icon: DollarSign,
+        bgColor: "bg-pink-500",
+        title: "Integrate your billing with attendance",
+      }
+    ],
+    borderTop: false,
+    bgColor: "bg-gray-100"
+  };
   return (
     <>
       <Banner /> 
       <ReviewWithImage {... testimonialData}  />
-      <Review />
+      <Review {...reviewData} />
       <TabSection /> 
       < AttendanceReview />
       <FlowysisSection />

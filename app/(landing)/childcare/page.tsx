@@ -1,13 +1,14 @@
 import Banner from "@/components/Childcare/Banner";
 import ChildcareOperationsSection from "@/components/Childcare/ChildcareOperationsSection";
-import TabSection from "@/components/Childcare/ChildcareTab";
-import Review from "@/components/Childcare/Review";
+import TabSection from "@/components/Childcare/ChildcareTab"; 
 import BlogPostCards from "@/components/common/Blog";
 import FAQAccordion from "@/components/common/FaqAccordion";
 import Footer from "@/components/common/Footer/Footer";
 import ReviewWithImage from "@/components/common/ReviewWithImage";
 import FlowysisSection from "@/components/DetailUser/DetailUser";
 import React from "react";
+import { Clock, Building, Settings, Users } from "lucide-react";
+import Review from "@/components/common/Review";
 
 function page() {
 
@@ -19,12 +20,45 @@ function page() {
     authorName: "Alyssa D.",
     authorTitle: "Executive Director of McNeilly Center for Children in Nashville, TN"
   };
+ 
+
+const reviewData = {
+  title: "Flowysis makes it easy to manage your childcare center",
+  features: [
+    {
+      icon: Clock,
+      bgColor: "bg-blue-400",
+      title: "Save hours every week",
+      description: "Reduce manual work and streamline your check-in, scheduling, and reporting."
+    },
+    {
+      icon: Building,
+      bgColor: "bg-purple-500",
+      title: "Easily scale your program",
+      description: "Oversee student and staff information across multiple schools or locations."
+    },
+    {
+      icon: Settings,
+      bgColor: "bg-teal-500",
+      title: "Customize to fit your needs",
+      description: "Tailor reports, schedules, observations, and more to suit your business needs."
+    },
+    {
+      icon: Users,
+      bgColor: "bg-pink-500",
+      title: "Increase enrollment",
+      description: "Manage your admissions process digitally and keep your waitlist organized."
+    }
+  ],
+  borderTop: false,
+  bgColor: ""
+};
 
   return (
     <>
       <Banner /> 
       <ReviewWithImage {... testimonialData}  /> 
-      <Review />
+      <Review {...reviewData } />
       <TabSection />
       <ChildcareOperationsSection />
       <FlowysisSection />
