@@ -57,7 +57,7 @@ const Chats: NextPage = () => {
 
   useEffect(() => {
     // Initialize Socket Connection
-    socketRef.current = io(`${process.env.BASE_URL || 'https://child-care-sms.mobrilz.digital/v1/'}`, {
+    socketRef.current = io(`${process.env.BASE_URL || 'https://child-care-sms.mobrilz.digital'}`, {
       withCredentials: true,
     });
 
