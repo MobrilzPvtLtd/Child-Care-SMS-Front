@@ -11,6 +11,7 @@ import { TbBrandCake } from "react-icons/tb";
 import { LuContact } from "react-icons/lu";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { GoCodeOfConduct } from "react-icons/go";
+import { BsChatDots } from "react-icons/bs";
 
 type NavItem = {
   name: string;
@@ -22,12 +23,12 @@ const navItems: NavItem[] = [
   {
     icon: <BiHomeAlt2 />,
     name: "Home",
-    path: "/",
+    path: "/home",
   },
   {
-    icon: <MdOutlineDesignServices />,
-    name: "Services",
-    path: "/services",
+    icon: <BsChatDots />,
+    name: "Chat",
+    path: "/chat",
   },
   {
     icon: <LuContact />,
