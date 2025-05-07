@@ -6,7 +6,8 @@ import Image from "next/image";
 import * as Yup from "yup";
 import { axiosInstance } from "@/utils/axios";
 import { useUser } from "@/context/UserContext";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import Cookies from 'universal-cookie';
 
 // Define the form data interface
 interface LoginFormData {
@@ -28,13 +29,10 @@ interface TouchedFields {
 }
 
 export default function LoginForm() {
-  const { user, setUser, logout } = useUser();
+  const { user, setUser } = useUser();
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const cookies = new Cookies();
 
-  const serviceid = searchParams.get("serviceid");
-  const billingPeriod = searchParams.get("billingPeriod");
-  const price = searchParams.get("price");
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
@@ -127,20 +125,36 @@ export default function LoginForm() {
     if (isValid) {
       try {
         const response = await axiosInstance.post("/auth/login/", formData);
+
+        // Extract token from Authorization header if it's present in the response headers
+        const authHeader = response.headers["authorization"];
+        const token = authHeader ? authHeader.replace("Bearer ", "") : null;
+
+        // If token isn't in headers, it might be in the response body
+        const tokenFromBody = response.data.token || response.data.data?.token;
+
+        // Use whichever token is available
+        const authToken = token || tokenFromBody;
+
+        // Store token in cookies instead of localStorage
+        if (authToken) {
+          // Set cookie with appropriate options
+          cookies.set('authToken', authToken, {
+            path: '/',
+            maxAge: 86400, // 1 day in seconds
+            sameSite: 'strict',
+            secure: process.env.NODE_ENV === 'production', // Only use secure in production
+          });
+        }
+
         setUser({
           id: response.data.data.user.userId,
           username: response.data.data.user.username,
           email: response.data.data.user.email,
           isAuthenticated: true,
         });
-        if (serviceid && billingPeriod && price ) {
-          router.push(
-            `/invoice?instituteId=${user?.id || response.data.data.user.userId}&serviceid=${serviceid}&billingPeriod=${billingPeriod}&price=${price}`
-          );
-        } else {
-          router.push(`/`);
-        }
-        // console.log( "Login successful:", response.data.data);
+
+        router.push("/home");
       } catch (error: any) {
         const apiErrorMessage =
           error.response?.data?.errors?.[0]?.msg ||
@@ -265,12 +279,12 @@ export default function LoginForm() {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-700 dark:text-gray-400">
               Don't have an account?{" "}
-              <span 
-                onClick={() => router.push(`/signup?serviceid=${serviceid}&billingPeriod=${billingPeriod}&price=${price}`)}
-                className="text-brand-500 hover:text-brand-600 dark:text-brand-400 font-medium cursor-pointer "
+              <Link
+                href="/signup"
+                className="text-brand-500 hover:text-brand-600 dark:text-brand-400 font-medium cursor-pointer"
               >
                 Sign Up
-              </span>
+              </Link>
             </p>
           </div>
         </div>
