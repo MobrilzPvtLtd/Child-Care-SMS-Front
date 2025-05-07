@@ -57,7 +57,7 @@ const Chats: NextPage = () => {
 
   useEffect(() => {
     // Initialize Socket Connection
-    socketRef.current = io("http://localhost:3000", {
+    socketRef.current = io(`${process.env.BASE_URL}`, {
       withCredentials: true,
     });
 
