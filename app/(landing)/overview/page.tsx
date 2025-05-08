@@ -6,7 +6,7 @@ import TestimonialsCarousel from "@/components/home/Testimonial";
 import Banner from "@/components/Overview/Banner";
 import TabSection from "@/components/Overview/OverviewTab"; 
 import React from "react";
-import { Clock, Users, Heart, MessageSquare } from "lucide-react";
+import { Clock, Users, Heart, MessageSquare, WalletCards } from "lucide-react";
 import Review from "@/components/common/Review";
 
 function page() {
@@ -21,7 +21,7 @@ function page() {
         description: "Cut down on admin tasks and manage all areas of your program with Flowysis."
       },
       {
-        icon: Users,
+        icon: WalletCards,
         bgColor: "bg-teal-500",
         title: "Get paid without chasing parents",
         description: "Enable your staff to easily communicate with families, administrators, and other staff."
@@ -33,7 +33,7 @@ function page() {
         description: "Enable your staff to easily communicate with families, administrators, and other staff."
       },
       {
-        icon: Heart,
+        icon: Users,
         bgColor: "bg-pink-500",
         title: "Increase staff retention",
         description: "2 out of 3 teachers prefer to work at a program that uses Flowysis."
