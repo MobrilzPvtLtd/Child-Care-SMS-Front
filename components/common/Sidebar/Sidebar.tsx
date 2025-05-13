@@ -17,6 +17,7 @@ type NavItem = {
   name: string;
   icon: React.ReactNode;
   path: string;
+    submenu?: NavItem[];
 };
 
 const navItems: NavItem[] = [
@@ -26,9 +27,35 @@ const navItems: NavItem[] = [
     path: "/home",
   },
   {
+    icon: <BiHomeAlt2 />,
+    name: "My School",
+    path: "#",
+    submenu: [
+      {
+        icon: <FaUserCircle />,
+        name: "Teacher",
+        path: "/class-teacher",
+      },
+      {
+        icon: <FaUserCircle />,
+        name: "Students",
+        path: "/students",
+      },
+      {
+        icon: <FaCalendarAlt />,
+        name: "Attendance",
+        path: "/attendance",
+      }]
+  },
+  {
     icon: <BsChatDots />,
-    name: "Chat",
+    name: "Messaging",
     path: "/chat",
+  },
+  {
+    icon: <BsChatDots />,
+    name: "Billing",
+    path: "#",
   },
   {
     icon: <LuContact />,
@@ -43,7 +70,7 @@ const Sidebar: React.FC = () => {
 
   const isActive = useCallback((path: string) => path === pathname, [pathname]);
 
-  const renderMenuItems = (navItems: NavItem[]) => (
+  const  renderMenuItems = (navItems: NavItem[]) => (
     <ul className="flex flex-col gap-4">
       {navItems.map((nav) => (
         <li key={nav.name}>
