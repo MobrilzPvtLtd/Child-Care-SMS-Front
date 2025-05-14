@@ -50,7 +50,7 @@ const navItems: NavItem[] = [
   {
     icon: <MdGroupAdd />,
     name: "Admission",
-    path: "/admission",
+    path: "/admission-dashboard",
   },
   {
     icon: <BsChatDots />,

@@ -4,7 +4,8 @@ import type { NextRequest } from 'next/server';
 // Define protected route bases (any route starting with these paths will be protected)
 export const protectedRouteBases = [
   '/home',
-  '/chat'
+  '/chat',
+  '/admission-dashboard'
   // Add other base protected routes if needed
 ];
 
