@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "@/context/SidebarContext";
 import { FaBox, FaCalendarAlt, FaUserCircle } from "react-icons/fa";
-import { MdErrorOutline, MdOutlineDesignServices } from "react-icons/md";
+import { MdErrorOutline, MdGroupAdd, MdOutlineDesignServices } from "react-icons/md";
 import { BiHomeAlt2 } from "react-icons/bi";
 import { TbBrandCake } from "react-icons/tb";
 import { LuContact } from "react-icons/lu";
@@ -46,6 +46,11 @@ const navItems: NavItem[] = [
         name: "Attendance",
         path: "/attendance",
       }]
+  },
+  {
+    icon: <MdGroupAdd />,
+    name: "Admission",
+    path: "/admission",
   },
   {
     icon: <BsChatDots />,
