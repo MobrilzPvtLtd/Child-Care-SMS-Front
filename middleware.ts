@@ -5,7 +5,11 @@ import type { NextRequest } from 'next/server';
 export const protectedRouteBases = [
   '/home',
   '/chat',
-  '/admission-dashboard'
+  '/admission-dashboard',
+  '/school/students',
+  '/school/parent',
+  '/school/classes',
+  '/school/teacher',
   // Add other base protected routes if needed
 ];
 
