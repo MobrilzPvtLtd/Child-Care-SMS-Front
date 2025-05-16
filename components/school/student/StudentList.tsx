@@ -3,6 +3,7 @@ import { useState } from "react";
 import { X, ChevronDown, Users } from "lucide-react";
 import StudentTable from "./StudentTable";
 import AddStudents from "./AddStudent";
+import { ToastContainer } from "react-toastify";
 
 // TypeScript interfaces
 interface Student {
@@ -91,6 +92,7 @@ const StudentList = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-4">
+      <ToastContainer/>
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-4xl font-bold text-gray-800">Student list</h1>
@@ -165,63 +167,34 @@ const StudentList = () => {
       {/* Filters */}
       <div className="flex gap-4 mb-6 items-center">
         <div className="w-1/3">
-          <div className="border border-gray-300 rounded-md p-2">
-            <input
-              type="text"
-              placeholder="Search students..."
-              value={filters.studentSearch}
-              onChange={(e) =>
-                setFilters((prev) => ({
-                  ...prev,
-                  studentSearch: e.target.value,
-                }))
-              }
-              className="w-full outline-none"
-              aria-label="Search students"
-            />
-          </div>
-        </div>
-        <div className="w-1/3 relative">
-          <button
-            className="w-full border border-indigo-200 bg-indigo-50 rounded-md p-2 flex items-center"
-            onClick={() => setIsStatusDropdownOpen(!isStatusDropdownOpen)}
-            aria-expanded={isStatusDropdownOpen}
-            aria-label="Select student status"
+          <select
+        className="w-full border border-gray-300 rounded-md p-2"
+        value={filters.studentSearch}
+        onChange={(e) => {
+          setFilters(prev => ({
+            ...prev,
+            studentSearch: e.target.value
+          }));
+        }}
           >
-            <span className="mr-1 text-gray-700">Student status</span>
-            {filters.status !== "All" && (
-              <div className="flex items-center bg-white border border-gray-300 rounded-md px-2 py-1 ml-2 text-sm">
-                <span className="text-gray-800">{filters.status}</span>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleStatusChange("All");
-                  }}
-                  aria-label={`Remove ${filters.status} filter`}
-                >
-                  <X size={14} className="ml-1 text-gray-500" />
-                </button>
-              </div>
-            )}
-            <div className="ml-auto flex items-center">
-              <ChevronDown size={16} className="text-gray-500" />
-            </div>
-          </button>
-          {isStatusDropdownOpen && (
-            <div className="absolute w-full mt-2 bg-white rounded-md shadow-lg z-10">
-              {["All", "Active", "Inactive"].map((status) => (
-                <button
-                  key={status}
-                  onClick={() =>
-                    handleStatusChange(status as "All" | "Active" | "Inactive")
-                  }
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                >
-                  {status}
-                </button>
-              ))}
-            </div>
-          )}
+        <option value="">Select Student</option>
+        {students.map((student) => (
+          <option key={student.id} value={student.name}>
+            {student.name}
+          </option>
+        ))}
+          </select>
+        </div>
+        <div className="w-1/3">
+          <select
+        className="w-full border border-gray-300 rounded-md p-2"
+        value={filters.status}
+        onChange={(e) => handleStatusChange(e.target.value as "All" | "Active" | "Inactive")}
+          >
+        <option value="All">All Status</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+          </select>
         </div>
         <button
           onClick={handleResetFilters}
@@ -306,7 +279,7 @@ const StudentList = () => {
                 </button>
               </div>
             </form> */}
-            <AddStudents/>
+            <AddStudents onClose={() => setShowManualModal(false)}/>
           </div>
         </div>
       )}

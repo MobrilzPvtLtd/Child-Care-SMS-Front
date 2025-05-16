@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 interface Student {
   id: number;
@@ -7,8 +8,11 @@ interface Student {
   lastName: string;
   gender: string;
 }
+interface AddStudentsProps {
+  onClose: () => void;
+}
 
-const AddStudents: React.FC = () => {
+const AddStudents: React.FC<AddStudentsProps> = ({onClose}) => {
   const [students, setStudents] = useState<Student[]>([
     { id: 1, firstName: '', lastName: '', gender: '' },
     { id: 2, firstName: '', lastName: '', gender: '' },
@@ -30,9 +34,29 @@ const AddStudents: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Students to save:', students);
-    alert('add successfully')
-    // Add your save logic here
+      try {
+      // Add your API call here to save students
+      console.log('Students to save:', students);
+      
+      // Show success toast
+      toast.success('Students added successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
+      // Close the modal
+      onClose();
+      
+    } catch (error) {
+      toast.error('Failed to add students. Please try again.', {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    }
   };
 
   return (

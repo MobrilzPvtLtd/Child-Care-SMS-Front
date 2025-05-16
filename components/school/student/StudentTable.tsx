@@ -39,7 +39,7 @@ const StudentTable: React.FC<StudentTableProps> = ({
         <thead>
           <tr className="border-b">
             <th className="py-2 text-gray-600">Student</th>
-            <th className="py-2 text-gray-600">Daily attendance</th>
+            <th className="py-2 text-gray-600">Status</th>
             <th className="py-2"></th>
           </tr>
         </thead>
