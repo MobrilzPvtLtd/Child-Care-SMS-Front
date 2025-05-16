@@ -1,4 +1,6 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
+import ParentModal from './ParentModal';
 
 interface Student {
   name: string;
@@ -12,6 +14,11 @@ const students: Student[] = [
 ];
 
 const ParentTable: React.FC = () => {
+  const [parentModal, setParentModal] = useState(false);
+
+  const openModal = () => {
+    setParentModal(true);
+  };
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white">
@@ -27,13 +34,13 @@ const ParentTable: React.FC = () => {
           <tr className="bg-gray-50 text-blue-600 text-sm">
             <th className="py-2 px-6"></th>
             <th className="py-2 px-6"></th>
-            <th className="py-2 px-6">
+            {/* <th className="py-2 px-6">
               <button className="border border-blue-600 text-blue-600 px-3 py-1 rounded hover:bg-blue-50">
                 Invite all
                 <span className="ml-1 text-xs">View invite</span>
               </button>
-            </th>
-            <th className="py-2 px-6">
+            </th> */}
+            {/* <th className="py-2 px-6">
               <button className="border border-blue-600 text-blue-600 px-3 py-1 rounded hover:bg-blue-50">
                 Invite all
                 <span className="ml-1 text-xs">View invite</span>
@@ -49,7 +56,7 @@ const ParentTable: React.FC = () => {
               <button className="border border-blue-600 text-blue-600 px-3 py-1 rounded hover:bg-blue-50">
                 Reveal all
               </button>
-            </th>
+            </th> */}
           </tr>
         </thead>
         <tbody className="text-gray-600 text-sm">
@@ -63,7 +70,7 @@ const ParentTable: React.FC = () => {
                 </div>
               </td>
               <td className="py-3 px-6">
-                <button className="border border-blue-300 text-blue-600 px-3 py-1 rounded hover:bg-blue-50">
+                <button onClick={openModal} className="border border-blue-300 text-blue-600 px-3 py-1 rounded hover:bg-blue-50">
                   Add parent
                 </button>
               </td>
@@ -75,6 +82,16 @@ const ParentTable: React.FC = () => {
           ))}
         </tbody>
       </table>
+      {parentModal ? (
+        <ParentModal
+          isOpen={parentModal}
+          onClose={() => setParentModal(false)}
+          onSave={(parent) => {
+            console.log('Saved parent:', parent);
+            setParentModal(false); // Close modal after saving
+          }}
+        />
+      ) : null}
     </div>
   );
 };
