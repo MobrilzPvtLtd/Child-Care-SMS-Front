@@ -445,7 +445,7 @@ const Sidebar: React.FC = () => {
       className={`fixed mt-16 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-[#5463D6] dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200 
         ${
           isExpanded || isMobileOpen
-            ? "w-[290px]"
+            ? "w-[250px]"
             : isHovered
             ? "w-[290px]"
             : "w-[90px]"
@@ -480,7 +480,7 @@ const Sidebar: React.FC = () => {
             </>
           ) : (
             <Image
-              src="/images/logo/logo-icon.png"
+              src="/images/logo/white_logo1.png"
               alt="Logo"
               width={32}
               height={32}

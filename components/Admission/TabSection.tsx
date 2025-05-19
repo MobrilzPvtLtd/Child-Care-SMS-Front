@@ -38,12 +38,7 @@ const TabSection: React.FC = () => {
 
   const tabs: TabData[] = [
     { id: "admission", label: "Admission", link: "/overview" },
-    {
-      id: "admission-packets",
-      label: "Admission Packets",
-      link: "/admission-packets",
-    },
-    { id: "waitlists", label: "Waitlists", link: "/waitlists" },
+   
     { id: "programs", label: "Programs", link: "/programs" },
   ];
 
@@ -56,10 +51,7 @@ const TabSection: React.FC = () => {
             <DashboardTable />
           </>
         );
-      case "admission-packets":
-        return <AdmissionsPackets />;
-      case "waitlists":
-        return <Waitlists />;
+    
       case "programs":
         return <Program />;
       default:
@@ -94,7 +86,7 @@ const TabSection: React.FC = () => {
               className={`px-2 py-4 text-base font-medium  ${
                 activeTab === tab.id
                   ? " text-gray-800  border-blue-600 hover:border-b-1 "
-                  : "bg-transparent text-gray-700  hover:border-blue-600 hover:border-b-1"
+                  : "bg-transparent text-gray-700  hover:border-blue-600 hover:border-b-1 active: border-blue-600"
               }`}
               onClick={() => setActiveTab(tab.id)}
             >

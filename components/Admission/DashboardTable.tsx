@@ -91,15 +91,15 @@ const DashboardTable = () => {
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Program(s)
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              {/* <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Packet Submitted
-              </th>
+              </th> */}
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Desired Start
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              {/* <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Sibling Attending
-              </th>
+              </th> */}
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Pending Forms
               </th>
