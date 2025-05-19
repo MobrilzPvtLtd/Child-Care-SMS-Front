@@ -9,8 +9,8 @@ function Admission() {
     <>
      <TabSection/> 
      {/* <AdmissionsDashboard/>
-     <DashboardTable/>
-     <AdmissionPacket/> */}
+     <DashboardTable/> */}
+     {/* <AdmissionPacket/> */}
     </>
   )
 }
