@@ -4,6 +4,8 @@ import { X, ChevronDown, Users } from "lucide-react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StudentTable from "../student/StudentTable";
+import Teacher from "./Teacher";
+import TeacherTable from "./TeacherTable";
 
 interface Teacher {
   id: string;
@@ -256,14 +258,15 @@ const TeacherList = () => {
         </button>
       </div>
       {/* Student list - Empty state */}
-      {/* {students.length === 0 && ( */}
+      {teachers.length > 0 && (
       <div className="text-center py-12 bg-gray-50 rounded-md">
         <p className="text-gray-500">
-          {/* // <StudentTable /> */}
-          No students found with the current filters.
+          
+          <TeacherTable teachers={teachers}/>
+         
         </p>
-      </div>
-      {/* )} */}
+      </div>)}
+
     </div>
   );
 };

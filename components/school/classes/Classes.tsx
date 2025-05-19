@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { X, ChevronDown, Users } from 'lucide-react';
 import { toast, ToastContainer } from 'react-toastify';
+import ClassTable from './ClassTable';
 // import StudentTable from './StudentTable';
 
 // TypeScript interfaces
@@ -270,10 +271,11 @@ const [filters, setFilters] = useState<FilterState>({
 </div>
 
       {/* Student list - Empty state */}
-      {/* {students.length === 0 && ( */}
+      {classes.length >0 && (
         <div className="text-center py-12 bg-gray-50 rounded-md">
-          <p className="text-gray-500">No students found with the current filters.</p>
-        </div>
+          <ClassTable classes={classes} />
+          {/* <p className="text-gray-500">No students found with the current filters.</p> */}
+        </div> )}
      
       {/* )} */}
     </div>

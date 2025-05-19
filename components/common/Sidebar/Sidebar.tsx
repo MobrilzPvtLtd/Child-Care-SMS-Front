@@ -176,6 +176,8 @@ import { useSidebar } from "@/context/SidebarContext";
 import { FaBox, FaCalendarAlt, FaChevronDown, FaChartPie, FaTable, FaUserCircle, FaListAlt, FaPage4, FaPlug, FaPaypal, FaCheckSquare } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
 import { PiChatsCircle } from "react-icons/pi";
+import { HiOutlineAnnotation } from "react-icons/hi";
+import { RiCheckboxMultipleFill } from "react-icons/ri";
 
 
 type NavItem = {
@@ -232,8 +234,13 @@ const navItems: NavItem[] = [
   },
   {
     name: "Billing",
-    icon: <PiChatsCircle  />,
+    icon: <RiCheckboxMultipleFill  />,
     path:"#"
+  },
+  {
+    name: "Annoucement",
+    icon: <HiOutlineAnnotation /> ,
+    path:"/annoucement"
   },
  
 ];
@@ -447,7 +454,7 @@ const Sidebar: React.FC = () => {
           isExpanded || isMobileOpen
             ? "w-[250px]"
             : isHovered
-            ? "w-[290px]"
+            ? "w-[247px]"
             : "w-[90px]"
         }
         ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}
@@ -516,13 +523,13 @@ const Sidebar: React.FC = () => {
                     : "justify-start"
                 }`}
               >
-                {isExpanded || isHovered || isMobileOpen ? (
+                {/* {isExpanded || isHovered || isMobileOpen ? (
                   "Others"
                 ) : (
                   <MdErrorOutline />
-                )}
+                )} */}
               </h2>
-              {renderMenuItems(othersItems, "others")}
+              {/* {renderMenuItems(othersItems, "others")} */}
             </div>
           </div>
         </nav>

@@ -25,15 +25,7 @@ const StudentTable: React.FC<StudentTableProps> = ({
 }) => {
   return (
     <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md p-6">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center space-x-2">
-          <span className="text-sm text-gray-600">Sort by:</span>
-          <div className="flex items-center space-x-1 text-blue-600">
-            <span>First name</span>
-            <ChevronDown size={16} />
-          </div>
-        </div>
-      </div>
+      
 
       <table className="w-full text-left">
         <thead>
