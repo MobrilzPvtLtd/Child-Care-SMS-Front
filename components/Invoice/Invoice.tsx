@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { axiosInstance } from "@/utils/axios";
+import  axiosInstance  from "@/utils/axios";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 

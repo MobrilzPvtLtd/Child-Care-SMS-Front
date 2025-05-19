@@ -4,7 +4,7 @@ import React, { useState, FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import * as Yup from "yup";
-import { axiosInstance } from "@/utils/axios";
+import  axiosInstance  from "@/utils/axios";
 import { useUser } from "@/context/UserContext";
 import { useRouter } from "next/navigation";
 import Cookies from 'universal-cookie';
@@ -135,17 +135,7 @@ export default function LoginForm() {
 
         // Use whichever token is available
         const authToken = token || tokenFromBody;
-
-        // Store token in cookies instead of localStorage
-        if (authToken) {
-          // Set cookie with appropriate options
-          cookies.set('authToken', authToken, {
-            path: '/',
-            maxAge: 86400, // 1 day in seconds
-            sameSite: 'strict',
-            secure: process.env.NODE_ENV === 'production', // Only use secure in production
-          });
-        }
+ 
 
         setUser({
           id: response.data.data.user.userId,

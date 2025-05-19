@@ -3,7 +3,7 @@ import React, { useState, FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import * as Yup from "yup";
-import { axiosInstance } from "@/utils/axios";
+import  axiosInstance  from "@/utils/axios";
 import { useRouter } from "next/navigation";
 
 // Define the form data interface

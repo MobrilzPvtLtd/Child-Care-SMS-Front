@@ -7,7 +7,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { ThemeToggleButton } from "./ThemeToggleButton";
 import NotificationDropdown from "./NotificationDropdown";
 import UserDropdown from "./UserDropdown";  
-import { axiosInstance } from "@/utils/axios";
+import  axiosInstance  from "@/utils/axios";
 
 const Header: React.FC = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState<boolean>(false);

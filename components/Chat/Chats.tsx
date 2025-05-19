@@ -5,7 +5,7 @@ import axios from "axios";
 import { NextPage } from "next";
 import io from "socket.io-client";
 import { FiMoreVertical, FiSearch, FiPaperclip, FiSend } from "react-icons/fi";
-import { axiosInstance } from "@/utils/axios";
+import  axiosInstance  from "@/utils/axios";
 import { useUser } from "@/context/UserContext";
 
 interface ChatMessage {

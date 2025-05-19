@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import PricingCard from './PricingCard'; 
-import { axiosInstance } from '@/utils/axios';
+import  axiosInstance  from '@/utils/axios';
 
 type BillingPeriod = 'monthly' | 'annually';
 
