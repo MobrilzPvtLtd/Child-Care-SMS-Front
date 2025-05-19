@@ -62,7 +62,7 @@ axiosInstance.interceptors.response.use(
 
       try {
         // Call the refresh token API endpoint
-        await axiosInstance.post("/refresh-token");
+        await axiosInstance.post("/auth/refresh-token");
 
         // If successful, process queue and retry original request
         processQueue();
