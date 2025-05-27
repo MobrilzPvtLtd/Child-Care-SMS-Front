@@ -211,33 +211,48 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    icon: <FaUserCircle />,
-    name: "Admission",
-    path: "/admission-dashboard",
-  },
-  // {
-  //   icon: <FaBox/>,
-  //   name: "Messaging",
-  //   path: "/chat",
-  // },
-  
-  // {
-  //   name: "Payment Gateway",
-  //   icon: <FaPaypal />,
-  //   path:"#"
-  // },
- 
-  {
     name: "Messaging",
     icon: <PiChatsCircle  />,
     path:"/chat"
   },
-  {
+   {
     name: "Billing",
     icon: <RiCheckboxMultipleFill  />,
     path:"#"
   },
   {
+    icon: <FaBox/>,
+    name: "Expenses",
+    path: "/expenses",
+  },
+  
+  {
+    name: "Staff & Payroll",
+    icon: <FaPaypal />,
+    path:"#"
+  },
+   
+  {
+    name: "Learning",
+    icon: <PiChatsCircle  />,
+    path:"#"
+  },
+   {
+    icon: <FaUserCircle />,
+    name: "Admission",
+    path: "/admission-dashboard",
+  },
+ 
+
+ 
+ 
+ 
+  {
+    name: "Paperwork",
+    icon: <HiOutlineAnnotation /> ,
+    path:"/paperwork-inst"
+  },
+   {
     name: "Annoucement",
     icon: <HiOutlineAnnotation /> ,
     path:"/annoucement"
@@ -246,14 +261,14 @@ const navItems: NavItem[] = [
 ];
 
 const othersItems: NavItem[] = [
-  // {
-  //   icon: <FaChartPie />,
-  //   name: "Reports",
-  //   // subItems: [
-  //   //   { name: "Line Chart", path: "/line-chart", pro: false },
-  //   //   { name: "Bar Chart", path: "/bar-chart", pro: false },
-  //   // ],
-  // },
+  {
+    icon: <FaChartPie />,
+    name: "Reports",
+    subItems: [
+      { name: "Reports", path: "#", pro: false },
+      { name: "Custom Reports", path: "#", pro: false },
+    ],
+  },
   
 ];
 
@@ -529,7 +544,7 @@ const Sidebar: React.FC = () => {
                   <MdErrorOutline />
                 )} */}
               </h2>
-              {/* {renderMenuItems(othersItems, "others")} */}
+              {renderMenuItems(othersItems, "others")}
             </div>
           </div>
         </nav>
