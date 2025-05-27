@@ -235,7 +235,7 @@ const navItems: NavItem[] = [
   {
     name: "Learning",
     icon: <PiChatsCircle  />,
-    path:"#"
+    path:"/learning-inst"
   },
    {
     icon: <FaUserCircle />,
