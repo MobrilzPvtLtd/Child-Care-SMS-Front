@@ -24,6 +24,9 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
   onClose,
   onSave,
 }) => {
+  // Update the ref definition with proper typing
+  const fileInputRefs = useRef<{ [key: number]: HTMLInputElement | null }>({});
+
   const [title, setTitle] = useState("");
   const [selectedRecipients, setSelectedRecipients] = useState<string>(""); // Could be room IDs or "all"
   const [sections, setSections] = useState<Section[]>([
@@ -38,18 +41,15 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
   const [showPreview, setShowPreview] = useState(false);
   const [formHasErrors, setFormHasErrors] = useState(false);
   const [showTitleError, setShowTitleError] = useState(false);
-  
-  // Refs for file uploads
-  const fileInputRefs = useRef<{ [key: number]: HTMLInputElement | null }>({});
 
   // Validate the form
   const validateForm = () => {
     // Check for required recipients
     const hasRecipientError = !selectedRecipients;
-    
+
     // Only set formHasErrors if recipients are missing
     setFormHasErrors(hasRecipientError);
-    
+
     return !hasRecipientError;
   };
 
@@ -68,19 +68,19 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
       setShowTitleError(false);
     }
   }, [selectedRecipients, title]);
-  
+
   // Get selected room name
   const getSelectedRoomName = () => {
     if (selectedRecipients === "all") return "All Rooms";
-    
-    const selectedRoom = rooms.find(room => String(room.id) === selectedRecipients);
+
+    const selectedRoom = rooms.find((room) => String(room.id) === selectedRecipients);
     return selectedRoom ? selectedRoom.name : "";
   };
 
   // Check if the previous section is empty
   const isPreviousSectionEmpty = () => {
     if (sections.length === 0) return false;
-    
+
     const lastSection = sections[sections.length - 1];
     // A section is considered empty if it has no photo, no heading, and no text
     return !lastSection.photo && !lastSection.heading && !lastSection.text.trim();
@@ -122,7 +122,7 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
     // For preview & send, we validate both form and title
     const formValid = validateForm();
     const titleValid = validateTitleForPreview();
-    
+
     if (formValid && titleValid) {
       setShowPreview(true);
     }
@@ -173,7 +173,7 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
           {/* Header */}
           <div className="py-6">
             <h1 className="text-3xl font-bold mb-8">Newsletters</h1>
-            
+
             <div className="flex items-center mb-4">
               <button
                 onClick={handleBackToEdit}
@@ -205,7 +205,7 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
             <p className="text-gray-600 mb-8">
               Here's a preview of how your newsletter will appear to parents on the brightwheel app.
             </p>
-            
+
             {/* Newsletter preview */}
             <div className="mx-auto max-w-md border border-gray-200 bg-white rounded-md overflow-hidden shadow-sm">
               <div className="p-4">
@@ -217,27 +217,27 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
                   </div>
                   <span className="font-bold">{getSelectedRoomName()}</span>
                 </div>
-                
+
                 {/* Display title as heading if available */}
                 {title && <h2 className="font-bold text-xl mb-4">{title}</h2>}
-                
+
                 {/* Display sections */}
                 {sections.map((section, index) => (
                   <div key={section.id} className="mb-6">
                     {section.photo && (
                       <div className="mb-4">
-                        <img 
-                          src={URL.createObjectURL(section.photo)} 
-                          alt={`Section ${index + 1}`} 
-                          className="w-full h-auto rounded-md" 
+                        <img
+                          src={URL.createObjectURL(section.photo)}
+                          alt={`Section ${index + 1}`}
+                          className="w-full h-auto rounded-md"
                         />
                       </div>
                     )}
-                    
+
                     {section.heading && (
                       <h3 className="font-bold text-lg mb-2">{section.heading}</h3>
                     )}
-                    
+
                     {section.text && (
                       <p className="text-gray-700 whitespace-pre-line">{section.text}</p>
                     )}
@@ -246,7 +246,7 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
               </div>
             </div>
           </div>
-          
+
           {/* Bottom buttons */}
           <div className="flex justify-end pb-8">
             <button
@@ -376,12 +376,16 @@ const CreateNewsletterModal: React.FC<CreateNewsletterModalProps> = ({
                     {/* Hidden file input */}
                     <input
                       type="file"
-                      ref={(el) => fileInputRefs.current[section.id] = el}
+                      ref={(element: HTMLInputElement | null) => {
+                        if (element) {
+                          fileInputRefs.current[section.id] = element;
+                        }
+                      }}
                       onChange={(e) => handleFileChange(section.id, e)}
                       accept="image/*"
                       className="hidden"
                     />
-                    <button 
+                    <button
                       onClick={() => openFileSelector(section.id)}
                       className="text-blue-600 hover:text-blue-800 text-sm"
                     >
