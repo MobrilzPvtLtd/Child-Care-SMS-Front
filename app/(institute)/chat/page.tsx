@@ -1,9 +1,9 @@
-import Chats from '@/components/Chat/Chats'
+import MessagingInterface from '@/components/Chat/MessagingInterface'
 import React from 'react'
 
 function page() {
   return ( 
-    <Chats />
+    <MessagingInterface />
   )
 }
 
