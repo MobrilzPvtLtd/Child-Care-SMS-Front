@@ -218,7 +218,7 @@ const navItems: NavItem[] = [
    {
     name: "Billing",
     icon: <RiCheckboxMultipleFill  />,
-    path:"#"
+    path:"/billing"
   },
   {
     icon: <FaBox/>,
