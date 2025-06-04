@@ -10,7 +10,7 @@ layer(base);
 
 @theme {
   --font-*: initial;
-  --font-outfit:  AvenirNext, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-outfit:   'Poppins', Arial, Helvetica, sans-serif;
 
   --breakpoint-*: initial;
   --breakpoint-2xsm: 375px;

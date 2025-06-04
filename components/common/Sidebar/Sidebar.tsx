@@ -173,11 +173,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "@/context/SidebarContext";
-import { FaBox, FaCalendarAlt, FaChevronDown, FaChartPie, FaTable, FaUserCircle, FaListAlt, FaPage4, FaPlug, FaPaypal, FaCheckSquare } from "react-icons/fa";
-import { MdErrorOutline } from "react-icons/md";
+import { FaBox, FaCalendarAlt, FaChevronDown, FaChartPie, FaTable, FaUserCircle, FaListAlt, FaPage4, FaPlug, FaPaypal, FaCheckSquare, FaSchool, FaHome, FaStar } from "react-icons/fa";
+import { MdErrorOutline, MdStarBorder } from "react-icons/md";
 import { PiChatsCircle } from "react-icons/pi";
 import { HiOutlineAnnotation } from "react-icons/hi";
-import { RiCheckboxMultipleFill } from "react-icons/ri";
+import { RiCheckboxMultipleFill, RiCoinsFill, RiCoinsLine } from "react-icons/ri";
+import { FaSchoolFlag } from "react-icons/fa6";
 
 
 type NavItem = {
@@ -189,13 +190,13 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    icon: <FaBox />,
+    icon: <FaHome  className="w-4 h-4 "/>,
     name: "Home",
     path: "/home",
    
   },
   {
-    icon: <FaCalendarAlt />,
+    icon: <FaSchoolFlag className="w-4 h-4 " />,
     name: "My School",
     path: "/school",
     subItems: [
@@ -213,33 +214,33 @@ const navItems: NavItem[] = [
   },
   {
     name: "Messaging",
-    icon: <PiChatsCircle  />,
+    icon: <PiChatsCircle  className="w-4 h-4 " />,
     path:"/chat"
   },
    {
     name: "Billing",
-    icon: <RiCheckboxMultipleFill  />,
+    icon: <RiCoinsLine className="w-4 h-4 " />,
     path:"/billing"
   },
   {
-    icon: <FaBox/>,
+    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full" />, 
     name: "Expenses",
     path: "/expenses",
   },
   
   {
     name: "Staff & Payroll",
-    icon: <FaPaypal />,
+    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full" />,
     path:"/staff-payroll",
   },
    
   {
     name: "Learning",
-    icon: <PiChatsCircle  />,
+    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full"  />,
     path:"/learning-inst"
   },
    {
-    icon: <FaUserCircle />,
+    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full"/>,
     name: "Admission",
     path: "/admission-dashboard",
   },
@@ -250,12 +251,12 @@ const navItems: NavItem[] = [
  
   {
     name: "Paperwork",
-    icon: <HiOutlineAnnotation /> ,
+    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full"/> ,
     path:"/paperwork-inst"
   },
    {
     name: "Annoucement",
-    icon: <HiOutlineAnnotation /> ,
+    icon: <HiOutlineAnnotation  className="w-4 h-4 "/> ,
     path:"/annoucement"
   },
  
@@ -281,7 +282,7 @@ const Sidebar: React.FC = () => {
     navItems: NavItem[],
     menuType: "main" | "others"
   ) => (
-    <ul className="flex flex-col gap-4">
+    <ul className="flex flex-col gap-1">
       {navItems.map((nav, index) => (
         <li key={nav.name}>
           {nav.subItems ? (
@@ -302,7 +303,7 @@ const Sidebar: React.FC = () => {
                   openSubmenu?.type === menuType && openSubmenu?.index === index
                     ? "menu-item-icon-active"
                     : "menu-item-icon-inactive"
-                } `}
+                }  `}
               >
                 {nav.icon}
               </span>
@@ -513,7 +514,7 @@ const Sidebar: React.FC = () => {
       </div>
       <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
         <nav className="mb-6">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
             <div>
               <h2
                 className={`mb-4 text-xs uppercase flex leading-[20px] text-white ${
@@ -555,3 +556,4 @@ const Sidebar: React.FC = () => {
 };
 
 export default Sidebar;
+
