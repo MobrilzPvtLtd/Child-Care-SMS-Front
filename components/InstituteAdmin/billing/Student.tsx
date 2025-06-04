@@ -24,15 +24,15 @@ const StudentCard: React.FC<StudentCardProps> = ({
   iconBg,
 }) => {
   return (
-    <div className={`${bgColor} rounded-xl p-6 flex items-center justify-between `}>
+    <div className={`${bgColor} rounded-lg border-1 p-6 flex items-center justify-between `}>
       <div className="flex items-center justify-between space-x-4">
         {/* <div className={`${iconBg} rounded-full p-3 flex items-center justify-center`}>
           {icon}
         </div> */}
         <div>
-          <h3 className="text-gray-900 font-semibold text-sm">{title}</h3>
+          <h3 className="text-gray-700 font-semibold text-sm">{title}</h3>
           <div className="flex items-center space-x-2 mt-1">
-            <span className="text-xl font-bold text-gray-900">{percentage}%</span>
+            <span className="text-md font-bold text-gray-900">{percentage}%</span>
             <span className="text-gray-600 text-sm">{description}</span>
           </div>
         </div>
@@ -114,7 +114,7 @@ const Student: React.FC = () => {
             description="0 of 2 students"
             actionText="Set up bill plans"
             onAction={() => handleCardAction('Bill plans')}
-            bgColor="bg-blue-50"
+            bgColor="bg-gray-100"
             iconBg="bg-white"
           />
           
@@ -125,7 +125,7 @@ const Student: React.FC = () => {
             description="0 of 2 students"
             actionText="Invite families"
             onAction={() => handleCardAction('Payment method')}
-            bgColor="bg-teal-50"
+            bgColor="bg-gray-100"
             iconBg="bg-white"
           />
           
@@ -136,7 +136,7 @@ const Student: React.FC = () => {
             description="0 of 2 students"
             actionText="Invite families"
             onAction={() => handleCardAction('Autopay')}
-            bgColor="bg-pink-50"
+            bgColor="bg-gray-100"
             iconBg="bg-white"
           />
         </div>

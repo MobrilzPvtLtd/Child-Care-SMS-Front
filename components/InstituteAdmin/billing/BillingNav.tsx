@@ -7,6 +7,7 @@ import Subsidies from './Subsidies';
 import ActivateAccount from './ActiveAccount';
 import Student from './Student';
 import Reports from './Report';
+import Library from './Library';
 // import ExpenseOverview from './ExpenseOverview';
 
 
@@ -28,16 +29,16 @@ const navItems: NavItem[] = [
     label: 'Student',
     component: <Student />
   },
+  // {
+  //   id: 'profit-loss',
+  //   label: 'Subsidies',
+  //   component: <Subsidies />
+  // },
   {
-    id: 'profit-loss',
-    label: 'Subsidies',
-    component: <Subsidies />
+    id: 'categories',
+    label: 'Library',
+    component: <Library />
   },
-//   {
-//     id: 'categories',
-//     label: 'Library',
-//     component: <AtAGlance />
-//   },
   {
     id: 'sources',
     label: 'Reports',
@@ -48,11 +49,11 @@ const navItems: NavItem[] = [
 //     label: 'Settings',
 //     component: <AtAGlance />
 //   },
-  {
-    id: 'active account',
-    label: 'Active Account',
-    component: <ActivateAccount />
-  }
+  // {
+  //   id: 'active account',
+  //   label: 'Active Account',
+  //   component: <ActivateAccount />
+  // }
 ];
 
 export default function BillingNav() {
@@ -67,7 +68,7 @@ export default function BillingNav() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="w-full bg-white border-b border-gray-200 shadow-lg sticky top-0 z-50">
+      <nav className="w-full bg-white border-b border-gray-200 shadow-sm fixed top-[4.8rem] z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto">
             {navItems.map((item) => {

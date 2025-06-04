@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { Search, ChevronDown, ArrowUpDown, ChevronLeft, ChevronRight, X, Info } from 'lucide-react';
+import { Search, ChevronDown, ArrowUpDown, ChevronLeft, ChevronRight, X, Info, Upload } from 'lucide-react';
+
+// Add new interface for student plans
+interface StudentPlan {
+  id: string;
+  studentName: string;
+  frequency: string;
+  nextSendDate: string;
+  nextDueDate: string;
+  amount: number;
+}
 
 interface Student {
   id: string;
@@ -15,6 +25,8 @@ interface Student {
 }
 
 const StudentDetail: React.FC = () => {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [planStatus, setPlanStatus] = useState<string[]>(['Active', 'Paused']);
   const [searchTerm, setSearchTerm] = useState('');
   const [enrollmentStatus, setEnrollmentStatus] = useState('Active');
   const [rooms, setRooms] = useState('Rooms');
@@ -22,6 +34,19 @@ const StudentDetail: React.FC = () => {
   const [orderBy, setOrderBy] = useState('First Name');
   const [pageSize, setPageSize] = useState(25);
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Add student plans data
+  const studentPlans: StudentPlan[] = [
+    {
+      id: '1',
+      studentName: 'John Doe',
+      frequency: 'Monthly',
+      nextSendDate: '2025-07-01',
+      nextDueDate: '2025-07-15',
+      amount: 250.00
+    },
+    // Add more plan examples as needed
+  ];
 
   const students: Student[] = [
     {
@@ -115,198 +140,100 @@ const StudentDetail: React.FC = () => {
     );
   };
 
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="px-6 py-4">
-          <div className="flex space-x-8">
-            <button className="text-sm font-medium text-blue-600 border-b-2 border-blue-600 pb-2">
-              Overview
-            </button>
-            <button className="text-sm font-medium text-gray-500 pb-2">
-              Student Plans
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
+  const renderStudentPlans = () => {
+    return (
       <div className="px-6 py-6">
-        {/* Search and Filters */}
-        <div className="mb-6 space-y-4">
-         
-
-          <div className="flex flex-wrap gap-4 items-center">
-
-             <div className="relative max-w-sm">
+        {/* Filters */}
+        <div className="flex flex-wrap gap-4 mb-6">
+          <div className="relative max-w-sm">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <input
               type="text"
               placeholder="Search students..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md text-sm"
             />
           </div>
-            <div className="flex items-center space-x-2">
-             
-              <Dropdown
-                value={enrollmentStatus}
-                onChange={setEnrollmentStatus}
-                options={['Active', 'Inactive', 'Pending']}
-                placeholder="Select status"
-              />
-            </div>
 
-            <Dropdown
-              value={rooms}
-              onChange={setRooms}
-              options={['Demo Room', 'Room A', 'Room B']}
-              placeholder="Rooms"
-            />
+          {/* Plan Status Filter */}
+          <div className="flex gap-2">
+            {['Active', 'Paused'].map(status => (
+              <button
+                key={status}
+                onClick={() => setPlanStatus(prev => 
+                  prev.includes(status) 
+                    ? prev.filter(s => s !== status)
+                    : [...prev, status]
+                )}
+                className={`px-3 py-1 rounded-full text-sm ${
+                  planStatus.includes(status)
+                    ? 'bg-blue-100 text-blue-800'
+                    : 'bg-gray-100 text-gray-600'
+                }`}
+              >
+                {status}
+                {planStatus.includes(status) && (
+                  <X className="w-3 h-3 ml-1 inline" />
+                )}
+              </button>
+            ))}
+          </div>
 
-            <Dropdown
-              value={billingPlanCount}
-              onChange={setBillingPlanCount}
-              options={['0', '1', '2', '3+']}
-              placeholder="Billing plan count"
-            />
+          {/* Export & Print Buttons */}
+          <div className="ml-auto flex gap-2">
+            <button className="px-4 py-2 bg-blue-100 text-blue-400 hover:bg-blue-50 rounded-md text-sm">
+              Export
+            </button>
+            <button className="px-4 py-2 bg-blue-100 text-blue-400 hover:bg-blue-50 rounded-md text-sm">
+              Print
+            </button>
           </div>
         </div>
 
-        {/* Table Controls */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center space-x-4">
-            <span className="text-sm text-gray-700">Order By</span>
-            <Dropdown
-              value={orderBy}
-              onChange={setOrderBy}
-              options={['First Name', 'Last Name', 'Account Balance', 'Date Added']}
-              placeholder="Order By"
-            />
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-700">Page Size</span>
-              <Dropdown
-                value={pageSize.toString()}
-                onChange={(value) => setPageSize(parseInt(value))}
-                options={['10', '25', '50', '100']}
-                placeholder="25"
-              />
-            </div>
-            <span className="text-sm text-gray-700">
-              Showing {startIndex + 1} - {endIndex} of {filteredStudents.length}
-            </span>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                disabled={currentPage === 1}
-                className="p-1 rounded-md hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-                disabled={currentPage === totalPages}
-                className="p-1 rounded-md hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Table */}
+        {/* Plans Table */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <table className="w-full">
-            <thead className="bg-gray-300">
+            <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-sm font-medium text-black uppercase tracking-wider">
-                  <div className="flex items-center space-x-1">
-                    <span>Student name</span>
-                    <ArrowUpDown className="w-3 h-3" />
-                  </div>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                  Student Name
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-black uppercase tracking-wider">
-                  Account balance
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                  Frequency
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-black uppercase tracking-wider">
-                  Billing plans
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                  Next Send Date
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-black uppercase tracking-wider">
-                  Payer
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                  Next Due Date
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-black uppercase tracking-wider">
-                  Payment method
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                  Amount
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-black uppercase tracking-wider">
-                  Autopay
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                  Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {currentStudents.map((student) => (
-                <tr key={student.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center">
-                      <div className="flex-shrink-0 h-8 w-8">
-                        <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
-                          <span className="text-sm font-medium text-gray-600">
-                            {student.initials}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="ml-4">
-                        <div className="text-sm font-medium text-blue-600 hover:text-blue-800 cursor-pointer">
-                          {student.name}
-                        </div>
-                        {student.room && (
-                          <div className="text-sm text-gray-500">{student.room}</div>
-                        )}
-                      </div>
-                    </div>
+            <tbody className="divide-y divide-gray-200">
+              {studentPlans.map(plan => (
+                <tr key={plan.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-900">{plan.studentName}</td>
+                  <td className="px-6 py-4 text-sm text-gray-500">{plan.frequency}</td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {new Date(plan.nextSendDate).toLocaleDateString()}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    ${student.accountBalance.toFixed(2)}
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {new Date(plan.nextDueDate).toLocaleDateString()}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <button className="text-sm text-blue-600 hover:text-blue-800">
-                      {student.billingPlans}
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    ${plan.amount.toFixed(2)}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    <button className="text-blue-600 hover:text-blue-800">
+                      Edit
                     </button>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div>
-                      {student.payer === 'Add payer' ? (
-                        <button className="text-sm text-blue-600 hover:text-blue-800">
-                          Add payer
-                        </button>
-                      ) : (
-                        <div>
-                          <div className="text-sm text-gray-900">{student.payer}</div>
-                          {student.payerType && (
-                            <div className="flex items-center space-x-1">
-                              <span className="text-sm text-gray-500">{student.payerType}</span>
-                              <Info className="w-3 h-3 text-gray-400" />
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    {student.paymentMethod === 'Invite to billing' ? (
-                      <button className="text-sm text-blue-600 hover:text-blue-800">
-                        {student.paymentMethod}
-                      </button>
-                    ) : (
-                      <span className="text-sm text-gray-500">{student.paymentMethod}</span>
-                    )}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {student.autopay}
                   </td>
                 </tr>
               ))}
@@ -314,6 +241,49 @@ const StudentDetail: React.FC = () => {
           </table>
         </div>
       </div>
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="px-6 py-4">
+          <div className="flex space-x-8">
+            <button 
+              className={`text-sm font-medium pb-2 ${
+                activeTab === 'overview'
+                  ? 'text-blue-600 border-b-2 border-blue-600'
+                  : 'text-gray-500'
+              }`}
+              onClick={() => setActiveTab('overview')}
+            >
+              Overview
+            </button>
+            <button 
+              className={`text-sm font-medium pb-2 ${
+                activeTab === 'plans'
+                  ? 'text-blue-600 border-b-2 border-blue-600'
+                  : 'text-gray-500'
+              }`}
+              onClick={() => setActiveTab('plans')}
+            >
+              Student Plans
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      {activeTab === 'overview' ? (
+        // Existing overview content
+        <div className="px-6 py-6">
+          {/* ...existing overview content... */}
+        </div>
+      ) : (
+        // Student Plans content
+        renderStudentPlans()
+      )}
     </div>
   );
 };

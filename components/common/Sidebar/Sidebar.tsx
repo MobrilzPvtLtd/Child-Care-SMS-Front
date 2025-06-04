@@ -206,6 +206,7 @@ const navItems: NavItem[] = [
      
       { name: "Classes", path: "/school/classes", pro: false },
       { name: "Student", path: "/school/students", pro: false },
+      { name: "Calendar", path: "/school/calendar", pro: false },
      
       
     ],
@@ -229,7 +230,7 @@ const navItems: NavItem[] = [
   {
     name: "Staff & Payroll",
     icon: <FaPaypal />,
-    path:"#"
+    path:"/staff-payroll",
   },
    
   {
