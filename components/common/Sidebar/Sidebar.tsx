@@ -205,7 +205,7 @@ const navItems: NavItem[] = [
       { name: "Teacher", path: "/school/teacher", pro: false },
       { name: "Parent", path: "/school/parent", pro: false },
      
-      { name: "Classes", path: "/school/classes", pro: false },
+      { name: "Rooms", path: "/school/classes", pro: false },
       { name: "Student", path: "/school/students", pro: false },
       { name: "Calendar", path: "/school/calendar", pro: false },
      
