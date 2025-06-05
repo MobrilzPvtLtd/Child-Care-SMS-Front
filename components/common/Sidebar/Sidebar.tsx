@@ -255,11 +255,11 @@ const navItems: NavItem[] = [
     icon: <FaStar className="w-4 h-4 text-yellow-400 rounded-full"/> ,
     path:"/paperwork-inst"
   },
-   {
-    name: "Annoucement",
-    icon: <HiOutlineAnnotation  className="w-4 h-4 "/> ,
-    path:"/annoucement"
-  },
+  //  {
+  //   name: "Annoucement",
+  //   icon: <HiOutlineAnnotation  className="w-4 h-4 "/> ,
+  //   path:"/annoucement"
+  // },
  
 ];
 
