@@ -179,6 +179,7 @@ import { PiChatsCircle } from "react-icons/pi";
 import { HiOutlineAnnotation } from "react-icons/hi";
 import { RiCheckboxMultipleFill, RiCoinsFill, RiCoinsLine } from "react-icons/ri";
 import { FaSchoolFlag } from "react-icons/fa6";
+import { IoChatbubbles } from "react-icons/io5";
 
 
 type NavItem = {
@@ -214,7 +215,7 @@ const navItems: NavItem[] = [
   },
   {
     name: "Messaging",
-    icon: <PiChatsCircle  className="w-4 h-4 " />,
+    icon: <IoChatbubbles  className="w-4 h-4 " />,
     path:"/chat"
   },
    {
@@ -223,24 +224,24 @@ const navItems: NavItem[] = [
     path:"/billing"
   },
   {
-    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full" />, 
+    icon: <FaStar className="w-4 h-4 text-yellow-400 rounded-full" />, 
     name: "Expenses",
     path: "/expenses",
   },
   
   {
     name: "Staff & Payroll",
-    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full" />,
+    icon: <FaStar className="w-4 h-4 text-yellow-400 rounded-full" />,
     path:"/staff-payroll",
   },
    
   {
     name: "Learning",
-    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full"  />,
+    icon: <FaStar className="w-4 h-4 text-yellow-400 rounded-full"  />,
     path:"/learning-inst"
   },
    {
-    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full"/>,
+    icon: <FaStar className="w-4 h-4 text-yellow-400 rounded-full"/>,
     name: "Admission",
     path: "/admission-dashboard",
   },
@@ -251,7 +252,7 @@ const navItems: NavItem[] = [
  
   {
     name: "Paperwork",
-    icon: <FaStar className="w-4 h-4 bg-yellow-400 rounded-full"/> ,
+    icon: <FaStar className="w-4 h-4 text-yellow-400 rounded-full"/> ,
     path:"/paperwork-inst"
   },
    {
