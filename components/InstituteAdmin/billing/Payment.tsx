@@ -236,7 +236,7 @@ export default function Payment() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-4">
+    <div className=" bg-gray-50 pt-4">
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">
         {/* Tab Navigation */}
         <div className="border-b border-gray-200">

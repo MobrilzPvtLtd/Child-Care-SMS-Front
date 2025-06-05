@@ -81,7 +81,7 @@ export default function BillingNav() {
                   className={`
                     relative py-4 px-1 text-sm font-bold whitespace-nowrap transition-all duration-200
                     ${isActive 
-                      ? 'text-blue-600 border-b-2 border-blue-600' 
+                      ? 'text-blue-400 border-b-2 border-blue-400' 
                       : 'text-gray-600 hover:text-gray-900 border-b-2 border-transparent hover:border-gray-300'
                     }
                   `}

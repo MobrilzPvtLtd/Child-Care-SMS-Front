@@ -36,13 +36,13 @@ export default function AtAGlance() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className=" bg-gray-50 pt-8">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">At a Glance</h1>
           <p className="text-gray-600">
-            Excludes <span className="text-blue-600 underline cursor-pointer">subsidies</span>
+            Excludes <span className="text-blue-400 underline cursor-pointer">subsidies</span>
           </p>
         </div>
         
@@ -55,7 +55,7 @@ export default function AtAGlance() {
             />
           </div>
           <div className="relative">
-            <select className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium cursor-pointer hover:bg-blue-700 transition-colors appearance-none pr-10">
+            <select className="bg-blue-500 text-white px-6 py-2 rounded-lg font-medium cursor-pointer hover:bg-blue-700 transition-colors appearance-none pr-10">
               <option>Select an action</option>
               {/* <option>Create Invoices</option> */}
             </select>
@@ -66,7 +66,7 @@ export default function AtAGlance() {
 
       {/* Tax Statements Notice */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8 flex items-start gap-3">
-        <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+        <div className="w-5 h-5 bg-blue-200 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
           <span className="text-white text-xs font-bold">i</span>
         </div>
         <div>
@@ -86,7 +86,7 @@ export default function AtAGlance() {
           <div className="text-3xl font-bold text-gray-900 mb-6">$0.00</div>
           <div className="space-y-4">
             {invoiceStatuses.map((status, index) => (
-              <div key={index} className="flex justify-between items-center">
+              <div key={index} className="flex justify-between items-center border-1 px-2 rounded-lg">
                 <div className="flex items-center gap-2">
                   <div className={`w-2 h-2 rounded-full ${status.color === 'text-red-500' ? 'bg-red-500' : 'bg-gray-400'}`}></div>
                   <span className={`${status.color} font-medium`}>{status.label}</span>
@@ -103,7 +103,7 @@ export default function AtAGlance() {
           <div className="text-3xl font-bold text-gray-900 mb-6">$0.00</div>
           <div className="space-y-4">
             {paymentStatuses.map((status, index) => (
-              <div key={index} className="flex justify-between items-center">
+              <div key={index} className="flex justify-between items-center border-1 px-2 rounded-lg">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
                   <span className="text-cyan-600 font-medium">{status.label}</span>
