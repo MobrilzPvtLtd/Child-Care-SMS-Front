@@ -1,11 +1,9 @@
-import ClassesList from '@/components/school/classes/Classes'
+import RoomsList from '@/components/school/rooms/Room'
 import React from 'react'
 
 function page() {
-  return (
-    <div>
-      <ClassesList/>
-    </div>
+  return ( 
+      <RoomsList/> 
   )
 }
 
