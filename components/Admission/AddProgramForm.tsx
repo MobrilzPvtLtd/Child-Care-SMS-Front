@@ -3,15 +3,37 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { useState } from "react";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
+
+// Helper to generate dropdown options: start at 3 years, end at 18 years, increment by 3 months
+const generateAgeOptions = () => {
+  const options = [];
+  let year = 3;
+  let month = 0;
+  while (year < 18 || (year === 18 && month === 0)) {
+    let label = `${year} years`;
+    if (month > 0) label += ` ${month} months`;
+    // Represent as months for easier comparison/logic
+    const value = year * 12 + month;
+    options.push({ label, value });
+    month += 3;
+    if (month >= 12) {
+      year += 1;
+      month = month % 12;
+    }
+  }
+  return options;
+};
+
+const AGE_OPTIONS = generateAgeOptions();
 
 interface Program {
   id: string;
   name: string;
   description: string;
   maxCapacity: number;
-  minAge: number;
-  maxAge: number;
+  minAge: number; // now in months
+  maxAge: number; // now in months
   startDate: string; // ISO string: "2025-07-01"
   endDate: string;   // ISO string: "2025-07-01"
 }
@@ -21,8 +43,9 @@ interface AddProgramFormProps {
   onSubmit: (program: Omit<Program, "id">) => void;
   formData: Omit<Program, "id">;
   handleInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => void;
+  editing?: boolean;
 }
 
 const AddProgramForm: React.FC<AddProgramFormProps> = ({
@@ -30,30 +53,37 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
   onSubmit,
   formData,
   handleInputChange,
+  editing = false,
 }) => {
   const [isStartDateOpen, setIsStartDateOpen] = useState(false);
   const [isEndDateOpen, setIsEndDateOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Helper: convert ISO string to Date or undefined
+  // Helper: convert either "yyyy-MM-dd" or "MM/dd/yyyy" to Date
   const toDate = (dateString: string | undefined): Date | undefined => {
     if (!dateString) return undefined;
-    // Accept both "yyyy-MM-dd" and "MM/dd/yyyy"
-    if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
-      const d = new Date(dateString);
-      return isNaN(d.getTime()) ? undefined : d;
-    }
+    // If already formatted as MM/dd/yyyy, parse accordingly
     if (/^\d{2}\/\d{2}\/\d{4}$/.test(dateString)) {
       const [month, day, year] = dateString.split("/");
       const d = new Date(`${year}-${month}-${day}`);
       return isNaN(d.getTime()) ? undefined : d;
     }
-    return undefined;
+    // If ISO format "yyyy-MM-dd", parse accordingly
+    if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+      return parseISO(dateString);
+    }
+    // Try fallback
+    const d = new Date(dateString);
+    return isNaN(d.getTime()) ? undefined : d;
   };
 
-  // Helper: convert Date to ISO string (yyyy-MM-dd)
-  const toISO = (date: Date): string =>
-    date.toISOString().slice(0, 10);
+  // Helper: convert to Date for DatePicker display, always returns Date|undefined (never null)
+  const toDisplay = (dateString: string | undefined): Date | undefined => {
+    return toDate(dateString) ?? undefined;
+  };
+
+  // Helper: convert Date to ISO string (yyyy-MM-dd) for storage
+  const toISO = (date: Date): string => format(date, "yyyy-MM-dd");
 
   const handleDateSelect = (date: Date | null, fieldName: string) => {
     if (!date || isNaN(date.getTime())) {
@@ -80,11 +110,22 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
     setError(null);
   };
 
-  const inputClassName =
-    "w-full border-b border-gray-300 py-2 focus:border-indigo-500 focus:outline-none transition-colors";
-  const dateInputClassName =
-    "w-full border-b border-gray-300 py-2 focus:border-indigo-500 focus:outline-none transition-colors pr-10";
+  // Helper: Render age value as a readable string
+  const ageValueToLabel = (months: number) => {
+    const years = Math.floor(months / 12);
+    const remMonths = months % 12;
+    let label = `${years} years`;
+    if (remMonths > 0) label += ` ${remMonths} months`;
+    return label;
+  };
 
+  const inputClassName =
+    "w-full border-b border-gray-300 py-2 focus:border-indigo-500 focus:outline-none transition-colors caret-indigo-600 cursor-pointer";
+  const selectClassName =
+    "w-full border-b border-gray-300 py-2 focus:border-indigo-500 focus:outline-none transition-colors cursor-pointer bg-white";
+  const dateInputClassName =
+    "w-full border-b border-gray-300 py-2 focus:border-indigo-500 focus:outline-none transition-colors pr-10 caret-indigo-600 cursor-pointer";
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -105,7 +146,12 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
       return;
     }
 
-    if (formData.minAge && formData.maxAge && formData.minAge > formData.maxAge) {
+    // Age must be present and minAge <= maxAge
+    if (
+      formData.minAge &&
+      formData.maxAge &&
+      Number(formData.minAge) > Number(formData.maxAge)
+    ) {
       setError("Minimum age cannot be greater than maximum age");
       return;
     }
@@ -118,7 +164,9 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
       <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
         <div className="bg-white w-full max-w-2xl py-6 px-8 rounded border">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold">Add New Program</h2>
+            <h2 className="text-xl font-bold">
+              {editing ? "Edit Program" : "Add New Program"}
+            </h2>
             <button
               onClick={onClose}
               className="text-gray-400 hover:text-gray-600"
@@ -141,7 +189,7 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Program Name*
+                  Program Name<span className="text-red-500">*</span>
                 </label>
                 <input
                   id="name"
@@ -159,7 +207,7 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                   htmlFor="description"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Description
+                  Program Description
                 </label>
                 <input
                   id="description"
@@ -178,7 +226,7 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                   htmlFor="maxCapacity"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Max Capacity*
+                  Maximum Capacity<span className="text-red-500">*</span>
                 </label>
                 <input
                   id="maxCapacity"
@@ -197,17 +245,22 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                   htmlFor="minAge"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Min Age
+                  Minimum Age
                 </label>
-                <input
+                <select
                   id="minAge"
-                  type="number"
                   name="minAge"
                   value={formData.minAge || ""}
                   onChange={handleInputChange}
-                  className={inputClassName}
-                  min="0"
-                />
+                  className={selectClassName}
+                >
+                  <option value="">Select Minimum Age</option>
+                  {AGE_OPTIONS.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
@@ -217,29 +270,34 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                   htmlFor="maxAge"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Max Age
+                  Maximum Age
                 </label>
-                <input
+                <select
                   id="maxAge"
-                  type="number"
                   name="maxAge"
                   value={formData.maxAge || ""}
                   onChange={handleInputChange}
-                  className={inputClassName}
-                  min="0"
-                />
+                  className={selectClassName}
+                >
+                  <option value="">Select Maximum Age</option>
+                  {AGE_OPTIONS.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label
                   htmlFor="startDate"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Start Date*
+                  Program Start Date<span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <DatePicker
                     open={isStartDateOpen}
-                    value={toDate(formData.startDate)}
+                    value={toDisplay(formData.startDate)}
                     onChange={(date: Date | null) => {
                       handleDateSelect(date, "startDate");
                       setIsStartDateOpen(false);
@@ -247,6 +305,7 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                     onOpen={() => setIsStartDateOpen(true)}
                     onClose={() => setIsStartDateOpen(false)}
                     disablePast
+                    format="MM/dd/yyyy"
                     slots={{
                       openPickerIcon: CalendarIcon,
                     }}
@@ -254,12 +313,8 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                       textField: {
                         id: "startDate",
                         required: true,
-                        placeholder: "yyyy-mm-dd",
+                        placeholder: "MM/DD/YYYY",
                         className: dateInputClassName,
-                        InputProps: {
-                          readOnly: true,
-                        },
-                        value: formData.startDate || "",
                       },
                     }}
                   />
@@ -273,19 +328,20 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                   htmlFor="endDate"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  End Date*
+                  Program End Date<span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <DatePicker
                     open={isEndDateOpen}
-                    value={toDate(formData.endDate)}
-                    minDate={toDate(formData.startDate)}
+                    value={toDisplay(formData.endDate)}
+                    minDate={toDisplay(formData.startDate) ?? undefined}
                     onChange={(date: Date | null) => {
                       handleDateSelect(date, "endDate");
                       setIsEndDateOpen(false);
                     }}
                     onOpen={() => setIsEndDateOpen(true)}
                     onClose={() => setIsEndDateOpen(false)}
+                    format="MM/dd/yyyy"
                     slots={{
                       openPickerIcon: CalendarIcon,
                     }}
@@ -293,12 +349,8 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                       textField: {
                         id: "endDate",
                         required: true,
-                        placeholder: "yyyy-mm-dd",
+                        placeholder: "MM/DD/YYYY",
                         className: dateInputClassName,
-                        InputProps: {
-                          readOnly: true,
-                        },
-                        value: formData.endDate || "",
                       },
                     }}
                   />
@@ -318,7 +370,7 @@ const AddProgramForm: React.FC<AddProgramFormProps> = ({
                 type="submit"
                 className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
               >
-                Add Program
+                {editing ? "Update Program" : "Add Program"}
               </button>
             </div>
           </form>

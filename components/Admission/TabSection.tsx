@@ -58,7 +58,7 @@ const TabSection: React.FC = () => {
 
   return (
     <div className="w-full mx-auto font-sans">
-      <div className="flex justify-start mb-8 gap-8 bg-white shadow-lg px-4">
+      <div className="flex justify-start mb-6 gap-8 bg-white border px-4">
         {tabs.map((tab) => (
           <div
             key={tab.id}
