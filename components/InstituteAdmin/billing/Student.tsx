@@ -71,7 +71,7 @@ const Student: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className=" bg-gray-50 pt-8">
       <div className="max-w-7xl mx-auto mb-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -81,7 +81,7 @@ const Student: React.FC = () => {
           <div className="relative">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium flex items-center space-x-2 hover:bg-blue-700 transition-colors shadow-lg"
+              className="bg-blue-500 text-white px-6 py-3 rounded-xl font-medium flex items-center space-x-2 hover:bg-blue-600 transition-colors shadow-lg"
             >
               <span>{selectedAction}</span>
               <ChevronDown 
